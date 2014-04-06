@@ -10,10 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 /**
@@ -24,11 +21,15 @@ import javax.persistence.ManyToMany;
 public class CollegeClass implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
     private String name;
+    
     @ManyToMany
-    @JoinTable(name="classes_has_teachers", joinColumns={@JoinColumn(name="cclass_id")}, inverseJoinColumns={@JoinColumn(name="teacher_id")})
+//        (cascade = CascadeType.ALL)
+//    @JoinTable(name = "classes_has_teachers", joinColumns = {
+//        @JoinColumn(name = "cclass_id", updatable = false, nullable = false)}, inverseJoinColumns = {
+//        @JoinColumn(name = "teacher_id", updatable = false, nullable = false)})
     private List<Teacher> teachers;
 
     public CollegeClass() {
@@ -43,7 +44,7 @@ public class CollegeClass implements Serializable {
      *
      * @return the value of professor
      */
-    public List<Teacher> getProfessor() {
+    public List<Teacher> getTeacher() {
         return teachers;
     }
 
@@ -52,7 +53,7 @@ public class CollegeClass implements Serializable {
      *
      * @param professor new value of professor
      */
-    public void setProfessor(List<Teacher> professor) {
+    public void setTeacher(List<Teacher> professor) {
         this.teachers = professor;
     }
 
@@ -79,7 +80,27 @@ public class CollegeClass implements Serializable {
     }
 
     public void setID(Long ID) {
-        this.id = id;
+        this.id = ID;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof CollegeClass)) {
+            return false;
+        }
+        CollegeClass other = (CollegeClass) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     public void validade() throws InsertException {

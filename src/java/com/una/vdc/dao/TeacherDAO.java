@@ -10,7 +10,6 @@ import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.CollegeClass;
 import com.una.vdc.model.Teacher;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -21,42 +20,38 @@ import javax.persistence.Query;
  */
 public class TeacherDAO extends GenericDAO<Long, Teacher> {
 
+    
     public TeacherDAO(EntityManager entityManager) {
         super(entityManager);
     }
 
-    public void insertTeacherToClass(Teacher teacher, CollegeClass cclass) throws InsertException {
+    public void associateTeacherToClass(Teacher teacher, CollegeClass cclass) throws InsertException {
         try {
             em = DatabaseConnection.instance().getManager();
             et = em.getTransaction();
             et.begin();
-            teacher.validade();
-            cclass.validade();
-            em.persist(teacher);
-            em.persist(cclass);
-            em.flush();
-            List<Teacher> teachers = new ArrayList<>();
-            teachers.add(teacher);
-            cclass.setProfessor(teachers);
-            em.merge(cclass);
-            em.flush();
+            
+            Teacher t = em.merge(teacher);
+            CollegeClass c = em.merge(cclass);
+            
+            cclass.setTeacher(new ArrayList<Teacher>());
+            cclass.getTeacher().add(t);
+            
+            em.merge(c);
+            
             et.commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-
-    public List<Teacher> getTeacherByClass(CollegeClass cclass) {
+    public List<Teacher> getTeacherByClass(long idClasse) {
         em = DatabaseConnection.instance().getManager();
 
-        Query query = em.createQuery("FROM CollegeClass c WHERE c.teachers =: ");
-        query.setParameter("teacher", cclass);
-
-        
+        Query query = em.createQuery("SELECT t FROM Teacher t JOIN t.classes c WHERE c.id = :classe");
+        query.setParameter("classe", idClasse);
         
         return query.getResultList();
-
     }
 
 }

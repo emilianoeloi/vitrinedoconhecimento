@@ -7,6 +7,7 @@ package com.una.vdc.dao;
 
 import com.una.vdc.model.Student;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 /**
  *
@@ -14,6 +15,7 @@ import javax.persistence.EntityManager;
  */
 public class StudentDAO extends GenericDAO<Long, Student> {
 
+    
     public StudentDAO(EntityManager entityManager) {
         super(entityManager);
     }

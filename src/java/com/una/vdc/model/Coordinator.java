@@ -56,7 +56,27 @@ public class Coordinator implements Serializable {
     public void setID(Long ID) {
         this.ID = ID;
     }
+    
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (ID != null ? ID.hashCode() : 0);
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Coordinator)) {
+            return false;
+        }
+        Coordinator other = (Coordinator) object;
+        if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
+            return false;
+        }
+        return true;
+    }
+    
     public void validade() throws InsertException {
         if (name == null) {
             throw new InsertException("Coordinator name cannot be null");

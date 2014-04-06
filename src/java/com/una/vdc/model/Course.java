@@ -36,7 +36,7 @@ public class Course implements Serializable {
         this.name = name;
         this.classes = turmas;
     }
-    
+
     /**
      * Get the value of turma
      *
@@ -79,6 +79,26 @@ public class Course implements Serializable {
 
     public void setID(Long ID) {
         this.ID = ID;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (ID != null ? ID.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Course)) {
+            return false;
+        }
+        Course other = (Course) object;
+        if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
+            return false;
+        }
+        return true;
     }
 
     public void validade() throws InsertException {

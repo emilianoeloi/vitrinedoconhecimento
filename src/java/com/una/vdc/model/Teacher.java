@@ -9,9 +9,7 @@ import com.una.vdc.exception.InsertException;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 /**
  *
@@ -21,10 +19,21 @@ import javax.persistence.ManyToMany;
 public class Teacher implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long ID;
     private String name;
 
+//    @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL)
+//    private List<CollegeClass> classes;
+//
+//    public List<CollegeClass> getClasses() {
+//        return classes;
+//    }
+//
+//    public void setClasses(List<CollegeClass> classes) {
+//        this.classes = classes;
+//    }
+//    
 
 
     public Teacher() {
@@ -62,7 +71,28 @@ public class Teacher implements Serializable {
         this.ID = ID;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (ID != null ? ID.hashCode() : 0);
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Teacher)) {
+            return false;
+        }
+        Teacher other = (Teacher) object;
+        if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
+            return false;
+        }
+        return true;
+    }
+
+
+    
     
 
     public void validade() throws InsertException {

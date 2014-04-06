@@ -8,13 +8,14 @@ package com.una.vdc.dao;
 
 import com.una.vdc.model.Coordinator;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 /**
  *
  * @author Ulrik
  */
 public class CoordinatorDAO extends GenericDAO<Long, Coordinator>{
-
+    
     public CoordinatorDAO(EntityManager entityManager) {
         super(entityManager);
     }

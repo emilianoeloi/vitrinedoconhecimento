@@ -5,16 +5,13 @@
  */
 package com.una.vdc.principal;
 
+import com.una.vdc.dao.CollegeClassDAO;
 import com.una.vdc.dao.TeacherDAO;
-import com.una.vdc.persistencia.DatabaseConnection;
-import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.CollegeClass;
 import com.una.vdc.model.Teacher;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.una.vdc.persistencia.DatabaseConnection;
 import javax.persistence.EntityManager;
-import javax.swing.JOptionPane;
+import javax.persistence.EntityTransaction;
 
 /**
  *
@@ -22,31 +19,53 @@ import javax.swing.JOptionPane;
  */
 public class Principal {
 
-    public static void main(String[] args) {
+    public void criarProfessor(Teacher teacher) {
         EntityManager em = DatabaseConnection.instance().getManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        em.persist(teacher);
+        et.commit();
+    }
 
-        TeacherDAO dao = new TeacherDAO(em);
+    public void criarTurma(CollegeClass cc) {
+        EntityManager em = DatabaseConnection.instance().getManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        em.persist(cc);
+        et.commit();
+    }
 
-        CollegeClass c = new CollegeClass("Turma 1");
-        CollegeClass c2 = new CollegeClass("Turma 2");
-        CollegeClass c3 = new CollegeClass("Turma 3");
+    public static void main(String[] args) {
+//        Principal p = new Principal();
+        EntityManager em = DatabaseConnection.instance().getManager();
+        
+//        TeacherDAO tdao = new TeacherDAO(em);
+//        CollegeClassDAO cdao = new CollegeClassDAO(em);
 
-        Teacher t = new Teacher("prof 1");
-
-        try {
-            dao.insertTeacherToClass(t, c);
-            dao.insertTeacherToClass(t, c2);
-            dao.insertTeacherToClass(t, c3);
-            
-        } catch (InsertException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//
-//        List<Teacher> teachers  = dao.getTeacherByClass(c2);
-//        
-//        for (Teacher teacher : teachers) {
-//            JOptionPane.showMessageDialog(null, "Prof. :"+teacher.getNome());
-//        }
-    
+        /*
+         Teacher prof1 = new Teacher("prof1");
+         p.criarProfessor(prof1);
+         Teacher prof2 = new Teacher("prof2");
+         p.criarProfessor(prof2);
+         Teacher prof3 = new Teacher("prof3");
+         p.criarProfessor(prof3);
+         Teacher prof4 = new Teacher("prof4");
+         p.criarProfessor(prof4);
+        
+         CollegeClass turma1 = new CollegeClass("turma1");
+         p.criarTurma(turma1);
+         CollegeClass turma2 = new CollegeClass("turma2");
+         p.criarTurma(turma2);
+         CollegeClass turma3 = new CollegeClass("turma3");
+         p.criarTurma(turma3);
+         */
+        
+//        Teacher t1 = tdao.getById((long)1);
+//        CollegeClass c1 = cdao.getById((long)1);
+        
+        
+        
+        
+        
     }
 }

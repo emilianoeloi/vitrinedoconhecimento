@@ -5,8 +5,8 @@
  */
 package com.una.vdc.bo;
 
-import com.una.vdc.dao.StudentDAO;
-import com.una.vdc.model.Student;
+import com.una.vdc.dao.CourseDAO;
+import com.una.vdc.model.Course;
 import com.una.vdc.persistencia.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -15,32 +15,32 @@ import javax.persistence.EntityManager;
  *
  * @author Ulrik
  */
-public class StudentController {
+public class CourseController {
 
-    private StudentDAO dao;
+    private CourseDAO dao;
 
-    public StudentController() {
+    public CourseController() {
         EntityManager em = DatabaseConnection.instance().getManager();
-        dao = new StudentDAO(em);
+        dao = new CourseDAO(em);
     }
 
-    public Student getStudentById(Long id) {
+    public Course getCourseById(Long id) {
         return dao.getById(id);
     }
 
-    public List<Student> getAllStudents() {
+    public List<Course> getAllCourses() {
         return dao.findAll();
     }
 
-    public void insertStudent(Student s) {
-        dao.save(s);
+    public void insertCourse(Course c) {
+        dao.save(c);
     }
 
-    public void removeStudent(Student s) {
-        dao.delete(s);
+    public void removeCourse(Course c) {
+        dao.delete(c);
     }
 
-    public void updateStudent(Student s) {
-        dao.update(s);
+    public void updateCourse(Course c) {
+        dao.update(c);
     }
 }
