@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Teacher</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Vitrine do Conhecimento</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Ajuda</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Procurar...">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li><a href="#">Dashboard</a></li>
+                        <li class="active"><a href="#">Professores</a></li>
+                        <li><a href="#">Turmas</a></li>
+                        <li><a href="#">Associar Turma/Prof</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Professores</h1>
+
+                    <div class="row placeholders">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label for="periodo">Período</label>
+                                <select id="periodo" class="form-control">
+                                    <option>1/2014</option>
+                                    <option>2/2013</option>
+                                    <option>1/2013</option>
+                                    <option>2/2012</option>
+                                    <option>1/2012</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="course">Curso</label>
+                                <select id="course" class="form-control">
+                                    <option>ADS</option>
+                                    <option>Gastronomia</option>
+                                    <option>Marketing</option>
+                                    <option>Etc</option>
+                                    <option>Etc2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="search" id="keyword" class="form-control" placeholder="Pesquisar por Nome...">
+                            </div>
+                            <button type="submit" class="btn btn-default">Buscar</button>
+                        </form>
+                    </div>
+
+                    <h2 class="sub-header">Professores Encontrados</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome</th>
+                                    <th>Turma</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{teacher.id}</td>
+                                    <td>{teacher.name}</td>
+                                    <td>{teacher.classes}</td>
+                                    <td>
+                                        <a href="javascript://" class="btn-associate" >Associar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/constants.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/model/teacher.js"></script>
+    <script src="js/screen/teacher.js"></script>
+</html>
