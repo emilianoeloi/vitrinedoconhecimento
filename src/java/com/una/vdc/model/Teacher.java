@@ -7,9 +7,12 @@ package com.una.vdc.model;
 
 import com.una.vdc.exception.InsertException;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -23,17 +26,17 @@ public class Teacher implements Serializable {
     private Long ID;
     private String name;
 
-//    @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL)
-//    private List<CollegeClass> classes;
-//
-//    public List<CollegeClass> getClasses() {
-//        return classes;
-//    }
-//
-//    public void setClasses(List<CollegeClass> classes) {
-//        this.classes = classes;
-//    }
-//    
+    @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL)
+    private List<CollegeClass> classes;
+
+    public List<CollegeClass> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<CollegeClass> classes) {
+        this.classes = classes;
+    }
+    
 
 
     public Teacher() {

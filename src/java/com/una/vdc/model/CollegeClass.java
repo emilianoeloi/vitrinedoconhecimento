@@ -8,7 +8,10 @@ package com.una.vdc.model;
 import com.una.vdc.exception.InsertException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -24,12 +27,8 @@ public class CollegeClass implements Serializable {
     @GeneratedValue
     private Long id;
     private String name;
-    
-    @ManyToMany
-//        (cascade = CascadeType.ALL)
-//    @JoinTable(name = "classes_has_teachers", joinColumns = {
-//        @JoinColumn(name = "cclass_id", updatable = false, nullable = false)}, inverseJoinColumns = {
-//        @JoinColumn(name = "teacher_id", updatable = false, nullable = false)})
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Teacher> teachers;
 
     public CollegeClass() {

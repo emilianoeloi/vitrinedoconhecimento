@@ -37,7 +37,7 @@ public class TeacherController {
     }
     
     public List<Teacher> getTeachersByClass(Long idClass){
-        return dao.getTeacherByClass(idClass);
+        return dao.getTeachersByCollegeClass(idClass);
     }
 
     public Teacher getTeacherById(Long id) {

@@ -19,26 +19,40 @@ import javax.persistence.EntityTransaction;
  */
 public class Principal {
 
-    public void criarProfessor(Teacher teacher) {
+    public void criarProfessores() {
         EntityManager em = DatabaseConnection.instance().getManager();
         EntityTransaction et = em.getTransaction();
+        Teacher teacher1 = new Teacher("Professor 1");
+        Teacher teacher2 = new Teacher("Professor 2");
+        Teacher teacher3 = new Teacher("Professor 3");
+
         et.begin();
-        em.persist(teacher);
+        em.merge(teacher1);
+        em.merge(teacher2);
+        em.merge(teacher3);
         et.commit();
+
     }
 
-    public void criarTurma(CollegeClass cc) {
+    public void criarTurmas() {
         EntityManager em = DatabaseConnection.instance().getManager();
         EntityTransaction et = em.getTransaction();
+        CollegeClass c1 = new CollegeClass("Turma 1");
+        CollegeClass c2 = new CollegeClass("Turma 2");
+        CollegeClass c3 = new CollegeClass("Turma 3");
         et.begin();
-        em.persist(cc);
+        em.merge(c1);
+        em.merge(c2);
+        em.merge(c3);
         et.commit();
     }
 
     public static void main(String[] args) {
 //        Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
-        
+        Principal p = new Principal();
+        p.criarProfessores();
+        p.criarTurmas();
 //        TeacherDAO tdao = new TeacherDAO(em);
 //        CollegeClassDAO cdao = new CollegeClassDAO(em);
 

@@ -18,7 +18,7 @@ public class GenericDAO<PK, T> {
 
     protected EntityManager em;
     protected EntityTransaction et;
-    
+
     public GenericDAO(EntityManager entityManager) {
         this.em = entityManager;
     }
@@ -28,15 +28,24 @@ public class GenericDAO<PK, T> {
     }
 
     public void save(T entity) {
+        et = em.getTransaction();
+        et.begin();
         em.persist(entity);
+        et.commit();
     }
 
     public void update(T entity) {
+        et = em.getTransaction();
+        et.begin();
         em.merge(entity);
+        et.commit();
     }
 
     public void delete(T entity) {
+        et = em.getTransaction();
+        et.begin();
         em.remove(entity);
+        et.commit();
     }
 
     public List<T> findAll() {
