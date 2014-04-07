@@ -7,7 +7,6 @@ package com.una.vdc.dao;
 
 import com.una.vdc.model.Student;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 /**
  *

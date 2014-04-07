@@ -28,16 +28,14 @@ public class TeacherDAO extends GenericDAO<Long, Teacher> {
             em = DatabaseConnection.instance().getManager();
             et = em.getTransaction();
             et.begin();
-
             Teacher t = em.merge(teacher);
             CollegeClass c = em.merge(cclass);
-
-            List<Teacher> teachers = getTeachersByCollegeClass((long) cclass.getID());
+            List<Teacher> teachers = getTeachersByCollegeClass((long) cclass.getID());    
+            if(!checkIfTeacherIsInClass(t, c)){
             c.setTeacher(teachers);
-
             c.getTeacher().add(t);
-
             em.merge(c);
+            }
             et.commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -49,6 +47,12 @@ public class TeacherDAO extends GenericDAO<Long, Teacher> {
         Query query = em.createQuery("SELECT t FROM Teacher t JOIN t.classes c WHERE c.id = :classe");
         query.setParameter("classe", idClasse);
         return query.getResultList();
+    }
+
+    public boolean checkIfTeacherIsInClass(Teacher t, CollegeClass c) {
+        List<Teacher> teachers;
+        teachers = getTeachersByCollegeClass(c.getID());        
+        return teachers.contains(t);
     }
 
 }

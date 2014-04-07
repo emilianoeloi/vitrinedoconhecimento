@@ -94,7 +94,12 @@ public class Teacher implements Serializable {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "ID: "+this.ID+" NOME:"+this.name;
+    }
 
+    
     
     
 

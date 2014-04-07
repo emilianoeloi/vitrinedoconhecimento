@@ -6,9 +6,9 @@
 
 package com.una.vdc.dao;
 
+import com.una.vdc.model.CollegeClass;
 import com.una.vdc.model.Course;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 /**
  *
@@ -19,6 +19,12 @@ public class CourseDAO extends GenericDAO<Long, Course>{
     
     public CourseDAO(EntityManager entityManager) {
         super(entityManager);
+    }
+    
+    public Course insertClassToCourse(Course course, CollegeClass clazz){
+        
+        
+        return null;
     }
     
 }

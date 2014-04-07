@@ -8,7 +8,6 @@ package com.una.vdc.dao;
 
 import com.una.vdc.model.Coordinator;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 /**
  *
