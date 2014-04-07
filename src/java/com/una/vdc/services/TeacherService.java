@@ -7,6 +7,7 @@
 package com.una.vdc.services;
 
 import com.google.gson.Gson;
+import com.una.vdc.bo.TeacherController;
 import com.una.vdc.model.Teacher;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,56 +27,47 @@ import javax.ws.rs.core.Response;
  * @author emilianoeloi
  */
 @Path("/teachers")
+@Consumes(MediaType.APPLICATION_JSON)
 public class TeacherService {
     
-    
-    private static List<Teacher> teacherList = new LinkedList<Teacher>();
-    
+    private TeacherController teacherController = new TeacherController();
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTeachers(){
+        List<Teacher> teacherList = teacherController.getAllTeachers();
         String json = new Gson().toJson(teacherList);
         return Response.ok().entity(json).build();
     }
     
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response saveTeacher(String teacher_str){
         Teacher teacher = new  Gson().fromJson(teacher_str, Teacher.class);
-        teacherList.add(teacher);
+        teacherController.insertTeacher(teacher);
         return Response.status(Response.Status.CREATED).build();
     }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{_id}")
-    public Response getTeacher(@PathParam("_id") int id){
-        for (Teacher teacher : teacherList) {
-            if (teacher.getId() == id){
-                String json = new Gson().toJson(teacher);
-                return Response.ok().entity(json).build();
-            }
-        }
-        return Response.ok().entity("{}").build();
+    public Response getTeacher(@PathParam("_id") long id){  
+        Teacher t = teacherController.getTeacherById(id);
+        return Response.ok().entity(t).build();
     }
     
     @DELETE
     @Path("/{_id}")
-    public Response deleteTeacher(@PathParam("_id") Long id){
-         teacherList.remove(new Teacher(id));
-         return Response.ok().build();
+    public Response deleteTeacher(@PathParam("_id") long id){
+        Teacher deletedTeacher = new Teacher();
+        deletedTeacher.setId(id);
+        teacherController.removeTeacher(deletedTeacher);
+        return Response.ok().build();
     }
     
     @PUT
     public Response upadateTeacher(String teacher_str ){
         Teacher updetedTeacher = new Gson().fromJson(teacher_str, Teacher.class);
-        
-        for (Teacher teacher : teacherList) {
-            if (teacher.getId() == updetedTeacher.getId()){
-                teacher.setName(updetedTeacher.getName());
-            }
-        }
+        teacherController.updateTeacher(updetedTeacher);
         return Response.ok().build();
     }
 }
