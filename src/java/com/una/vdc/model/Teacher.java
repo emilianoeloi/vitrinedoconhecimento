@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -22,8 +23,8 @@ import javax.persistence.ManyToMany;
 public class Teacher implements Serializable {
 
     @Id
-    @GeneratedValue
-    private Long ID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
 
     @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL)
@@ -41,6 +42,10 @@ public class Teacher implements Serializable {
 
     public Teacher() {
     }
+    
+    public Teacher(Long id) {
+        this.id = id;
+    }
 
     public Teacher(String name) {
         this.name = name;
@@ -53,7 +58,7 @@ public class Teacher implements Serializable {
      *
      * @return the value of name
      */
-    public String getNome() {
+    public String getName() {
         return name;
     }
 
@@ -62,22 +67,22 @@ public class Teacher implements Serializable {
      *
      * @param nome new value of name
      */
-    public void setNome(String nome) {
+    public void setName(String nome) {
         this.name = nome;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long ID) {
+        this.id = ID;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (ID != null ? ID.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -88,7 +93,7 @@ public class Teacher implements Serializable {
             return false;
         }
         Teacher other = (Teacher) object;
-        if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
