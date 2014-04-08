@@ -6,14 +6,27 @@ and open the template in the editor.
 -->
 <html>
     <head>
+
+        <script src="js/angular.js"></script>
+        <script src="js/angular.main.js"></script>
+
+        <!-- SERVICES -->
+        <script src="js/service/teacherService.js"></script>
+        <script src="js/service/mainService.js"></script>
+
+        <!-- CONTROLLERS -->
+        <script src="js/controller/teacherController.js"></script>
+        <script src="js/controller/mainController.js"></script>
+
         <title>Teacher</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
+
     </head>
-    <body>
+    <body ng-app="vdc">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -82,7 +95,22 @@ and open the template in the editor.
                     </div>
 
                     <h2 class="sub-header">Professores Encontrados</h2>
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="implicit" ng-controller="MainController">
+                        <fieldset>
+                            <form>
+                                <label>Nome:
+                                    <input ng-model="newTeacher.name" />
+                                </label>
+                                <label>E-mail:
+                                    <input ng-model="newTeacher.email" />
+                                </label>
+                                <input type="hidden" ng-model="newTeacher.id" />
+                                <input type="button" ng-click="saveTeacher()" value="Salvar Professor" />
+                            </form>
+                        </fieldset>
+                        <input class="workKey" ng-model="wordKey" />
+                        <button ng-click="searchTeacher(wordKey);">Buscar</button>
+                        <span>{{answer}}</span>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -93,11 +121,13 @@ and open the template in the editor.
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{teacher.id}</td>
-                                    <td>{teacher.name}</td>
-                                    <td>{teacher.classes}</td>
+                                <tr ng-repeat="teacher in teacherList">
+                                    <td>{{teacher.id}}</td>
+                                    <td>{{teacher.name}}</td>
+                                    <td>{{teacher.email}}</td>
                                     <td>
+                                        <a href="javascript://" ng-click="editTeacher()" class="btn-associate" >Editar</a>
+                                        <a href="javascript://" ng-click="deleteTeacher()" class="btn-associate" >Excluir</a>
                                         <a href="javascript://" class="btn-associate" >Associar</a>
                                     </td>
                                 </tr>
@@ -107,6 +137,7 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
+
     </body>
     <script src="js/constants.js"></script>
     <script src="js/jquery-1.11.0.js"></script>
