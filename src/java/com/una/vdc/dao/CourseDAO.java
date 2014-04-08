@@ -6,8 +6,8 @@
 
 package com.una.vdc.dao;
 
-import com.una.vdc.model.CollegeClass;
-import com.una.vdc.model.Course;
+import com.una.vdc.model.course.CollegeClass;
+import com.una.vdc.model.course.Course;
 import javax.persistence.EntityManager;
 
 /**

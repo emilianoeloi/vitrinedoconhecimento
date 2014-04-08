@@ -6,8 +6,8 @@
 package com.una.vdc.principal;
 
 import com.una.vdc.dao.TeacherDAO;
-import com.una.vdc.model.CollegeClass;
-import com.una.vdc.model.Teacher;
+import com.una.vdc.model.course.CollegeClass;
+import com.una.vdc.model.teacher.Teacher;
 import com.una.vdc.persistencia.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -49,14 +49,14 @@ public class Principal {
     }
 
     public static void main(String[] args) {
-        Principal p = new Principal();
+//        Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
-
-        TeacherDAO tdao = new TeacherDAO(em);
-        
-        List<Teacher> profs = tdao.getTeachersByName("p");
-        for (Teacher teacher : profs) {
-            System.out.println(teacher.getNome());
-        }
+//
+//        TeacherDAO tdao = new TeacherDAO(em);
+//        
+//        List<Teacher> profs = tdao.getTeachersByName("p");
+//        for (Teacher teacher : profs) {
+//            System.out.println(teacher.getNome());
+//        }
     }
 }

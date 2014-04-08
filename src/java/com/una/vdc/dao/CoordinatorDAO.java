@@ -6,7 +6,7 @@
 
 package com.una.vdc.dao;
 
-import com.una.vdc.model.Coordinator;
+import com.una.vdc.model.teacher.Coordinator;
 import javax.persistence.EntityManager;
 
 /**

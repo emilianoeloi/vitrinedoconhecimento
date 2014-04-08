@@ -6,7 +6,7 @@
 package com.una.vdc.bo;
 
 import com.una.vdc.dao.StudentDAO;
-import com.una.vdc.model.Student;
+import com.una.vdc.model.student.Student;
 import com.una.vdc.persistencia.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;

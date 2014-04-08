@@ -6,8 +6,8 @@
 package com.una.vdc.dao;
 
 import com.una.vdc.exception.InsertException;
-import com.una.vdc.model.CollegeClass;
-import com.una.vdc.model.Teacher;
+import com.una.vdc.model.course.CollegeClass;
+import com.una.vdc.model.teacher.Teacher;
 import com.una.vdc.persistencia.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;
