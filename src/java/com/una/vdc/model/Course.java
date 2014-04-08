@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Course implements Serializable {
     private Long ID;
     private String name;
 
-    @ManyToMany
+    @ManyToOne
     private List<CollegeClass> classes;
 
     public Course() {

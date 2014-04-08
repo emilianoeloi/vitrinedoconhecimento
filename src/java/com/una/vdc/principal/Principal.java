@@ -54,11 +54,9 @@ public class Principal {
 
         TeacherDAO tdao = new TeacherDAO(em);
         
-        List<Teacher> teachers = tdao.findAll();
-        
-        for (Teacher teacher : teachers) {
-            JOptionPane.showMessageDialog(null, teacher);
+        List<Teacher> profs = tdao.getTeachersByName("p");
+        for (Teacher teacher : profs) {
+            System.out.println(teacher.getNome());
         }
-        
     }
 }

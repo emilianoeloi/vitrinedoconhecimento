@@ -8,7 +8,6 @@ package com.una.vdc.model;
 import com.una.vdc.exception.InsertException;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

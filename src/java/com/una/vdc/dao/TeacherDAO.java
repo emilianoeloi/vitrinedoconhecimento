@@ -12,6 +12,7 @@ import com.una.vdc.persistencia.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -30,11 +31,11 @@ public class TeacherDAO extends GenericDAO<Long, Teacher> {
             et.begin();
             Teacher t = em.merge(teacher);
             CollegeClass c = em.merge(cclass);
-            List<Teacher> teachers = getTeachersByCollegeClass((long) cclass.getID());    
-            if(!checkIfTeacherIsInClass(t, c)){
-            c.setTeacher(teachers);
-            c.getTeacher().add(t);
-            em.merge(c);
+            List<Teacher> teachers = getTeachersByCollegeClass((long) cclass.getID());
+            if (!checkIfTeacherIsInClass(t, c)) {
+                c.setTeacher(teachers);
+                c.getTeacher().add(t);
+                em.merge(c);
             }
             et.commit();
         } catch (Exception e) {
@@ -49,9 +50,17 @@ public class TeacherDAO extends GenericDAO<Long, Teacher> {
         return query.getResultList();
     }
 
+    public List<Teacher> getTeachersByName(String name) {
+        em = DatabaseConnection.instance().getManager();
+        TypedQuery<Teacher> query = em.createQuery("SELECT t FROM Teacher t WHERE t.name like :nome", Teacher.class);
+        query.setParameter("nome", "%" + name + "%");
+        return query.getResultList();
+
+    }
+
     public boolean checkIfTeacherIsInClass(Teacher t, CollegeClass c) {
         List<Teacher> teachers;
-        teachers = getTeachersByCollegeClass(c.getID());        
+        teachers = getTeachersByCollegeClass(c.getID());
         return teachers.contains(t);
     }
 
