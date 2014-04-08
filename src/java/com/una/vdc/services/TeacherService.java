@@ -35,9 +35,11 @@ public class TeacherService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTeachers(){
+        
         List<Teacher> teacherList = teacherController.getAllTeachers();
         String json = new Gson().toJson(teacherList);
         return Response.ok().entity(json).build();
+        
     }
     
     @POST

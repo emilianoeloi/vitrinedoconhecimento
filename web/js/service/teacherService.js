@@ -16,6 +16,7 @@ angularApp.service('TeacherService', function() {
 
     this.insert = function(teacher) {
         uid++;
+        teacher.id = uid;
         teacherList.push(teacher);
         return teacher;
     };

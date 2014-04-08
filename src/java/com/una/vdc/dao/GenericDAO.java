@@ -2,7 +2,10 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+Table by type
+Table by hierar
  */
+
 package com.una.vdc.dao;
 
 import java.lang.reflect.ParameterizedType;
