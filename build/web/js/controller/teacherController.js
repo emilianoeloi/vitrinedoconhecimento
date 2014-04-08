@@ -1,3 +1,0 @@
-function TeacherController($scope) {
-}
-
