@@ -6,8 +6,7 @@
 package com.una.vdc.bo;
 
 import com.una.vdc.dao.CoordinatorDAO;
-import com.una.vdc.model.CollegeClass;
-import com.una.vdc.model.Coordinator;
+import com.una.vdc.model.teacher.Coordinator;
 import com.una.vdc.persistencia.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;

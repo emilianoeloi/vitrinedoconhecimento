@@ -3,58 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.una.vdc.model;
+package com.una.vdc.model.teacher;
 
 import com.una.vdc.exception.InsertException;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Ulrik
  */
 @Entity
-public class Course implements Serializable {
+public class Coordinator implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
     private String name;
 
-    @ManyToOne
-    private List<CollegeClass> classes;
-
-    public Course() {
+    public Coordinator() {
     }
 
-    public Course(String name, List<CollegeClass> turmas) {
+    public Coordinator(String name) {
         this.name = name;
-        this.classes = turmas;
     }
-
-    /**
-     * Get the value of turma
-     *
-     * @return the value of turma
-     */
-    public List<CollegeClass> getTurma() {
-        return classes;
-    }
-
-    /**
-     * Set the value of turma
-     *
-     * @param turma new value of turma
-     */
-    public void setTurma(List<CollegeClass> turma) {
-        this.classes = turma;
-    }
-
+    
     /**
      * Get the value of name
      *
@@ -80,7 +56,7 @@ public class Course implements Serializable {
     public void setID(Long ID) {
         this.ID = ID;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -91,19 +67,19 @@ public class Course implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Course)) {
+        if (!(object instanceof Coordinator)) {
             return false;
         }
-        Course other = (Course) object;
+        Coordinator other = (Coordinator) object;
         if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
             return false;
         }
         return true;
     }
-
+    
     public void validade() throws InsertException {
         if (name == null) {
-            throw new InsertException("Course name cannot be null");
+            throw new InsertException("Coordinator name cannot be null");
         }
     }
 

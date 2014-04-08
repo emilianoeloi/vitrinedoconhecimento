@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.una.vdc.model;
+package com.una.vdc.model.course;
 
+import com.una.vdc.model.teacher.Teacher;
 import com.una.vdc.exception.InsertException;
+import com.una.vdc.model.student.Student;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -14,6 +16,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -29,6 +34,69 @@ public class CollegeClass implements Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Teacher> teachers;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Course course;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Module module;
+    
+    @OneToMany(mappedBy = "collegeClass")
+    private List<Student> students;
+
+    /**
+     * Get the value of students
+     *
+     * @return the value of students
+     */
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    /**
+     * Set the value of students
+     *
+     * @param students new value of students
+     */
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    /**
+     * Get the value of module
+     *
+     * @return the value of module
+     */
+    public Module getModule() {
+        return module;
+    }
+
+    /**
+     * Set the value of module
+     *
+     * @param module new value of module
+     */
+    public void setModule(Module module) {
+        this.module = module;
+    }
+
+    /**
+     * Get the value of course
+     *
+     * @return the value of course
+     */
+    public Course getCourse() {
+        return course;
+    }
+
+    /**
+     * Set the value of course
+     *
+     * @param course new value of course
+     */
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     public CollegeClass() {
     }

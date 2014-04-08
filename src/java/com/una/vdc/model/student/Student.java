@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.una.vdc.model;
+package com.una.vdc.model.student;
 
+import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.exception.InsertException;
+import com.una.vdc.model.course.CollegeClass;
 import java.io.Serializable;
-import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,40 +21,60 @@ import javax.persistence.ManyToOne;
  * @author Ulrik
  */
 @Entity
-public class Course implements Serializable {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
     private String name;
 
-    @ManyToOne
-    private List<CollegeClass> classes;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private CollegeClass collegeClass;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    private TIDIRGroup tidirGroup;
 
-    public Course() {
+    /**
+     * Get the value of tidirGroup
+     *
+     * @return the value of tidirGroup
+     */
+    public TIDIRGroup getTidirGroup() {
+        return tidirGroup;
     }
 
-    public Course(String name, List<CollegeClass> turmas) {
+    /**
+     * Set the value of tidirGroup
+     *
+     * @param tidirGroup new value of tidirGroup
+     */
+    public void setTidirGroup(TIDIRGroup tidirGroup) {
+        this.tidirGroup = tidirGroup;
+    }
+
+    /**
+     * Get the value of collegeClass
+     *
+     * @return the value of collegeClass
+     */
+    public CollegeClass getCollegeClass() {
+        return collegeClass;
+    }
+
+    /**
+     * Set the value of collegeClass
+     *
+     * @param collegeClass new value of collegeClass
+     */
+    public void setCollegeClass(CollegeClass collegeClass) {
+        this.collegeClass = collegeClass;
+    }
+
+    public Student() {
+    }
+
+    public Student(String name) {
         this.name = name;
-        this.classes = turmas;
-    }
-
-    /**
-     * Get the value of turma
-     *
-     * @return the value of turma
-     */
-    public List<CollegeClass> getTurma() {
-        return classes;
-    }
-
-    /**
-     * Set the value of turma
-     *
-     * @param turma new value of turma
-     */
-    public void setTurma(List<CollegeClass> turma) {
-        this.classes = turma;
     }
 
     /**
@@ -91,10 +113,10 @@ public class Course implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Course)) {
+        if (!(object instanceof Student)) {
             return false;
         }
-        Course other = (Course) object;
+        Student other = (Student) object;
         if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
             return false;
         }
@@ -103,8 +125,7 @@ public class Course implements Serializable {
 
     public void validade() throws InsertException {
         if (name == null) {
-            throw new InsertException("Course name cannot be null");
+            throw new InsertException("Student name cannot be null");
         }
     }
-
 }

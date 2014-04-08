@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.una.vdc.model;
+package com.una.vdc.model.course;
 
 import com.una.vdc.exception.InsertException;
+import com.una.vdc.model.project.TIDIRStage;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -25,34 +26,54 @@ public class Course implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
     private String name;
+    
+    @OneToMany(mappedBy = "course")
+    private List<Period> period;
+    
+    @OneToMany(mappedBy = "course")
+    private List<TIDIRStage> stages;
 
-    @ManyToOne
-    private List<CollegeClass> classes;
+    /**
+     * Get the value of stages
+     *
+     * @return the value of stages
+     */
+    public List<TIDIRStage> getStages() {
+        return stages;
+    }
+
+    /**
+     * Set the value of stages
+     *
+     * @param stages new value of stages
+     */
+    public void setStages(List<TIDIRStage> stages) {
+        this.stages = stages;
+    }
+
+    /**
+     * Get the value of period
+     *
+     * @return the value of period
+     */
+    public List<Period> getPeriod() {
+        return period;
+    }
+
+    /**
+     * Set the value of period
+     *
+     * @param period new value of period
+     */
+    public void setPeriod(List<Period> period) {
+        this.period = period;
+    }
 
     public Course() {
     }
 
-    public Course(String name, List<CollegeClass> turmas) {
+    public Course(String name, CollegeClass clazz) {
         this.name = name;
-        this.classes = turmas;
-    }
-
-    /**
-     * Get the value of turma
-     *
-     * @return the value of turma
-     */
-    public List<CollegeClass> getTurma() {
-        return classes;
-    }
-
-    /**
-     * Set the value of turma
-     *
-     * @param turma new value of turma
-     */
-    public void setTurma(List<CollegeClass> turma) {
-        this.classes = turma;
     }
 
     /**
