@@ -24,7 +24,7 @@ public class Teacher implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long ID;
+    private Long id;
     private String name;
 
     @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL)
@@ -54,31 +54,31 @@ public class Teacher implements Serializable {
      *
      * @return the value of name
      */
-    public String getNome() {
+    public String getName() {
         return name;
     }
 
     /**
      * Set the value of name
      *
-     * @param nome new value of name
+     * @param name new value of name
      */
-    public void setNome(String nome) {
-        this.name = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long ID) {
+        this.id = ID;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (ID != null ? ID.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -89,7 +89,7 @@ public class Teacher implements Serializable {
             return false;
         }
         Teacher other = (Teacher) object;
-        if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -97,7 +97,7 @@ public class Teacher implements Serializable {
 
     @Override
     public String toString() {
-        return "ID: "+this.ID+" NOME:"+this.name;
+        return "ID: "+this.id+" NOME:"+this.name;
     }
 
     

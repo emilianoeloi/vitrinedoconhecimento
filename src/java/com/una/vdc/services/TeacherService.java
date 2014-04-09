@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.una.vdc.services;
 
 import com.google.gson.Gson;
 import com.una.vdc.bo.TeacherController;
 import com.una.vdc.model.teacher.Teacher;
-import java.util.LinkedList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -29,45 +27,55 @@ import javax.ws.rs.core.Response;
 @Path("/teachers")
 @Consumes(MediaType.APPLICATION_JSON)
 public class TeacherService {
-    
+
     private TeacherController teacherController = new TeacherController();
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getTeachers(){
-        
+    public Response getTeachers() {
+
         List<Teacher> teacherList = teacherController.getAllTeachers();
         String json = new Gson().toJson(teacherList);
         return Response.ok().entity(json).build();
-        
+
     }
-    
+
     @POST
-    public Response saveTeacher(String teacher_str){
-        Teacher teacher = new  Gson().fromJson(teacher_str, Teacher.class);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response saveTeacher(String teacher_str) {
+        Teacher teacher = new Gson().fromJson(teacher_str, Teacher.class);
         teacherController.insertTeacher(teacher);
         return Response.status(Response.Status.CREATED).build();
     }
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{_id}")
-    public Response getTeacher(@PathParam("_id") long id){  
-        Teacher t = teacherController.getTeacherById(id);
-        return Response.ok().entity(t).build();
+    public Response getTeacher(@PathParam("_id") long id) {
+        try {
+            Teacher t = teacherController.getTeacherById(id);
+            String json = new Gson().toJson(t);
+            if (json == null){
+                json = "{}";
+            }
+            return Response.ok().entity(json).build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
     }
-    
+
     @DELETE
     @Path("/{_id}")
-    public Response deleteTeacher(@PathParam("_id") long id){
+    public Response deleteTeacher(@PathParam("_id") long id) {
         Teacher deletedTeacher = new Teacher();
-        deletedTeacher.setID(id);
+        deletedTeacher.setId(id);
         teacherController.removeTeacher(deletedTeacher);
         return Response.ok().build();
     }
-    
+
     @PUT
-    public Response upadateTeacher(String teacher_str ){
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response upadateTeacher(String teacher_str) {
         Teacher updetedTeacher = new Gson().fromJson(teacher_str, Teacher.class);
         teacherController.updateTeacher(updetedTeacher);
         return Response.ok().build();
