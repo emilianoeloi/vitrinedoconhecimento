@@ -14,6 +14,9 @@ import java.util.LinkedList;
 =======
 import com.una.vdc.bo.TeacherController;
 import com.una.vdc.model.teacher.Teacher;
+<<<<<<< HEAD
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
+=======
 >>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -35,6 +38,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TeacherService {
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     private MentorTeacherController teacherController = new MentorTeacherController();
     
@@ -49,6 +53,13 @@ public class TeacherService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+=======
+
+    private TeacherController teacherController = new TeacherController();
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
     public Response getTeachers() {
 
         List<Teacher> teacherList = teacherController.getAllTeachers();
@@ -60,8 +71,14 @@ public class TeacherService {
 
     @POST
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Response saveTeacher(String teacher_str){
         MentorTeacher teacher = new  Gson().fromJson(teacher_str, MentorTeacher.class);
+=======
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response saveTeacher(String teacher_str) {
+        Teacher teacher = new Gson().fromJson(teacher_str, Teacher.class);
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
 =======
     @Consumes(MediaType.APPLICATION_JSON)
     public Response saveTeacher(String teacher_str) {
@@ -75,10 +92,13 @@ public class TeacherService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{_id}")
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Response getTeacher(@PathParam("_id") long id){  
         MentorTeacher t = teacherController.getTeacherById(id);
         return Response.ok().entity(t).build();
 =======
+=======
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
     public Response getTeacher(@PathParam("_id") long id) {
         try {
             Teacher t = teacherController.getTeacherById(id);
@@ -90,14 +110,22 @@ public class TeacherService {
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();
         }
+<<<<<<< HEAD
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
+=======
 >>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
     }
 
     @DELETE
     @Path("/{_id}")
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Response deleteTeacher(@PathParam("_id") long id){
         MentorTeacher deletedTeacher = new MentorTeacher();
+=======
+    public Response deleteTeacher(@PathParam("_id") long id) {
+        Teacher deletedTeacher = new Teacher();
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
 =======
     public Response deleteTeacher(@PathParam("_id") long id) {
         Teacher deletedTeacher = new Teacher();
@@ -109,9 +137,12 @@ public class TeacherService {
 
     @PUT
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Response upadateTeacher(String teacher_str ){
         MentorTeacher updetedTeacher = new Gson().fromJson(teacher_str, MentorTeacher.class);
 =======
+=======
+>>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
     @Consumes(MediaType.APPLICATION_JSON)
     public Response upadateTeacher(String teacher_str) {
         Teacher updetedTeacher = new Gson().fromJson(teacher_str, Teacher.class);
