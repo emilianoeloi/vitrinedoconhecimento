@@ -8,7 +8,7 @@ package com.una.vdc.services;
 
 import com.google.gson.Gson;
 import com.una.vdc.bo.TeacherController;
-import com.una.vdc.model.Teacher;
+import com.una.vdc.model.teacher.Teacher;
 import java.util.LinkedList;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -61,7 +61,7 @@ public class TeacherService {
     @Path("/{_id}")
     public Response deleteTeacher(@PathParam("_id") long id){
         Teacher deletedTeacher = new Teacher();
-        deletedTeacher.setId(id);
+        deletedTeacher.setID(id);
         teacherController.removeTeacher(deletedTeacher);
         return Response.ok().build();
     }
