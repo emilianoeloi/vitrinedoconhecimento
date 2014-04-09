@@ -6,10 +6,12 @@
 package com.una.vdc.model.project;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,7 +25,27 @@ public class TIDIRProject implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String projectName;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private TIDIRGroup group;
 
+    /**
+     * Get the value of group
+     *
+     * @return the value of group
+     */
+    public TIDIRGroup getGroup() {
+        return group;
+    }
+
+    /**
+     * Set the value of group
+     *
+     * @param group new value of group
+     */
+    public void setGroup(TIDIRGroup group) {
+        this.group = group;
+    }
 
     /**
      * Get the value of projectName

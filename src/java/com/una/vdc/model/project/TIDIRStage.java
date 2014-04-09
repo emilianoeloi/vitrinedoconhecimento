@@ -6,6 +6,7 @@
 package com.una.vdc.model.project;
 
 import com.una.vdc.model.course.Course;
+import com.una.vdc.model.course.Period;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -30,10 +31,31 @@ public class TIDIRStage implements Serializable {
     private String stageName;
 
     @OneToMany(mappedBy = "tidirStage")
-    private List<Activity> activities;
-    
+    private List<Task> tasks;
+
     @ManyToOne(cascade = CascadeType.ALL)
     private Course course;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Period period;
+
+    /**
+     * Get the value of period
+     *
+     * @return the value of period
+     */
+    public Period getPeriod() {
+        return period;
+    }
+
+    /**
+     * Set the value of period
+     *
+     * @param period new value of period
+     */
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
 
     /**
      * Get the value of course
@@ -54,21 +76,21 @@ public class TIDIRStage implements Serializable {
     }
 
     /**
-     * Get the value of activities
+     * Get the value of tasks
      *
-     * @return the value of activities
+     * @return the value of tasks
      */
-    public List<Activity> getActivities() {
-        return activities;
+    public List<Task> getTasks() {
+        return tasks;
     }
 
     /**
-     * Set the value of activities
+     * Set the value of tasks
      *
-     * @param activities new value of activities
+     * @param tasks new value of tasks
      */
-    public void setActivities(List<Activity> activities) {
-        this.activities = activities;
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     /**

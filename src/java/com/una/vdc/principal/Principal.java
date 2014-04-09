@@ -5,10 +5,11 @@
  */
 package com.una.vdc.principal;
 
-import com.una.vdc.dao.TeacherDAO;
+import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.model.course.CollegeClass;
-import com.una.vdc.model.teacher.Teacher;
-import com.una.vdc.persistencia.DatabaseConnection;
+import com.una.vdc.model.user.MentorTeacher;
+import com.una.vdc.model.user.ModuleTeacher;
+import com.una.vdc.persistence.DatabaseConnection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -21,17 +22,6 @@ import javax.swing.JOptionPane;
 public class Principal {
 
     public void criarProfessores() {
-        EntityManager em = DatabaseConnection.instance().getManager();
-        EntityTransaction et = em.getTransaction();
-        Teacher teacher1 = new Teacher("Professor 1");
-        Teacher teacher2 = new Teacher("Professor 2");
-        Teacher teacher3 = new Teacher("Professor 3");
-
-        et.begin();
-        em.merge(teacher1);
-        em.merge(teacher2);
-        em.merge(teacher3);
-        et.commit();
 
     }
 
@@ -51,8 +41,19 @@ public class Principal {
     public static void main(String[] args) {
 //        Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
+//        em.getTransaction().begin();
+//        
+//        MentorTeacher mt = new MentorTeacher();
+//        mt.setName("prof mentor 1");
+//        em.merge(mt);
+//        
+//        ModuleTeacher mm = new ModuleTeacher();
+//        mm.setName("prof module 1");
+//        em.merge(mm);
+//        
+//        em.getTransaction().commit();
 //
-//        TeacherDAO tdao = new TeacherDAO(em);
+//        MentorTeacherDAO tdao = new MentorTeacherDAO(em);
 //        
 //        List<Teacher> profs = tdao.getTeachersByName("p");
 //        for (Teacher teacher : profs) {

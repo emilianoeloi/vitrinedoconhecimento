@@ -5,13 +5,16 @@
  */
 package com.una.vdc.model.project;
 
-import com.una.vdc.model.student.Student;
+import com.una.vdc.model.course.CollegeClass;
+import com.una.vdc.model.user.Student;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -25,9 +28,35 @@ public class TIDIRGroup implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @OneToMany(mappedBy = "tidirGroup")
     private List<Student> students;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private CollegeClass collegeClass;
+
+    
+    
+    /**
+     * Get the value of collegeClass
+     *
+     * @return the value of collegeClass
+     */
+    public CollegeClass getCollegeClass() {
+        return collegeClass;
+    }
+
+    /**
+     * Set the value of collegeClass
+     *
+     * @param collegeClass new value of collegeClass
+     */
+    public void setCollegeClass(CollegeClass collegeClass) {
+        this.collegeClass = collegeClass;
+    }
+
+    public TIDIRGroup() {
+    }
 
     /**
      * Get the value of students

@@ -28,26 +28,6 @@ public class Period implements Serializable {
     private String periodDescription;
     @ManyToOne
     private Course course;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Module module;
-
-    /**
-     * Get the value of module
-     *
-     * @return the value of module
-     */
-    public Module getModule() {
-        return module;
-    }
-
-    /**
-     * Set the value of module
-     *
-     * @param module new value of module
-     */
-    public void setModule(Module module) {
-        this.module = module;
-    }
 
     /**
      * Get the value of periodDescription

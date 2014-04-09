@@ -5,20 +5,20 @@
  */
 package com.una.vdc.model.course;
 
-import com.una.vdc.model.teacher.Teacher;
 import com.una.vdc.exception.InsertException;
-import com.una.vdc.model.student.Student;
+import com.una.vdc.model.project.TIDIRGroup;
+import com.una.vdc.model.user.Student;
+import com.una.vdc.model.user.MentorTeacher;
+import com.una.vdc.model.user.ModuleTeacher;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -32,17 +32,74 @@ public class CollegeClass implements Serializable {
     private Long id;
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Teacher> teachers;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Course course;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Module module;
-    
     @OneToMany(mappedBy = "collegeClass")
     private List<Student> students;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private MentorTeacher mentorTeacher;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<ModuleTeacher> moduleTeacher;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Period period;
+
+    public CollegeClass() {
+    }
+
+    /**
+     * Get the value of period
+     *
+     * @return the value of period
+     */
+    public Period getPeriod() {
+        return period;
+    }
+
+    /**
+     * Set the value of period
+     *
+     * @param period new value of period
+     */
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    /**
+     * Get the value of moduleTeacher
+     *
+     * @return the value of moduleTeacher
+     */
+    public List<ModuleTeacher> getModuleTeacher() {
+        return moduleTeacher;
+    }
+
+    /**
+     * Set the value of moduleTeacher
+     *
+     * @param moduleTeacher new value of moduleTeacher
+     */
+    public void setModuleTeacher(List<ModuleTeacher> moduleTeacher) {
+        this.moduleTeacher = moduleTeacher;
+    }
+
+    /**
+     * Get the value of mentorTeacher
+     *
+     * @return the value of mentorTeacher
+     */
+    public MentorTeacher getMentorTeacher() {
+        return mentorTeacher;
+    }
+
+    /**
+     * Set the value of mentorTeacher
+     *
+     * @param mentorTeacher new value of mentorTeacher
+     */
+    public void setMentorTeacher(MentorTeacher mentorTeacher) {
+        this.mentorTeacher = mentorTeacher;
+    }
 
     /**
      * Get the value of students
@@ -62,65 +119,8 @@ public class CollegeClass implements Serializable {
         this.students = students;
     }
 
-    /**
-     * Get the value of module
-     *
-     * @return the value of module
-     */
-    public Module getModule() {
-        return module;
-    }
-
-    /**
-     * Set the value of module
-     *
-     * @param module new value of module
-     */
-    public void setModule(Module module) {
-        this.module = module;
-    }
-
-    /**
-     * Get the value of course
-     *
-     * @return the value of course
-     */
-    public Course getCourse() {
-        return course;
-    }
-
-    /**
-     * Set the value of course
-     *
-     * @param course new value of course
-     */
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public CollegeClass() {
-    }
-
     public CollegeClass(String name) {
         this.name = name;
-    }
-
-    /**
-     * Get the value of professor
-     *
-     * @return the value of professor
-     */
-    public List<Teacher> getTeacher() {
-        return teachers;
-    }
-
-    /**
-     * Set the value of professor
-     *
-     * @param professor new value of professor
-     */
-    public void setTeacher(List<Teacher> professor) {
-        this.teachers = professor;
     }
 
     /**
