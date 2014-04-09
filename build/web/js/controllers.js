@@ -7,15 +7,12 @@ vdcControllers.controller('TeacherController', ['$scope', 'Teacher', function($s
     $scope.teacherList = Teacher.query();
 
     $scope.save = function () {
-        var teacherFound = Teacher.get({
-            _id: $scope.newTeacher.id
-        });
-        if(teacherFound !== null){
+        console.debug('save', $scope.newTeacher.id);
+        if($scope.newTeacher.id){
             Teacher.update($scope.newTeacher);
         }else{
             Teacher.insert($scope.newTeacher);
         }
-        $scope.newTeacher = {};
     }
 
     $scope.delete = function (id) {
@@ -25,9 +22,13 @@ vdcControllers.controller('TeacherController', ['$scope', 'Teacher', function($s
     }
 
     $scope.edit = function (id) {
-        $scope.newTeacher = angular.copy(Teacher.get({
+        var editTeacher = Teacher.get({
             _id: id
-        }));
+        }, function(data){ 
+            console.log('edit', 'data', data);
+            $scope.newTeacher = angular.copy(data);
+        });
+        
     }
 
 }]);
