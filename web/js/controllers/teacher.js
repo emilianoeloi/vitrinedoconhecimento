@@ -1,8 +1,6 @@
 /**
  * Created by emiliano.barbosa on 08/04/14.
  */
-var vdcControllers = angular.module('vdcControllers', []);
-
 vdcControllers.controller('TeacherController', ['$scope', 'Teacher', function($scope, Teacher) {
     $scope.teacherList = Teacher.query();
 

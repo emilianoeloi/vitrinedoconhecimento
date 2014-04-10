@@ -31,7 +31,7 @@ public class TeacherDAO extends GenericDAO<Long, Teacher> {
             et.begin();
             Teacher t = em.merge(teacher);
             CollegeClass c = em.merge(cclass);
-            List<Teacher> teachers = getTeachersByCollegeClass((long) cclass.getID());
+            List<Teacher> teachers = getTeachersByCollegeClass((long) cclass.getId());
             if (!checkIfTeacherIsInClass(t, c)) {
                 c.setTeacher(teachers);
                 c.getTeacher().add(t);
@@ -60,7 +60,7 @@ public class TeacherDAO extends GenericDAO<Long, Teacher> {
 
     public boolean checkIfTeacherIsInClass(Teacher t, CollegeClass c) {
         List<Teacher> teachers;
-        teachers = getTeachersByCollegeClass(c.getID());
+        teachers = getTeachersByCollegeClass(c.getId());
         return teachers.contains(t);
     }
 

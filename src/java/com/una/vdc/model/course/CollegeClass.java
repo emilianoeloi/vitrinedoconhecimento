@@ -141,11 +141,11 @@ public class CollegeClass implements Serializable {
         this.name = nome;
     }
 
-    public Long getID() {
+    public Long getId() {
         return id;
     }
 
-    public void setID(Long ID) {
+    public void setId(Long ID) {
         this.id = ID;
     }
 

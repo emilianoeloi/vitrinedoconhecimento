@@ -26,6 +26,8 @@ public class Teacher implements Serializable {
     @GeneratedValue
     private Long id;
     private String name;
+    private String email;
+    private String homePhone;
 
     @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL)
     private List<CollegeClass> classes;
@@ -108,6 +110,34 @@ public class Teacher implements Serializable {
         if (name == null) {
             throw new InsertException("Teacher name cannot be null");
         }
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the homePhone
+     */
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    /**
+     * @param homePhone the homePhone to set
+     */
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
     }
 
 }
