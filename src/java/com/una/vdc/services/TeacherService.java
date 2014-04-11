@@ -103,9 +103,6 @@ public class TeacherService {
         try {
             Teacher t = teacherController.getTeacherById(id);
             String json = new Gson().toJson(t);
-            if (json == null){
-                json = "{}";
-            }
             return Response.ok().entity(json).build();
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();
