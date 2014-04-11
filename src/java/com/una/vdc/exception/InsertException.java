@@ -10,7 +10,7 @@ package com.una.vdc.exception;
  */
 public class InsertException extends Exception {
     public InsertException(String message) {
-        super("InsertException: "+message);
+        super(message);
     }
 }
 

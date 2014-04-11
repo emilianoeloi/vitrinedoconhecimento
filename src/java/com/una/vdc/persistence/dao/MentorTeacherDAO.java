@@ -5,10 +5,14 @@
  */
 package com.una.vdc.persistence.dao;
 
-import com.una.vdc.exception.AssociationException;
+import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
+import com.una.vdc.persistence.DatabaseConnection;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -20,18 +24,8 @@ public class MentorTeacherDAO extends GenericDAO<Long, MentorTeacher> {
         super(entityManager);
     }
 
-    public void associateMentorTeacherToClass(MentorTeacher teacher, CollegeClass cclass) throws AssociationException{        
-        try {
-            et.begin();
-            cclass.setMentorTeacher(teacher);
-            em.merge(teacher);
-            em.merge(cclass);
-            et.commit();
-        } catch (Exception e) {
-            et.rollback();
-            throw new AssociationException(e.getMessage());
-        }
-        
+    public void associateTeacherToClass(MentorTeacher teacher, CollegeClass cclass) throws InsertException {
+
     }
 
 //    public List<MentorTeacher> getTeachersByCollegeClass(long idClasse) {

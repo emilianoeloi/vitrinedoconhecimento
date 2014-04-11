@@ -5,8 +5,6 @@
  */
 package com.una.vdc.bo;
 
-import com.una.vdc.exception.InsertException;
-import com.una.vdc.exception.UpdateException;
 import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.persistence.DatabaseConnection;
@@ -18,8 +16,8 @@ import javax.persistence.EntityManager;
  * @author Ulrik
  */
 public class CollegeClassController {
-    
-    private final CollegeClassDAO dao;
+
+    private CollegeClassDAO dao;
 
     public CollegeClassController() {
         EntityManager em = DatabaseConnection.instance().getManager();
@@ -34,15 +32,15 @@ public class CollegeClassController {
         return dao.findAll();
     }
 
-    public void insertCollegeClass(CollegeClass c) throws InsertException {
+    public void insertCollegeClass(CollegeClass c) {
         dao.save(c);
     }
 
-    public void removeCollegeClass(CollegeClass c) throws UpdateException {
+    public void removeCollegeClass(CollegeClass c) {
         dao.delete(c);
     }
 
-    public void updateCollegeClass(CollegeClass c) throws UpdateException {
+    public void updateCollegeClass(CollegeClass c) {
         dao.update(c);
     }
 

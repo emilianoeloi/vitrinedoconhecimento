@@ -5,18 +5,11 @@
  */
 package com.una.vdc.principal;
 
-import com.una.vdc.bo.MentorTeacherController;
-import com.una.vdc.bo.ModuleTeacherController;
-import com.una.vdc.exception.InsertException;
-import com.una.vdc.exception.UpdateException;
 import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
 import com.una.vdc.persistence.DatabaseConnection;
-import com.una.vdc.persistence.dao.CollegeClassDAO;
-import com.una.vdc.persistence.dao.ModuleTeacherDAO;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -28,36 +21,8 @@ import javax.swing.JOptionPane;
  */
 public class Principal {
 
-    public void criarProfessoresOrientadores() {
-        EntityManager em = DatabaseConnection.instance().getManager();
-        EntityTransaction et = em.getTransaction();
-        MentorTeacher m1 = new MentorTeacher();
-        m1.setName("module teacher 1");
-        MentorTeacher m2 = new MentorTeacher();
-        m2.setName("module teacher 2");
-        MentorTeacher m3 = new MentorTeacher();
-        m3.setName("module teacher 3");
-        et.begin();
-        em.merge(m1);
-        em.merge(m2);
-        em.merge(m3);
-        et.commit();
-    }
+    public void criarProfessores() {
 
-    public void criarProfessoresModulo() {
-        EntityManager em = DatabaseConnection.instance().getManager();
-        EntityTransaction et = em.getTransaction();
-        ModuleTeacher m1 = new ModuleTeacher();
-        m1.setName("module teacher 1");
-        ModuleTeacher m2 = new ModuleTeacher();
-        m2.setName("module teacher 2");
-        ModuleTeacher m3 = new ModuleTeacher();
-        m3.setName("module teacher 3");
-        et.begin();
-        em.merge(m1);
-        em.merge(m2);
-        em.merge(m3);
-        et.commit();
     }
 
     public void criarTurmas() {
@@ -73,11 +38,26 @@ public class Principal {
         et.commit();
     }
 
-    public static void main(String[] args) throws InsertException, UpdateException {
-        Principal p = new Principal();
+    public static void main(String[] args) {
+//        Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
-
-        
-
+//        em.getTransaction().begin();
+//        
+//        MentorTeacher mt = new MentorTeacher();
+//        mt.setName("prof mentor 1");
+//        em.merge(mt);
+//        
+//        ModuleTeacher mm = new ModuleTeacher();
+//        mm.setName("prof module 1");
+//        em.merge(mm);
+//        
+//        em.getTransaction().commit();
+//
+//        MentorTeacherDAO tdao = new MentorTeacherDAO(em);
+//        
+//        List<Teacher> profs = tdao.getTeachersByName("p");
+//        for (Teacher teacher : profs) {
+//            System.out.println(teacher.getNome());
+//        }
     }
 }
