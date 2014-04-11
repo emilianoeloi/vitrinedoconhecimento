@@ -5,7 +5,7 @@
  */
 package com.una.vdc.dao;
 
-import com.una.vdc.model.student.Student;
+import com.una.vdc.model.user.Student;
 import javax.persistence.EntityManager;
 
 /**

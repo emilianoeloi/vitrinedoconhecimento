@@ -45,6 +45,7 @@ public class GenericDAO<PK, T> {
         try {
             et.begin();
             em.merge(entity);
+            em.flush();
             et.commit();
         } catch (Exception e) {
             et.rollback();

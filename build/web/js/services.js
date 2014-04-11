@@ -1,9 +1,9 @@
 /**
  * Created by emiliano.barbosa on 08/04/14.
  */
-vdcServices.factory('Teacher', ['$resource',
+vdcServices.factory('CollegeClass', ['$resource',
     function($resource) {
-        return $resource('api/teachers/:_id', {}, {
+        return $resource('api/collegeclasses/:_id', {}, {
             query: {
                 method: 'GET',
                 isArray: true
@@ -23,9 +23,9 @@ vdcServices.factory('Teacher', ['$resource',
         });
     }]);
 
-vdcServices.factory('CollegeClass', ['$resource',
+vdcServices.factory('Student', ['$resource',
     function($resource) {
-        return $resource('api/collegeclasses/:_id', {}, {
+        return $resource('api/students/:_id', {}, {
             query: {
                 method: 'GET',
                 isArray: true
