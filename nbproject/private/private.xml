@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/teacher.html</file>
-            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/js/controllers.js</file>
-            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/src/java/com/una/vdc/model/teacher/Teacher.java</file>
-            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/js/services.js</file>
-            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/src/java/com/una/vdc/services/TeacherService.java</file>
-            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/js/screen/teacher.js</file>
-        </group>
-<<<<<<< HEAD
->>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
-=======
->>>>>>> 225483f53edbd12a6e71bd18eecc1a845e36aaca
+        <group/>
     </open-files>
 </project-private>

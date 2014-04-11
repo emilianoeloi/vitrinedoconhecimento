@@ -21,10 +21,4 @@ public class CourseDAO extends GenericDAO<Long, Course>{
         super(entityManager);
     }
     
-    public Course insertClassToCourse(Course course, CollegeClass clazz){
-        
-        
-        return null;
-    }
-    
 }

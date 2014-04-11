@@ -5,6 +5,8 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.InsertException;
+import com.una.vdc.exception.UpdateException;
 import com.una.vdc.persistence.dao.CoordinatorDAO;
 import com.una.vdc.model.user.Coordinator;
 import com.una.vdc.persistence.DatabaseConnection;
@@ -17,7 +19,7 @@ import javax.persistence.EntityManager;
  */
 public class CoordinatorController {
 
-    private CoordinatorDAO dao;
+    private final CoordinatorDAO dao;
 
     public CoordinatorController() {
         EntityManager em = DatabaseConnection.instance().getManager();
@@ -32,15 +34,15 @@ public class CoordinatorController {
         return dao.findAll();
     }
 
-    public void insertCoordinator(Coordinator c) {
+    public void insertCoordinator(Coordinator c) throws InsertException {
         dao.save(c);
     }
 
-    public void removeCoordinator(Coordinator c) {
+    public void removeCoordinator(Coordinator c) throws UpdateException {
         dao.delete(c);
     }
 
-    public void updateCoordinator(Coordinator c) {
+    public void updateCoordinator(Coordinator c) throws UpdateException {
         dao.update(c);
     }
 

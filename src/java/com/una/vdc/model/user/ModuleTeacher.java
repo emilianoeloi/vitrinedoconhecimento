@@ -19,7 +19,7 @@ public class ModuleTeacher extends User {
     
     @ManyToMany(mappedBy = "moduleTeacher")
     private List<CollegeClass> collegeClass;
-
+    
     /**
      * Get the value of collegeClass
      *

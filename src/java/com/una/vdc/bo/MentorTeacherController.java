@@ -5,14 +5,13 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.InsertException;
+import com.una.vdc.exception.UpdateException;
 import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.persistence.DatabaseConnection;
-import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -21,14 +20,14 @@ import javax.persistence.EntityManager;
  */
 public class MentorTeacherController {
 
-    private MentorTeacherDAO dao;
+    private final MentorTeacherDAO dao;
 
     public MentorTeacherController() {
         EntityManager em = DatabaseConnection.instance().getManager();
         dao = new MentorTeacherDAO(em);
     }
 
-    public void associateTeacherToClass(MentorTeacher teacher, CollegeClass cclass) {
+    public void associateModuleTeacherToClass(MentorTeacher teacher, CollegeClass cclass) {
 //            dao.associateTeacherToClass(teacher, cclass);
     }
     
@@ -45,15 +44,15 @@ public class MentorTeacherController {
         return dao.findAll();
     }
 
-    public void insertTeacher(MentorTeacher teacher) {
+    public void insertTeacher(MentorTeacher teacher) throws InsertException {
         dao.save(teacher);
     }
 
-    public void removeTeacher(MentorTeacher teacher) {
+    public void removeTeacher(MentorTeacher teacher) throws UpdateException {
         dao.delete(teacher);
     }
     
-    public void updateTeacher(MentorTeacher teacher){
+    public void updateTeacher(MentorTeacher teacher) throws UpdateException{
         dao.update(teacher);
     }
 }

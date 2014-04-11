@@ -21,12 +21,4 @@ public class StudentDAO extends GenericDAO<Long, Student> {
         super(entityManager);
     }
 
-    public void createPaGroup(List<Student> students){
-        TIDIRGroup tg = new TIDIRGroup();
-                
-        
-        tg.setCollegeClass(null);
-        tg.setStudents(students);
-    }
-
 }
