@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,86 +5,15 @@
  */
 package com.una.vdc.principal;
 
-import com.una.vdc.persistence.dao.MentorTeacherDAO;
-import com.una.vdc.model.course.CollegeClass;
-import com.una.vdc.model.user.MentorTeacher;
-import com.una.vdc.model.user.ModuleTeacher;
-import com.una.vdc.persistence.DatabaseConnection;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.swing.JOptionPane;
-
-/**
- *
- * @author Ulrik
- */
-public class Principal {
-
-    public void criarProfessores() {
-
-    }
-
-    public void criarTurmas() {
-        EntityManager em = DatabaseConnection.instance().getManager();
-        EntityTransaction et = em.getTransaction();
-        CollegeClass c1 = new CollegeClass("Turma 1");
-        CollegeClass c2 = new CollegeClass("Turma 2");
-        CollegeClass c3 = new CollegeClass("Turma 3");
-        et.begin();
-        em.merge(c1);
-        em.merge(c2);
-        em.merge(c3);
-        et.commit();
-    }
-
-    public static void main(String[] args) {
-//        Principal p = new Principal();
-        EntityManager em = DatabaseConnection.instance().getManager();
-//        em.getTransaction().begin();
-//        
-//        MentorTeacher mt = new MentorTeacher();
-//        mt.setName("prof mentor 1");
-//        em.merge(mt);
-//        
-//        ModuleTeacher mm = new ModuleTeacher();
-//        mm.setName("prof module 1");
-//        em.merge(mm);
-//        
-//        em.getTransaction().commit();
-//
-//        MentorTeacherDAO tdao = new MentorTeacherDAO(em);
-//        
-//        List<Teacher> profs = tdao.getTeachersByName("p");
-//        for (Teacher teacher : profs) {
-//            System.out.println(teacher.getNome());
-//        }
-    }
-}
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.una.vdc.principal;
-
-import com.una.vdc.bo.MentorTeacherController;
-import com.una.vdc.bo.ModuleTeacherController;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
-import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
 import com.una.vdc.persistence.DatabaseConnection;
-import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.persistence.dao.ModuleTeacherDAO;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -142,8 +70,22 @@ public class Principal {
         Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
 
+//        p.criarProfessoresModulo();
+//        p.criarTurmas();
+        ModuleTeacherDAO dao = new ModuleTeacherDAO(em);
+
+        ModuleTeacher a = dao.getById(2L);
         
+        a.setName("aaa");
+        
+        
+        
+        dao.update(a);
+        
+        dao.delete(a);
+        
+//        ModuleTeacher a = dao.getById(2L);
+//        dao.delete(a);
 
     }
 }
->>>>>>> 613f669a22e9b2b6f8de3f0a0dce662163a3a277
