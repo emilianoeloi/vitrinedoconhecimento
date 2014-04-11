@@ -17,11 +17,11 @@ and open the template in the editor.
         <script src="js/services.js"></script>
 
         <!-- CONTROLLERS -->
-        <script src="js/controllers/teacher.js"></script>
+        <script src="js/controllers/student.js"></script>
 
 
 
-        <title>Teacher</title>
+        <title>Student</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,27 +60,27 @@ and open the template in the editor.
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="#">Dashboard</a></li>
-                        <li class="active"><a href="#">Professores</a></li>
+                        <li ><a href="#">Professores</a></li>
                         <li><a href="#">Turmas</a></li>
-                        <li><a href="#">Associar Turma/Prof</a></li>
+                        <li class="active"><a href="#">Aluno</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Professores</h1>
+                    <h1 class="page-header">Alunos</h1>
 
-                    <div class="table-responsive" id="implicit" ng-controller="TeacherController">
+                    <div class="table-responsive" id="implicit" ng-controller="StudentController">
                         <fieldset>
                             <form class="well">
                                 <label>Nome:
-                                    <input class="form-control" ng-model="newTeacher.name" />
+                                    <input class="form-control" ng-model="newStudent.name" />
                                 </label>
-                                <label>E-mail:
-                                    <input type="email" class="form-control" ng-model="newTeacher.email"/>
+                                <label>Curso:
+                                    <input type="text" class="form-control" ng-model="newStudent.email"/>
                                 </label>
                                 <label>Telefone:
-                                    <input type="tel" class="form-control"  ng-model="newTeacher.homePhone"/>
+                                    <input type="tel" class="form-control"  ng-model="newStudent.homePhone"/>
                                 </label>
-                                <input type="hidden" ng-model="newTeacher.id" />
+                                <input type="hidden" ng-model="newStudent.id" />
                                 <input class="btn" type="button" ng-click="save()" value="Salvar Professor" />
                             </form>
                         </fieldset>
@@ -95,14 +95,14 @@ and open the template in the editor.
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="teacher in teacherList">
-                                    <td>{{teacher.id}}</td>
-                                    <td>{{teacher.name}}</td>
-                                    <td>{{teacher.email}}</td>
-                                    <td>{{teacher.homePhone}}</td>
+                                <tr ng-repeat="student in studentList">
+                                    <td>{{student.id}}</td>
+                                    <td>{{student.name}}</td>
+                                    <td>{{student.email}}</td>
+                                    <td>{{student.homePhone}}</td>
                                     <td>
-                                        <a href="javascript://" ng-click="edit(teacher.id)" class="btn-associate" >Editar</a>
-                                        <a href="javascript://" ng-click="delete(teacher.id)" class="btn-associate" >Excluir</a>
+                                        <a href="javascript://" ng-click="edit(student.id)" class="btn-associate" >Editar</a>
+                                        <a href="javascript://" ng-click="delete(student.id)" class="btn-associate" >Excluir</a>
                                         <a href="javascript://" class="btn-associate" >Associar</a>
                                     </td>
                                 </tr>
