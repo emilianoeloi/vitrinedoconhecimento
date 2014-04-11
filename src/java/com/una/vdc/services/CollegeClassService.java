@@ -43,9 +43,13 @@ public class CollegeClassService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response saveCollegeClass(String collegeClass_str) {
-        CollegeClass collegeClass = new Gson().fromJson(collegeClass_str, CollegeClass.class);
-        collegeClassController.insertCollegeClass(collegeClass);
-        return Response.status(Response.Status.CREATED).build();
+        try {
+            CollegeClass collegeClass = new Gson().fromJson(collegeClass_str, CollegeClass.class);
+            collegeClassController.insertCollegeClass(collegeClass);
+            return Response.status(Response.Status.CREATED).build();
+        } catch (Exception exc) {
+            return Response.serverError().build();
+        }
     }
 
     @GET
@@ -64,17 +68,25 @@ public class CollegeClassService {
     @DELETE
     @Path("/{_id}")
     public Response deleteCollegeClass(@PathParam("_id") long id) {
-        CollegeClass deletedCollegeClass = new CollegeClass();
-        deletedCollegeClass.setId(id);
-        collegeClassController.removeCollegeClass(deletedCollegeClass);
-        return Response.ok().build();
+        try {
+            CollegeClass deletedCollegeClass = new CollegeClass();
+            deletedCollegeClass.setID(id);
+            collegeClassController.removeCollegeClass(deletedCollegeClass);
+            return Response.ok().build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response upadateCollegeClass(String collegeClass_str) {
-        CollegeClass updetedCollegeClass = new Gson().fromJson(collegeClass_str, CollegeClass.class);
-        collegeClassController.updateCollegeClass(updetedCollegeClass);
-        return Response.ok().build();
+        try {
+            CollegeClass updetedCollegeClass = new Gson().fromJson(collegeClass_str, CollegeClass.class);
+            collegeClassController.updateCollegeClass(updetedCollegeClass);
+            return Response.ok().build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
     }
 }

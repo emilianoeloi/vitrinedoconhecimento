@@ -3,68 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.una.vdc.model.course;
+
+package com.una.vdc.model.user;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
 
 /**
  *
  * @author Ulrik
  */
 @Entity
-public class Period implements Serializable {
-
+@Table(name = "ABSTRACT_USER")
+@Inheritance
+public abstract class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String periodDescription;
-    @ManyToOne
-    private Course course;
+    private String name;
 
     /**
-     * Get the value of periodDescription
+     * Get the value of name
      *
-     * @return the value of periodDescription
+     * @return the value of name
      */
-    public String getPeriodDescription() {
-        return periodDescription;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Set the value of periodDescription
+     * Set the value of name
      *
-     * @param periodDescription new value of periodDescription
+     * @param name new value of name
      */
-    public void setPeriodDescription(String periodDescription) {
-        this.periodDescription = periodDescription;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * Get the value of course
-     *
-     * @return the value of course
-     */
-    public Course getCourse() {
-        return course;
-    }
-
-    /**
-     * Set the value of course
-     *
-     * @param course new value of course
-     */
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
+    
     public Long getId() {
         return id;
     }
@@ -83,10 +65,10 @@ public class Period implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Period)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        Period other = (Period) object;
+        User other = (User) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -95,7 +77,7 @@ public class Period implements Serializable {
 
     @Override
     public String toString() {
-        return "com.una.vdc.model.period.Period[ id=" + id + " ]";
+        return "com.una.vdc.model.teacher.AbstractUser[ id=" + id + " ]";
     }
-
+    
 }

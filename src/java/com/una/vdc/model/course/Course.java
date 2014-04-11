@@ -30,27 +30,6 @@ public class Course implements Serializable {
     @OneToMany(mappedBy = "course")
     private List<Period> period;
     
-    @OneToMany(mappedBy = "course")
-    private List<TIDIRStage> stages;
-
-    /**
-     * Get the value of stages
-     *
-     * @return the value of stages
-     */
-    public List<TIDIRStage> getStages() {
-        return stages;
-    }
-
-    /**
-     * Set the value of stages
-     *
-     * @param stages new value of stages
-     */
-    public void setStages(List<TIDIRStage> stages) {
-        this.stages = stages;
-    }
-
     /**
      * Get the value of period
      *

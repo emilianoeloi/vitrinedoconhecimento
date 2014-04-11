@@ -2,39 +2,45 @@
  * Created by emiliano.barbosa on 08/04/14.
  */
 vdcServices.factory('Teacher', ['$resource',
-    function($resource){
+    function($resource) {
         return $resource('api/teachers/:_id', {}, {
             query: {
-                method:'GET',
-                isArray:true
+                method: 'GET',
+                isArray: true
             },
             update: {
-                method:'PUT'
+                method: 'PUT'
             },
             insert: {
                 method: 'POST'
             },
             remove: {
                 method: 'DELETE'
+            },
+            search: {
+                method: 'GET'
             }
         });
     }]);
 
 vdcServices.factory('CollegeClass', ['$resource',
-    function($resource){
+    function($resource) {
         return $resource('api/collegeclasses/:_id', {}, {
             query: {
-                method:'GET',
-                isArray:true
+                method: 'GET',
+                isArray: true
             },
             update: {
-                method:'PUT'
+                method: 'PUT'
             },
             insert: {
                 method: 'POST'
             },
             remove: {
                 method: 'DELETE'
+            },
+            search: {
+                method: 'GET'
             }
         });
     }]);
