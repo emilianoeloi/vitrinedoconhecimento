@@ -13,9 +13,11 @@ import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
+import com.una.vdc.model.user.Student;
 import com.una.vdc.persistence.DatabaseConnection;
 import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.persistence.dao.ModuleTeacherDAO;
+import com.una.vdc.persistence.dao.StudentDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -76,8 +78,14 @@ public class Principal {
     public static void main(String[] args) throws InsertException, UpdateException {
         Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
-
         
-
+        StudentDAO sdao = new StudentDAO(em);
+        
+        Student s = sdao.getById(4L);
+        
+        s.setName("u name");
+        
+        sdao.update(s);
+        sdao.delete(s);
     }
 }
