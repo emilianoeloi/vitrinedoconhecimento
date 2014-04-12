@@ -27,6 +27,47 @@ public abstract class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    
+    private String email;
+    
+    private String homePhone;
+
+    /**
+     * Get the value of homePhone
+     *
+     * @return the value of homePhone
+     */
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    /**
+     * Set the value of homePhone
+     *
+     * @param homePhone new value of homePhone
+     */
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    /**
+     * Get the value of email
+     *
+     * @return the value of email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @param email new value of email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 
     /**
      * Get the value of name
