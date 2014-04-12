@@ -69,8 +69,8 @@ public class StudentService {
     @Path("/{_id}")
     public Response deleteStudent(@PathParam("_id") long id) {
         try {
-            Student deletedStudent = new Student();
-            deletedStudent.setId(id);
+            
+            Student deletedStudent = studentController.getStudentById(id);
             studentController.removeStudent(deletedStudent);
             return Response.ok().build();
         } catch (Exception e) {
