@@ -5,15 +5,24 @@
  */
 package com.una.vdc.principal;
 
+import com.una.vdc.bo.MentorTeacherController;
+import com.una.vdc.bo.ModuleTeacherController;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
+import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
+import com.una.vdc.model.user.Student;
 import com.una.vdc.persistence.DatabaseConnection;
+import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.persistence.dao.ModuleTeacherDAO;
+import com.una.vdc.persistence.dao.StudentDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,23 +78,14 @@ public class Principal {
     public static void main(String[] args) throws InsertException, UpdateException {
         Principal p = new Principal();
         EntityManager em = DatabaseConnection.instance().getManager();
-
-//        p.criarProfessoresModulo();
-//        p.criarTurmas();
-        ModuleTeacherDAO dao = new ModuleTeacherDAO(em);
-
-        ModuleTeacher a = dao.getById(2L);
         
-        a.setName("aaa");
+        StudentDAO sdao = new StudentDAO(em);
         
+        Student s = sdao.getById(4L);
         
+        s.setName("u name");
         
-        dao.update(a);
-        
-        dao.delete(a);
-        
-//        ModuleTeacher a = dao.getById(2L);
-//        dao.delete(a);
-
+        sdao.update(s);
+        sdao.delete(s);
     }
 }
