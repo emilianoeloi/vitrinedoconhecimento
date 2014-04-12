@@ -5,9 +5,7 @@
  */
 package com.una.vdc.persistence.dao;
 
-import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.model.user.Student;
-import java.util.List;
 import javax.persistence.EntityManager;
 
 /**
