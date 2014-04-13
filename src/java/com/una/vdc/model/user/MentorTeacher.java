@@ -14,6 +14,9 @@ import javax.persistence.Entity;
 @Entity
 public class MentorTeacher extends User {
 
+    public MentorTeacher() {
+    }
+    
     @Override
     public String toString() {
         return "[Mentor Teacher " + getName() + " ]"; //To change body of generated methods, choose Tools | Templates.

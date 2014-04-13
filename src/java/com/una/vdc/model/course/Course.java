@@ -6,7 +6,6 @@
 package com.una.vdc.model.course;
 
 import com.una.vdc.exception.InsertException;
-import com.una.vdc.model.project.TIDIRStage;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -27,31 +26,11 @@ public class Course implements Serializable {
     private Long ID;
     private String name;
     
-    @OneToMany(mappedBy = "course")
-    private List<Period> period;
-    
-    /**
-     * Get the value of period
-     *
-     * @return the value of period
-     */
-    public List<Period> getPeriod() {
-        return period;
-    }
-
-    /**
-     * Set the value of period
-     *
-     * @param period new value of period
-     */
-    public void setPeriod(List<Period> period) {
-        this.period = period;
-    }
 
     public Course() {
     }
 
-    public Course(String name, CollegeClass clazz) {
+    public Course(String name, List<Period> period) {
         this.name = name;
     }
 

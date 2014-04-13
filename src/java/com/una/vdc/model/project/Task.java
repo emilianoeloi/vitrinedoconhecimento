@@ -37,6 +37,16 @@ public class Task implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date expectedEnd;
 
+    public Task() {
+    }
+
+    public Task(String descTask, TIDIRStage tidirStage, Date expectedStart, Date expectedEnd) {
+        this.descTask = descTask;
+        this.tidirStage = tidirStage;
+        this.expectedStart = expectedStart;
+        this.expectedEnd = expectedEnd;
+    }
+    
     /**
      * Get the value of expectedEnd
      *

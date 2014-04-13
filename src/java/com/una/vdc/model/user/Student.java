@@ -25,6 +25,14 @@ public class Student extends User{
     @ManyToOne(cascade = CascadeType.ALL)
     private TIDIRGroup tidirGroup;
 
+    public Student() {
+    }
+
+    public Student(CollegeClass collegeClass, TIDIRGroup tidirGroup) {
+        this.collegeClass = collegeClass;
+        this.tidirGroup = tidirGroup;
+    }
+    
     /**
      * Get the value of tidirGroup
      *
