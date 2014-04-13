@@ -6,25 +6,28 @@
 package com.una.vdc.persistence.dao;
 
 import com.una.vdc.exception.AssociationException;
-import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
+import com.una.vdc.model.user.User;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
  * @author Ulrik
  */
-public class MentorTeacherDAO extends GenericDAO<Long, MentorTeacher> {
+public class MentorTeacherDAO extends GenericDAO<Long, MentorTeacher> implements ITeacher {
 
     public MentorTeacherDAO(EntityManager entityManager) {
         super(entityManager);
     }
 
-    public void associateMentorTeacherToClass(MentorTeacher teacher, CollegeClass cclass) throws AssociationException{        
+    @Override
+    public void associateTeacherToClass(User teacher, CollegeClass cclass) throws AssociationException {
         try {
             et.begin();
-            cclass.setMentorTeacher(teacher);
+            cclass.setMentorTeacher((MentorTeacher) teacher);
             em.merge(teacher);
             em.merge(cclass);
             et.commit();
@@ -32,28 +35,26 @@ public class MentorTeacherDAO extends GenericDAO<Long, MentorTeacher> {
             et.rollback();
             throw new AssociationException(e.getMessage());
         }
-        
+
     }
 
-//    public List<MentorTeacher> getTeachersByCollegeClass(long idClasse) {
-//        em = DatabaseConnection.instance().getManager();
-//        Query query = em.createQuery("SELECT t FROM Teacher t JOIN t.classes c WHERE c.id = :classe");
-//        query.setParameter("classe", idClasse);
-//        return query.getResultList();
-//    }
+//    SELECT t FROM ModuleTeacher t JOIN t.collegeClass c WHERE c.id = :classe
+    public MentorTeacher getTeacherByClass(long idClass) {
+        et.begin();
+        Query query = em.createQuery("SELECT t FROM MentorTeacher t JOIN t.collegeClass c WHERE c.id = :mid");
+        query.setParameter("mid", idClass);
 
-//    public List<MentorTeacher> getTeachersByName(String name) {
-//        em = DatabaseConnection.instance().getManager();
-//        TypedQuery<MentorTeacher> query = em.createQuery("SELECT t FROM Teacher t WHERE t.name like :nome", MentorTeacher.class);
-//        query.setParameter("nome", "%" + name + "%");
-//        return query.getResultList();
-//
-//    }
-//
-//    public boolean checkIfTeacherIsInClass(MentorTeacher t, CollegeClass c) {
-//        List<MentorTeacher> teachers;
-//        teachers = getTeachersByCollegeClass(c.getID());
-//        return teachers.contains(t);
-//    }
+        return (MentorTeacher) query.getSingleResult();
+    }
+
+    @Override
+    public List<User> getTeachersByName(String name) {
+        return null;
+    }
+
+    @Override
+    public boolean checkIfTeacherIsInClass(User t, CollegeClass c) {
+        return true;
+    }
 
 }
