@@ -1,0 +1,22 @@
+Story: Associação Professor-Orientador/Turma
+Como coordenador do curso
+Preciso associar Professores-Orientadores a Turmas
+Para que tenham a liberação para  conduzir os projetos daquela turma específica
+
+
+Scenario: Associar professor-orientador a turma
+Given desejo associar <professor-orientador> a turma
+When seleciono a <turma> e clico em salvar
+Then exibe a seguinte mensagem <mensagem>
+
+Examples:
+|professor-orientador|turma|mensagem|
+|1                   |1|Professor-orientador associado com sucesso|
+|1                   |1|Este professor já está associado a esta turma|
+|2                   |1|Essa turma já possui um professor-orientador| 
+
+
+
+
+
+
