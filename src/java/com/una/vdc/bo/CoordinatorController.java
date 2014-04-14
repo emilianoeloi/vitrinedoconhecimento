@@ -7,6 +7,7 @@ package com.una.vdc.bo;
 
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
+import com.una.vdc.model.project.TIDIRStage;
 import com.una.vdc.persistence.dao.CoordinatorDAO;
 import com.una.vdc.model.user.Coordinator;
 import com.una.vdc.persistence.DatabaseConnection;
@@ -44,6 +45,10 @@ public class CoordinatorController {
 
     public void updateCoordinator(Coordinator c) throws UpdateException {
         dao.update(c);
+    }
+    
+    public void createStage(TIDIRStage s) throws InsertException{
+        dao.createStage(s);
     }
 
 }

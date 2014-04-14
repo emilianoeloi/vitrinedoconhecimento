@@ -6,6 +6,7 @@
 
 package com.una.vdc.persistence.dao;
 
+import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.project.TIDIRStage;
 import com.una.vdc.model.user.Coordinator;
 import javax.persistence.EntityManager;
@@ -20,12 +21,13 @@ public class CoordinatorDAO extends GenericDAO<Long, Coordinator>{
         super(entityManager);
     }
     
-    public void createStage(TIDIRStage stage){
+    public void createStage(TIDIRStage stage) throws InsertException{
         try {
             et.begin();
             em.merge(stage);
             et.commit();
         } catch (Exception e) {
+            throw new InsertException(e.getMessage());
         }
     }
     
