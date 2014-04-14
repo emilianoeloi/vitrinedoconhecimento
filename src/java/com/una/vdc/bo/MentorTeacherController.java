@@ -5,6 +5,7 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.AssociationException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.persistence.dao.MentorTeacherDAO;
@@ -27,13 +28,12 @@ public class MentorTeacherController {
         dao = new MentorTeacherDAO(em);
     }
 
-    public void associateModuleTeacherToClass(MentorTeacher teacher, CollegeClass cclass) {
-//            dao.associateTeacherToClass(teacher, cclass);
+    public void associateModuleTeacherToClass(MentorTeacher teacher, CollegeClass cclass) throws AssociationException {
+        dao.associateTeacherToClass(teacher, cclass);
     }
     
-    public List<MentorTeacher> getTeachersByClass(Long idClass){
-//        return dao.getTeachersByCollegeClass(idClass);
-        return null;
+    public MentorTeacher getTeacherByClass(Long idClass){
+        return dao.getTeacherByClass(idClass);
     }
 
     public MentorTeacher getTeacherById(Long id) {
