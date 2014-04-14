@@ -17,13 +17,41 @@ import javax.persistence.ManyToOne;
  * @author Ulrik
  */
 @Entity
-public class Student extends User{
+public class Student extends User {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private CollegeClass collegeClass;
-    
+
     @ManyToOne(cascade = CascadeType.ALL)
     private TIDIRGroup tidirGroup;
+
+    private String ra;
+
+    /**
+     * Get the value of ra
+     *
+     * @return the value of ra
+     */
+    public String getRa() {
+        return ra;
+    }
+
+    /**
+     * Set the value of ra
+     *
+     * @param ra new value of ra
+     */
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
+    public Student() {
+    }
+
+    public Student(CollegeClass collegeClass, TIDIRGroup tidirGroup) {
+        this.collegeClass = collegeClass;
+        this.tidirGroup = tidirGroup;
+    }
 
     /**
      * Get the value of tidirGroup

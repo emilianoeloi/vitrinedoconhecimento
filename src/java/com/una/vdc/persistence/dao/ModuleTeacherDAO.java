@@ -51,7 +51,6 @@ public class ModuleTeacherDAO extends GenericDAO<Long, ModuleTeacher> {
     
     
     public List<ModuleTeacher> getTeachersByName(String name) {
-        em = DatabaseConnection.instance().getManager();
         TypedQuery<ModuleTeacher> query = em.createQuery("SELECT t FROM ModuleTeacher t WHERE t.name like :n", ModuleTeacher.class);
         query.setParameter("n", "%" + name + "%");
         return query.getResultList();

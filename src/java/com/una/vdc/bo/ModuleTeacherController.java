@@ -57,7 +57,7 @@ public class ModuleTeacherController {
         return dao.getModuleTeachersByCollegeClass(idClasse);
     }
     
-    public List<ModuleTeacher> getTeachersByName(String name){
+    public List<ModuleTeacher> getModuleTeachersByName(String name){
         return dao.getTeachersByName(name);
     }
     

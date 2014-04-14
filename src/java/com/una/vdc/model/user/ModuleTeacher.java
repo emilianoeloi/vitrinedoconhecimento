@@ -19,6 +19,13 @@ public class ModuleTeacher extends User {
     
     @ManyToMany(mappedBy = "moduleTeacher")
     private List<CollegeClass> collegeClass;
+
+    public ModuleTeacher() {
+    }
+
+    public ModuleTeacher(List<CollegeClass> collegeClass) {
+        this.collegeClass = collegeClass;
+    }
     
     /**
      * Get the value of collegeClass

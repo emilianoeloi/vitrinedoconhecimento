@@ -35,7 +35,13 @@ public class TIDIRGroup implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     private CollegeClass collegeClass;
 
-    
+    public TIDIRGroup() {
+    }
+
+    public TIDIRGroup(List<Student> students, CollegeClass collegeClass) {
+        this.students = students;
+        this.collegeClass = collegeClass;
+    }
     
     /**
      * Get the value of collegeClass
@@ -53,9 +59,6 @@ public class TIDIRGroup implements Serializable {
      */
     public void setCollegeClass(CollegeClass collegeClass) {
         this.collegeClass = collegeClass;
-    }
-
-    public TIDIRGroup() {
     }
 
     /**

@@ -6,7 +6,6 @@
 package com.una.vdc.model.course;
 
 import com.una.vdc.exception.InsertException;
-import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.model.user.Student;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
@@ -41,12 +40,20 @@ public class CollegeClass implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<ModuleTeacher> moduleTeacher;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Period period;
 
     public CollegeClass() {
     }
 
+    public CollegeClass(String name, List<Student> students, MentorTeacher mentorTeacher, List<ModuleTeacher> moduleTeacher, Period period) {
+        this.name = name;
+        this.students = students;
+        this.mentorTeacher = mentorTeacher;
+        this.moduleTeacher = moduleTeacher;
+        this.period = period;
+    }
+    
     /**
      * Get the value of period
      *

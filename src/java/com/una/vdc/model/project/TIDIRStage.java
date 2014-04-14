@@ -39,6 +39,9 @@ public class TIDIRStage implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     private Period period;
 
+    public TIDIRStage() {
+    }
+    
     public TIDIRStage(String stageName, List<Task> tasks, Course course, Period period) {
         this.stageName = stageName;
         this.tasks = tasks;
