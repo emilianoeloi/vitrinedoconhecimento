@@ -17,7 +17,7 @@ import javax.persistence.TypedQuery;
  */
 public class CollegeClassDAO extends GenericDAO<Long, CollegeClass> {
     
-    private static final String JPQL_GET_COLLEGECLASSES_BY_COURSE = "SELECT c FROM CollegeClass c JOIN c.period.course cc WHERE cc.ID = :course";
+    private static final String JPQL_GET_COLLEGECLASSES_BY_COURSE = "SELECT c FROM CollegeClass c JOIN c.period.course cc WHERE cc.id = :course";
 
     public CollegeClassDAO(EntityManager entityManager) {
         super(entityManager);
@@ -29,15 +29,14 @@ public class CollegeClassDAO extends GenericDAO<Long, CollegeClass> {
         return query.getResultList();
     }
     
-    public List<CollegeClass> getCollegeClassesByName(CollegeClass collegeClass) {
+    public List<CollegeClass> getCollegeClassesByName(String className, Long idCourse) {
         StringBuilder jpql = new StringBuilder();
         jpql.append(JPQL_GET_COLLEGECLASSES_BY_COURSE);
         jpql.append(" AND c.name like :name");
         TypedQuery<CollegeClass> query = em.createQuery(jpql.toString(), CollegeClass.class);
-        query.setParameter("course", collegeClass.getPeriod().getCourse().getId());
-        query.setParameter("name", "%" + collegeClass.getName() + "%");
+        query.setParameter("course", idCourse);
+        query.setParameter("name", "%" + className + "%");
         return query.getResultList();
-
     }
 
 }

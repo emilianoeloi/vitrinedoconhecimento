@@ -7,8 +7,12 @@ package com.una.vdc.services;
 
 import com.google.gson.Gson;
 import com.una.vdc.bo.CollegeClassController;
+import com.una.vdc.exception.InsertException;
+import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.course.CollegeClass;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -27,6 +31,8 @@ import javax.ws.rs.core.Response;
 @Path("/collegeclasses")
 @Consumes(MediaType.APPLICATION_JSON)
 public class CollegeClassService {
+    
+    private Logger logger = Logger.getLogger("com.una.vdc.services");
 
     private CollegeClassController collegeClassController = new CollegeClassController();
 
@@ -41,10 +47,10 @@ public class CollegeClassService {
     }
     
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response searchCollegeClasses(String strCollegeClass) {
         CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
-        List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass);
+        List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass.getName(), collegeClass.getPeriod().getCourse().getId());
         String json = new Gson().toJson(collegeClassList);
         return Response.ok().entity(json).build();
 
@@ -57,8 +63,10 @@ public class CollegeClassService {
             CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
             collegeClassController.insertCollegeClass(collegeClass);
             return Response.status(Response.Status.CREATED).build();
-        } catch (Exception exc) {
-            return Response.serverError().build();
+        } catch (InsertException exc) {
+            String json = new Gson().toJson(exc);
+            logger.log(Level.ALL, exc.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();
         }
     }
 
@@ -66,13 +74,10 @@ public class CollegeClassService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{_id}")
     public Response getCollegeClass(@PathParam("_id") long id) {
-        try {
-            CollegeClass t = collegeClassController.getCollegeClassById(id);
-            String json = new Gson().toJson(t);
-            return Response.ok().entity(json).build();
-        } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
-        }
+        CollegeClass t = collegeClassController.getCollegeClassById(id);
+        String json = new Gson().toJson(t);
+        return Response.ok().entity(json).build();
+
     }
 
     @DELETE
@@ -83,8 +88,10 @@ public class CollegeClassService {
             CollegeClass deletedCollegeClass = collegeClassController.getCollegeClassById(id);
             collegeClassController.removeCollegeClass(deletedCollegeClass);
             return Response.ok().build();
-        } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+        } catch (UpdateException exc) {
+            String json = new Gson().toJson(exc);
+            logger.log(Level.ALL, exc.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();
         }
     }
 
@@ -95,8 +102,10 @@ public class CollegeClassService {
             CollegeClass updetedCollegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
             collegeClassController.updateCollegeClass(updetedCollegeClass);
             return Response.ok().build();
-        } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+        } catch (UpdateException exc) {
+            String json = new Gson().toJson(exc);
+            logger.log(Level.ALL, exc.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();
         }
     }
 }
