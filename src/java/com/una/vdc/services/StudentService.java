@@ -42,9 +42,9 @@ public class StudentService {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response saveStudent(String student_str) {
+    public Response saveStudent(String strStudent) {
         try {
-            Student student = new Gson().fromJson(student_str, Student.class);
+            Student student = new Gson().fromJson(strStudent, Student.class);
             studentController.insertStudent(student);
             return Response.status(Response.Status.CREATED).build();
         } catch (Exception exc) {
@@ -80,9 +80,9 @@ public class StudentService {
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response upadateStudent(String student_str) {
+    public Response upadateStudent(String strStudent) {
         try {
-            Student updetedStudent = new Gson().fromJson(student_str, Student.class);
+            Student updetedStudent = new Gson().fromJson(strStudent, Student.class);
             studentController.updateStudent(updetedStudent);
             return Response.ok().build();
         } catch (Exception e) {
