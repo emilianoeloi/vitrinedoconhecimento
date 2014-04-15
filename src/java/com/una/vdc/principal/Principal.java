@@ -7,8 +7,11 @@ package com.una.vdc.principal;
 
 import com.una.vdc.bo.GroupController;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.una.vdc.bo.ModuleTeacherController;
 import com.una.vdc.bo.PeriodController;
+=======
+>>>>>>> c02768ffbb3697f4a7ca0a0f967b4cf49d0aa4ee
 =======
 >>>>>>> c02768ffbb3697f4a7ca0a0f967b4cf49d0aa4ee
 import com.una.vdc.bo.StudentController;
@@ -135,6 +138,7 @@ public class Principal {
     public static void main(String[] args) throws InsertException, UpdateException, AssociationException {
         EntityManager em = DatabaseConnection.instance().getManager();
 <<<<<<< HEAD
+<<<<<<< HEAD
         CollegeClassController ccc = new CollegeClassController();
         StudentController sc = new StudentController();
         GroupController gc = new GroupController();
@@ -146,6 +150,8 @@ public class Principal {
         group.getStudents().add(sc.getStudentById(1L));
         
 =======
+=======
+>>>>>>> c02768ffbb3697f4a7ca0a0f967b4cf49d0aa4ee
      
         StudentDAO sdao = new StudentDAO(em);
         StudentController sc = new StudentController();
