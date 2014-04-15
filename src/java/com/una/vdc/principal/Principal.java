@@ -5,25 +5,23 @@
  */
 package com.una.vdc.principal;
 
-import com.una.vdc.bo.CollegeClassController;
 import com.una.vdc.bo.GroupController;
+<<<<<<< HEAD
 import com.una.vdc.bo.ModuleTeacherController;
 import com.una.vdc.bo.PeriodController;
+=======
+>>>>>>> c02768ffbb3697f4a7ca0a0f967b4cf49d0aa4ee
 import com.una.vdc.bo.StudentController;
 import com.una.vdc.exception.AssociationException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
-import com.una.vdc.model.user.Student;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.course.Course;
 import com.una.vdc.model.course.Period;
-import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
 import com.una.vdc.persistence.DatabaseConnection;
-import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.persistence.dao.CourseDAO;
-import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.persistence.dao.PeriodDAO;
 import com.una.vdc.persistence.dao.StudentDAO;
 import java.util.ArrayList;
@@ -80,11 +78,11 @@ public class Principal {
         PeriodDAO pdao = new PeriodDAO(em);
 
         CollegeClass c1 = new CollegeClass();
-        c1.setNome("Turma A - 1 Periodo - ADS");
+        c1.setName("Turma A - 1 Periodo - ADS");
         c1.setPeriod(pdao.getById(1L));
 
         CollegeClass c2 = new CollegeClass();
-        c2.setNome("Turma B - 1 Periodo - Redes");
+        c2.setName("Turma B - 1 Periodo - Redes");
         c2.setPeriod(pdao.getById(2L));
 
         et.begin();
@@ -136,6 +134,7 @@ public class Principal {
     
     public static void main(String[] args) throws InsertException, UpdateException, AssociationException {
         EntityManager em = DatabaseConnection.instance().getManager();
+<<<<<<< HEAD
         CollegeClassController ccc = new CollegeClassController();
         StudentController sc = new StudentController();
         GroupController gc = new GroupController();
@@ -146,6 +145,14 @@ public class Principal {
         group.setStudents(new ArrayList<Student>());
         group.getStudents().add(sc.getStudentById(1L));
         
+=======
+     
+        StudentDAO sdao = new StudentDAO(em);
+        StudentController sc = new StudentController();
+        GroupController gg = new GroupController();
+        
+        sdao.checkIfStudentIsInGroup(sc.getStudentById(1L), gg.getGroupById(1L));
+>>>>>>> c02768ffbb3697f4a7ca0a0f967b4cf49d0aa4ee
         
         
     }

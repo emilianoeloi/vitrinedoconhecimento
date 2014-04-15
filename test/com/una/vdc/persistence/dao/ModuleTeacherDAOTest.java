@@ -57,7 +57,7 @@ public class ModuleTeacherDAOTest {
     public void testGetModuleTeachersByCollegeClass() {
         ModuleTeacher m = mDao.getById(2L);
         CollegeClass c1 = cDao.getById(1L);
-        long idClasse = c1.getID();
+        long idClasse = c1.getId();
         List<ModuleTeacher> expResult = new ArrayList<>();
         expResult.add(m);
         List<ModuleTeacher> result = mDao.getModuleTeachersByCollegeClass(idClasse);

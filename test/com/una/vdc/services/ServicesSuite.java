@@ -18,7 +18,7 @@ import org.junit.runners.Suite;
  * @author emilianoeloi
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({com.una.vdc.services.TeacherServiceTest.class})
+@Suite.SuiteClasses({CollegeClassServiceTest.class, StudentServiceTest.class})
 public class ServicesSuite {
 
     @BeforeClass

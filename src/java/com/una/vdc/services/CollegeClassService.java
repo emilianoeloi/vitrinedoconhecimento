@@ -6,8 +6,8 @@
 package com.una.vdc.services;
 
 import com.google.gson.Gson;
-import com.una.vdc.bo.StudentController;
-import com.una.vdc.model.user.Student;
+import com.una.vdc.bo.CollegeClassController;
+import com.una.vdc.model.course.CollegeClass;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -24,28 +24,38 @@ import javax.ws.rs.core.Response;
  *
  * @author emilianoeloi
  */
-@Path("/students")
+@Path("/collegeclasses")
 @Consumes(MediaType.APPLICATION_JSON)
-public class StudentService {
+public class CollegeClassService {
 
-    private StudentController studentController = new StudentController();
+    private CollegeClassController collegeClassController = new CollegeClassController();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getStudentes() {
+    public Response getCollegeClasses() {
 
-        List<Student> studentList = studentController.getAllStudents();
-        String json = new Gson().toJson(studentList);
+        List<CollegeClass> collegeClassList = collegeClassController.getAllCollegeClasses();
+        String json = new Gson().toJson(collegeClassList);
+        return Response.ok().entity(json).build();
+
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response searchCollegeClasses(String strCollegeClass) {
+        CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
+        List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass);
+        String json = new Gson().toJson(collegeClassList);
         return Response.ok().entity(json).build();
 
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response saveStudent(String strStudent) {
+    public Response saveCollegeClass(String strCollegeClass) {
         try {
-            Student student = new Gson().fromJson(strStudent, Student.class);
-            studentController.insertStudent(student);
+            CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
+            collegeClassController.insertCollegeClass(collegeClass);
             return Response.status(Response.Status.CREATED).build();
         } catch (Exception exc) {
             return Response.serverError().build();
@@ -55,9 +65,9 @@ public class StudentService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{_id}")
-    public Response getStudent(@PathParam("_id") long id) {
+    public Response getCollegeClass(@PathParam("_id") long id) {
         try {
-            Student t = studentController.getStudentById(id);
+            CollegeClass t = collegeClassController.getCollegeClassById(id);
             String json = new Gson().toJson(t);
             return Response.ok().entity(json).build();
         } catch (Exception e) {
@@ -67,11 +77,11 @@ public class StudentService {
 
     @DELETE
     @Path("/{_id}")
-    public Response deleteStudent(@PathParam("_id") long id) {
+    public Response deleteCollegeClass(@PathParam("_id") long id) {
         try {
             
-            Student deletedStudent = studentController.getStudentById(id);
-            studentController.removeStudent(deletedStudent);
+            CollegeClass deletedCollegeClass = collegeClassController.getCollegeClassById(id);
+            collegeClassController.removeCollegeClass(deletedCollegeClass);
             return Response.ok().build();
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();
@@ -80,10 +90,10 @@ public class StudentService {
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response upadateStudent(String strStudent) {
+    public Response upadateCollegeClass(String strCollegeClass) {
         try {
-            Student updetedStudent = new Gson().fromJson(strStudent, Student.class);
-            studentController.updateStudent(updetedStudent);
+            CollegeClass updetedCollegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
+            collegeClassController.updateCollegeClass(updetedCollegeClass);
             return Response.ok().build();
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();

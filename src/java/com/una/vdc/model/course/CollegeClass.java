@@ -135,7 +135,7 @@ public class CollegeClass implements Serializable {
      *
      * @return the value of nome
      */
-    public String getNome() {
+    public String getName() {
         return name;
     }
 
@@ -144,15 +144,15 @@ public class CollegeClass implements Serializable {
      *
      * @param nome new value of nome
      */
-    public void setNome(String nome) {
+    public void setName(String nome) {
         this.name = nome;
     }
 
-    public Long getID() {
+    public Long getId() {
         return id;
     }
 
-    public void setID(Long ID) {
+    public void setId(Long ID) {
         this.id = ID;
     }
 

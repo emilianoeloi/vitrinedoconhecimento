@@ -29,6 +29,10 @@ public class CollegeClassController {
     public CollegeClass getCollegeClassById(Long id) {
         return dao.getById(id);
     }
+    
+    public List<CollegeClass> getCollegeClassByName(CollegeClass collegeClass) {
+        return dao.getCollegeClassesByName(collegeClass);
+    }
 
     public List<CollegeClass> getAllCollegeClasses() {
         return dao.findAll();
