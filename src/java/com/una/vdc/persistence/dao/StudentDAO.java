@@ -30,13 +30,13 @@ public class StudentDAO extends GenericDAO<Long, Student> {
         et.begin();
         em.merge(students);
         em.merge(g);
-        
+
         for (Student student : students) {
             if (!checkIfStudentIsInGroup(student, g)) {
                 studentsInGroup.add(student);
             }
         }
-        
+
         em.merge(g);
         et.commit();
     }
