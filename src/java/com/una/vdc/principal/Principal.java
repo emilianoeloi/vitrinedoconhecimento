@@ -72,11 +72,11 @@ public class Principal {
         PeriodDAO pdao = new PeriodDAO(em);
 
         CollegeClass c1 = new CollegeClass();
-        c1.setNome("Turma A - 1 Periodo - ADS");
+        c1.setName("Turma A - 1 Periodo - ADS");
         c1.setPeriod(pdao.getById(1L));
 
         CollegeClass c2 = new CollegeClass();
-        c2.setNome("Turma B - 1 Periodo - Redes");
+        c2.setName("Turma B - 1 Periodo - Redes");
         c2.setPeriod(pdao.getById(2L));
 
         et.begin();

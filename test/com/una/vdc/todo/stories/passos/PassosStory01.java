@@ -36,7 +36,7 @@ public class PassosStory01 {
     @When("seleciono a <turma> e clico em salvar")
      public void getIdCollegeClass(@Named("<turma>") Long id){
          collegeClass = new CollegeClass();
-         collegeClass.setID(id);
+         collegeClass.setId(id);
      }
     
     @Then("exibe a seguinte mensagem <mensagem>")  //verificar

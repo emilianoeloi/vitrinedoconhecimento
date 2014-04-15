@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Course implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long ID;
+    private Long id;
     private String name;
     
 
@@ -52,18 +51,18 @@ public class Course implements Serializable {
         this.name = name;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long ID) {
+        this.id = ID;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (ID != null ? ID.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -74,7 +73,7 @@ public class Course implements Serializable {
             return false;
         }
         Course other = (Course) object;
-        if ((this.ID == null && other.ID != null) || (this.ID != null && !this.ID.equals(other.ID))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;

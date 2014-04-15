@@ -29,7 +29,7 @@ public class ModuleTeacherDAO extends GenericDAO<Long, ModuleTeacher> {
             et.begin();
             ModuleTeacher t = em.merge(m);
             CollegeClass c = em.merge(cclass);
-            List<ModuleTeacher> teachers = getModuleTeachersByCollegeClass((long) cclass.getID());
+            List<ModuleTeacher> teachers = getModuleTeachersByCollegeClass((long) cclass.getId());
             if (!checkIfTeacherIsInClass(t, c)) {
                 c.setModuleTeacher(teachers);
                 c.getModuleTeacher().add(t);
@@ -59,7 +59,7 @@ public class ModuleTeacherDAO extends GenericDAO<Long, ModuleTeacher> {
         
     public boolean checkIfTeacherIsInClass(ModuleTeacher t, CollegeClass c) {
         List<ModuleTeacher> teachers;
-        teachers = getModuleTeachersByCollegeClass(c.getID());
+        teachers = getModuleTeachersByCollegeClass(c.getId());
         return teachers.contains(t);
     }
     
