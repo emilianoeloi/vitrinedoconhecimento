@@ -17,7 +17,7 @@ import javax.persistence.TypedQuery;
  */
 public class CollegeClassDAO extends GenericDAO<Long, CollegeClass> {
     
-    private static final String JPQL_GET_COLLEGECLASSES_BY_COURSE = "SELECT c FROM CollegeClass c JOIN c.period.course cc WHERE cc.ID = :course";
+    private static final String JPQL_GET_COLLEGECLASSES_BY_COURSE = "SELECT c FROM CollegeClass c JOIN c.period.course cc WHERE cc.id = :course";
 
     public CollegeClassDAO(EntityManager entityManager) {
         super(entityManager);

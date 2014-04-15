@@ -11,7 +11,6 @@ import com.una.vdc.persistence.DatabaseConnection;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
-import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -26,6 +25,8 @@ import org.junit.Test;
 public class CollegeClassDAOTest {
     
     private CollegeClassDAO dao;
+    private CourseDAO cdao;
+    private PeriodDAO pdao;
     
     public CollegeClassDAOTest() {
     }
@@ -42,6 +43,8 @@ public class CollegeClassDAOTest {
     public void setUp() {
         EntityManager em = DatabaseConnection.instance().getManager();
         dao = new CollegeClassDAO(em);
+        cdao = new CourseDAO(em);
+        pdao = new PeriodDAO(em);
     }
     
     @After
@@ -53,7 +56,9 @@ public class CollegeClassDAOTest {
      */
     @Test
     public void testGetCollegeClassesByCourse() {
-
+        List<CollegeClass> expResult = new ArrayList<>();
+        expResult.add(dao.getById(1L));        
+        assertEquals(expResult, dao.getCollegeClassesByCourse(1L));
     }
 
     /**
@@ -64,7 +69,15 @@ public class CollegeClassDAOTest {
         List<CollegeClass> expResult = new ArrayList<>();
         expResult.add(dao.getById(1L));
         
-        assertEquals(expResult, dao.getCollegeClassesByCourse(1L));
+        CollegeClass c = new CollegeClass();
+        c.setName("ADS");
+        c.setPeriod(pdao.getById(1L));
+        c.getPeriod().setCourse(cdao.getById(1L));
+        
+        List<CollegeClass> actualRes = new ArrayList<>();
+        actualRes.add(c);
+        
+        assertEquals(expResult, actualRes);
     }
-    
+       
 }
