@@ -7,6 +7,7 @@ package com.una.vdc.principal;
 
 import com.una.vdc.bo.CollegeClassController;
 import com.una.vdc.bo.GroupController;
+import com.una.vdc.bo.ModuleTeacherController;
 import com.una.vdc.bo.PeriodController;
 import com.una.vdc.bo.StudentController;
 import com.una.vdc.exception.AssociationException;
@@ -25,6 +26,7 @@ import com.una.vdc.persistence.dao.CourseDAO;
 import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.persistence.dao.PeriodDAO;
 import com.una.vdc.persistence.dao.StudentDAO;
+import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -41,7 +43,7 @@ import javax.persistence.EntityTransaction;
  */
 public class Principal {
 
-    public void criarCursos() throws InsertException {
+    public static void criarCursos() throws InsertException {
         EntityManager em = DatabaseConnection.instance().getManager();
         CourseDAO dao = new CourseDAO(em);
         Course ads = new Course();
@@ -55,7 +57,7 @@ public class Principal {
         dao.save(logistica);
     }
 
-    public void criarPeriodos() throws InsertException {
+    public static void criarPeriodos() throws InsertException {
         EntityManager em = DatabaseConnection.instance().getManager();
         PeriodDAO pdao = new PeriodDAO(em);
         CourseDAO cdao = new CourseDAO(em);
@@ -71,7 +73,7 @@ public class Principal {
         pdao.save(quartoLogistica);
     }
 
-    public void criarTurmas() {
+    public static void criarTurmas() {
         EntityManager em = DatabaseConnection.instance().getManager();
         EntityTransaction et = em.getTransaction();
 
@@ -91,7 +93,7 @@ public class Principal {
         et.commit();
     }
 
-    public void criarProfessoresOrientadores() {
+    public static void criarProfessoresOrientadores() {
         EntityManager em = DatabaseConnection.instance().getManager();
         EntityTransaction et = em.getTransaction();
         MentorTeacher m1 = new MentorTeacher();
@@ -107,7 +109,7 @@ public class Principal {
         et.commit();
     }
 
-    public void criarProfessoresModulo() {
+    public static void criarProfessoresModulo() {
         EntityManager em = DatabaseConnection.instance().getManager();
         EntityTransaction et = em.getTransaction();
         ModuleTeacher m1 = new ModuleTeacher();
@@ -123,42 +125,27 @@ public class Principal {
         et.commit();
     }
 
+    public static void criarAlunos() throws InsertException{
+        CollegeClassController ccc = new CollegeClassController();
+        StudentController sc = new StudentController();
+        Student s1 = new Student();
+        s1.setName("Daniel");
+        s1.setCollegeClass(ccc.getCollegeClassById(1L));
+        sc.insertStudent(s1);       
+    }
+    
     public static void main(String[] args) throws InsertException, UpdateException, AssociationException {
         EntityManager em = DatabaseConnection.instance().getManager();
-
-//        Principal p = new Principal();
-//        
-//        p.criarCursos();
-//        p.criarPeriodos();
-//        p.criarTurmas();
-//        p.criarProfessoresModulo();
-//        p.criarProfessoresOrientadores();
-//        MentorTeacherDAO dao = new MentorTeacherDAO(em);
-//        CollegeClassDAO cdao = new CollegeClassDAO(em);
-//        
-//        dao.associateTeacherToClass(dao.getById(4L), cdao.getById(2L));
-//        
-        StudentDAO sdao = new StudentDAO(em);
+        CollegeClassController ccc = new CollegeClassController();
         StudentController sc = new StudentController();
-//        CollegeClassController cc = new CollegeClassController();
-        GroupController gg = new GroupController();
+        GroupController gc = new GroupController();
         
-//        Student s1 = new Student();
-//        s1.setName("Estudante 1");
-//        s1.setRa("123456789");
-//
-//        sc.insertStudent(s1);
-//
-//        Student s2 = new Student();
-//        s2.setName("Estudante 2");
-//        s2.setRa("1234567891");
-//        
-//        sc.insertStudent(s2);
-//        
-//        TIDIRGroup g1 = new TIDIRGroup();
-//        g1.setCollegeClass(cc.getCollegeClassById(1L));
-//        gg.insertGroup(g1);
-        sdao.checkIfStudentIsInGroup(sc.getStudentById(1L), gg.getGroupById(1L));
+        TIDIRGroup group = new TIDIRGroup();
+        
+        group.setCollegeClass(ccc.getCollegeClassById(1L));
+        group.setStudents(new ArrayList<Student>());
+        group.getStudents().add(sc.getStudentById(1L));
+        
         
         
     }

@@ -15,6 +15,8 @@ import javax.persistence.EntityTransaction;
 /**
  *
  * @author Ulrik
+ * @param <PK>
+ * @param <T>
  */
 public class GenericDAO<PK, T> {
 
