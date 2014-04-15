@@ -30,8 +30,8 @@ public class CollegeClassController {
         return dao.getById(id);
     }
     
-    public List<CollegeClass> getCollegeClassByName(CollegeClass collegeClass) {
-        return dao.getCollegeClassesByName(collegeClass);
+    public List<CollegeClass> getCollegeClassByName(String name, Long idCourse) {
+        return dao.getCollegeClassesByName(name, idCourse);
     }
 
     public List<CollegeClass> getAllCollegeClasses() {

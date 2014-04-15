@@ -69,13 +69,7 @@ public class CollegeClassDAOTest {
         List<CollegeClass> expResult = new ArrayList<>();
         expResult.add(dao.getById(1L));
         
-        CollegeClass c = new CollegeClass();
-        c.setName("ADS");
-        c.setPeriod(pdao.getById(1L));
-        c.getPeriod().setCourse(cdao.getById(1L));
-        
-        List<CollegeClass> actualRes = new ArrayList<>();
-        actualRes.add(c);
+        List<CollegeClass> actualRes = dao.getCollegeClassesByName("ADS", 1L);
         
         assertEquals(expResult, actualRes);
     }
