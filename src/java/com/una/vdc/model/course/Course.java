@@ -29,7 +29,7 @@ public class Course implements Serializable {
     public Course() {
     }
 
-    public Course(String name, List<Period> period) {
+    public Course(String name) {
         this.name = name;
     }
 

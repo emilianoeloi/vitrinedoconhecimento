@@ -7,6 +7,7 @@ package com.una.vdc.persistence.dao;
 
 import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.model.user.Student;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -25,20 +26,17 @@ public class StudentDAO extends GenericDAO<Long, Student> {
 
     }
 
-    public void inviteStudentsToGroup(List<Student> students, TIDIRGroup g) {
-        List<Student> studentsInGroup = getStudentsByGroup(g.getId());
+    public void inviteStudentsToGroup(List<Student> s, TIDIRGroup g) {
         et.begin();
-        em.merge(students);
+        em.merge(s);
         em.merge(g);
-
+        List<Student> students = getStudentsByGroup(g.getId());
+        g.setStudents(students);
         for (Student student : students) {
-            if (!checkIfStudentIsInGroup(student, g)) {
-                studentsInGroup.add(student);
-            }
+            g.getStudents().add(student);
         }
-
         em.merge(g);
-        et.commit();
+        et.commit();        
     }
 
     public List<Student> getStudentsByGroup(long idGroup) {
@@ -48,8 +46,7 @@ public class StudentDAO extends GenericDAO<Long, Student> {
     }
 
     public boolean checkIfStudentIsInGroup(Student s, TIDIRGroup g) {
-        List<Student> studentsInGroup = getStudentsByGroup(g.getId());
-        return studentsInGroup.contains(s);
+        return true;
     }
 
 }
