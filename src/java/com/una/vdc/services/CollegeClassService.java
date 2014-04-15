@@ -46,15 +46,15 @@ public class CollegeClassService {
 
     }
     
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response searchCollegeClasses(String strCollegeClass) {
-//        CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
-//        List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass);
-//        String json = new Gson().toJson(collegeClassList);
-//        return Response.ok().entity(json).build();
-//
-//    }
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response searchCollegeClasses(String strCollegeClass) {
+        CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
+        List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass.getName(), collegeClass.getPeriod().getCourse().getId());
+        String json = new Gson().toJson(collegeClassList);
+        return Response.ok().entity(json).build();
+
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
