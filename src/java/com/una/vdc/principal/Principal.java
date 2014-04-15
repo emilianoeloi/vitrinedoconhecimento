@@ -5,24 +5,18 @@
  */
 package com.una.vdc.principal;
 
-import com.una.vdc.bo.CollegeClassController;
 import com.una.vdc.bo.GroupController;
-import com.una.vdc.bo.PeriodController;
 import com.una.vdc.bo.StudentController;
 import com.una.vdc.exception.AssociationException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
-import com.una.vdc.model.user.Student;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.course.Course;
 import com.una.vdc.model.course.Period;
-import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
 import com.una.vdc.persistence.DatabaseConnection;
-import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.persistence.dao.CourseDAO;
-import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.persistence.dao.PeriodDAO;
 import com.una.vdc.persistence.dao.StudentDAO;
 import javax.persistence.EntityManager;
@@ -125,39 +119,11 @@ public class Principal {
 
     public static void main(String[] args) throws InsertException, UpdateException, AssociationException {
         EntityManager em = DatabaseConnection.instance().getManager();
-
-//        Principal p = new Principal();
-//        
-//        p.criarCursos();
-//        p.criarPeriodos();
-//        p.criarTurmas();
-//        p.criarProfessoresModulo();
-//        p.criarProfessoresOrientadores();
-//        MentorTeacherDAO dao = new MentorTeacherDAO(em);
-//        CollegeClassDAO cdao = new CollegeClassDAO(em);
-//        
-//        dao.associateTeacherToClass(dao.getById(4L), cdao.getById(2L));
-//        
+     
         StudentDAO sdao = new StudentDAO(em);
         StudentController sc = new StudentController();
-//        CollegeClassController cc = new CollegeClassController();
         GroupController gg = new GroupController();
         
-//        Student s1 = new Student();
-//        s1.setName("Estudante 1");
-//        s1.setRa("123456789");
-//
-//        sc.insertStudent(s1);
-//
-//        Student s2 = new Student();
-//        s2.setName("Estudante 2");
-//        s2.setRa("1234567891");
-//        
-//        sc.insertStudent(s2);
-//        
-//        TIDIRGroup g1 = new TIDIRGroup();
-//        g1.setCollegeClass(cc.getCollegeClassById(1L));
-//        gg.insertGroup(g1);
         sdao.checkIfStudentIsInGroup(sc.getStudentById(1L), gg.getGroupById(1L));
         
         
