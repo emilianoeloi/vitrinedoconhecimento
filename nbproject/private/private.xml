@@ -3,16 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/model/course/Course.java</file>
-            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/model/course/CollegeClass.java</file>
-            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/conf/persistence.xml</file>
             <file>file:/D:/1_Projetos_Net_Beans/git_vdc/test/com/una/vdc/persistence/dao/StudentDAOTest.java</file>
-            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/insertScp.java</file>
             <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/persistence/dao/StudentDAO.java</file>
-=======
-            <file>file:/Users/emiliano.barbosa/git/vitrinedoconhecimento/src/java/com/una/vdc/services/CollegeClassService.java</file>
->>>>>>> 7a871a3cc1138d8c90e9a1ad582f3e091f51f71f
         </group>
     </open-files>
 </project-private>

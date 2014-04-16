@@ -5,10 +5,13 @@
  */
 package com.una.vdc.persistence.dao;
 
+import com.una.vdc.exception.InsertException;
 import com.una.vdc.model.project.TIDIRGroup;
 import com.una.vdc.model.user.Student;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -18,12 +21,18 @@ import javax.persistence.Query;
  */
 public class StudentDAO extends GenericDAO<Long, Student> {
 
+    private final GroupDAO dao = new GroupDAO(em);
+    
     public StudentDAO(EntityManager entityManager) {
         super(entityManager);
     }
 
-    public void createPaGroup() {
-
+    public void createPaGroup(TIDIRGroup g) {
+        try {
+            dao.save(g);
+        } catch (InsertException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void inviteStudentsToGroup(List<Student> s, TIDIRGroup g) {
