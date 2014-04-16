@@ -9,9 +9,9 @@
         <script src="http://templateplanet.info/modal.js"></script>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
-    </head>
+        <link href="css/css.css" rel="stylesheet">
 
-    <body>
+    </head>
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -32,118 +32,122 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <br><br><br><br> 
+        </div><br><br><br><br>
+     <body background="img/lil_fiber.png" >    
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
+                    <div style="background-color: #FFFFFF">
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#"><i class="fa fa-home fa-fw"></i>Home</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-list-alt fa-fw"></i>Widgets</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-file-o fa-fw"></i>Pages</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-table fa-fw"></i>Table</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-tasks fa-fw"></i>Forms</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-calendar fa-fw"></i>Calender</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-book fa-fw"></i>Library</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-pencil fa-fw"></i>Applications</a></li>
-                        <li><a href="http://www.jquery2dotnet.com"><i class="fa fa-cogs fa-fw"></i>Settings</a></li>
+                        <li><a href="index.html"><i class="fa fa-home fa-fw"></i>Home</a></li>
+                        <li class="active"><a href="step.html"><i class="fa fa-list-alt fa-fw"></i>Etapas</a></li>
+                        <li><a href="college-class.html"><i class="fa fa-file-o fa-fw"></i>Turmas</a></li>
+                        <li><a href="student.html"><i class="fa fa-table fa-fw"></i>Grupos</a></li>
+                        <li><a href=""><i class="fa fa-tasks fa-fw"></i>Professores</a></li>
+                        <li><a href="follow.html"><i class="fa fa-bar-chart-o fa-fw"></i>Acompanhamento</a></li>
+                        <li><a href=""><i class="fa fa-calendar fa-fw"></i>etc</a></li>
+                        <li><a href=""><i class="fa fa-book fa-fw"></i>etc</a></li>
+                        <li><a href=""><i class="fa fa-pencil fa-fw"></i>etc</a></li>
+                        <li><a href=""><i class="fa fa-cogs fa-fw"></i>etc</a></li>
                     </ul>
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <form class="well">                 
-                    <label class="control-label" >Período:</label>
-                    <select>
-                        <option>Todos</option>
-                        <option>Primeiro</option>
-                        <option>Segundo</option>
-                        <option>Terceiro</option>
-                        <option>Quarto</option>
-                        <option>Quinto</option>
-                    </select>&nbsp;&nbsp;
-                    <label class="control-label">Curso:</label>
-                    <select>
-                        <option>Todos</option>
-                        <option>Análise e Desenvolvimento de Sistemas</option>
-                        <option>Estética</option>
-                        <option>Gastronomia</option>
-                        <option>Processos Gerenciais</option>
-                    </select>&nbsp;&nbsp;
-                    <label class="control-label">Módulo:</label>
-                    <select>
-                        <option>Todos</option>
-                        <option>Primeiro</option>
-                        <option>Segundo</option>
-                        <option>Terceiro</option>
-                        <option>Quarto</option>
-                        <option>Quinto</option>
-                    </select>&nbsp;&nbsp;
-                    <button class="btn btn-warning">Pesquisar</button>
-                     </form>
+                        <label class="control-label" >Período:</label>
+                        <select>
+                            <option>Todos</option>
+                            <option>Primeiro</option>
+                            <option>Segundo</option>
+                            <option>Terceiro</option>
+                            <option>Quarto</option>
+                            <option>Quinto</option>
+                        </select>&nbsp;&nbsp;
+                        <label class="control-label">Curso:</label>
+                        <select>
+                            <option>Todos</option>
+                            <option>Análise e Desenvolvimento de Sistemas</option>
+                            <option>Estética</option>
+                            <option>Gastronomia</option>
+                            <option>Processos Gerenciais</option>
+                        </select>&nbsp;&nbsp;
+                        <label class="control-label">Módulo:</label>
+                        <select>
+                            <option>Todos</option>
+                            <option>Primeiro</option>
+                            <option>Segundo</option>
+                            <option>Terceiro</option>
+                            <option>Quarto</option>
+                            <option>Quinto</option>
+                        </select>&nbsp;&nbsp;
+                        <button class="btn btn-warning">Pesquisar</button>
+                    </form>
                     <br>
-                    <div class="col-md-12">    
+                    <div class="col-md-12"> 
                         <div class="row"
                              <div class="table-responsive">
-                                <table id="mytable" class="table table-bordred table-striped">
-                                    <thead>                         
-                                    <th></th>
-                                    <th>Etapas</th>
-                                    <th>Datas</th>
-                                    <th>Atividades</th>
-                                    <th>Editar</th>
-                                    <th>Deletar</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td>Ideia</td>
-                                            <td>01/02 a 01/03</td>
-                                            <td>Idealizar o projeto</td>
-                                            <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>Objetivos</td>
-                                            <td>01/04 a 01/05</td>
-                                            <td>Introdução e definição de objetivos</td>
-                                            <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>Desenvolvimento</td>
-                                            <td>01/04 a 01/05</td>
-                                            <td>Cosntrução do projeto</td>
-                                            <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>Entrega Final</td>
-                                            <td>01/04 a 01/05</td>
-                                            <td>Entrega do projeto finalizado</td>
-                                            <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>Pré Banca</td>
-                                            <td>01/06</td>
-                                            <td>Pré avaliação do projeto</td>
-                                            <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>Banca</td>
-                                            <td>20/06</td>
-                                            <td>Avaliação do projeto</td>
-                                            <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div style="background-color: #ededed">
+                                    <table id="mytable" class="table table-bordred table-striped nav nav-pills nav-stacked">
+                                      <thead style="background-color: #D8D8D8">                       
+                                        <th></th>
+                                        <th>Etapa</th>
+                                        <th>Datas</th>
+                                        <th>Atividade</th>
+                                        <th>Editar</th>
+                                        <th>Deletar</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td>Ideia</td>
+                                                <td>01/02 a 01/03</td>
+                                                <td>Idealizar o projeto</td>
+                                                <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Objetivos</td>
+                                                <td>01/04 a 01/05</td>
+                                                <td>Introdução e definição de objetivos</td>
+                                                <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Desenvolvimento</td>
+                                                <td>01/04 a 01/05</td>
+                                                <td>Cosntrução do projeto</td>
+                                                <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Entrega Final</td>
+                                                <td>01/04 a 01/05</td>
+                                                <td>Entrega do projeto finalizado</td>
+                                                <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Pré Banca</td>
+                                                <td>01/06</td>
+                                                <td>Pré avaliação do projeto</td>
+                                                <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Banca</td>
+                                                <td>20/06</td>
+                                                <td>Avaliação do projeto</td>
+                                                <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <ul class="pagination pull-right">
                                     <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
                                     <li class="active"><a href="#">1</a></li>
@@ -152,120 +156,115 @@
                                     <li><a href="#">4</a></li>
                                     <li><a href="#">5</a></li>
                                     <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                </ul>
-
+                                </ul><br>
                                 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contact" data-original-title>
                                     Nova Etapa
                                 </a>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title custom_align" id="Heading">Editar Etapa</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input class="form-control " type="text" placeholder="Etapa">
+          </body> 
+            <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title custom_align" id="Heading">Editar Etapa</h4>
                         </div>
-                        <div class="form-group">
-
-                            <input class="form-control " type="text" placeholder="Datas">
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="2" class="form-control" placeholder="Ativadades"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer ">
-                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Atualizar</button>
-                    </div>
-                </div>
-                <!-- /.modal-content --> 
-            </div>
-            <!-- /.modal-dialog --> 
-        </div>
-
-
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title custom_align" id="Heading">Excluir Etapa</h4>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span>Tem certeza que deseja excluir esta etapa?</div>
-
-                    </div>
-                    <div class="modal-footer ">
-                        <button type="button" class="btn btn-warning" ><span class="glyphicon glyphicon-ok-sign"></span> Sim</button>
-                        <button type="button" class="btn btn-warning" ><span class="glyphicon glyphicon-remove"></span> Não</button>
-                    </div>
-                </div>
-                <!-- /.modal-content --> 
-            </div>
-            <!-- /.modal-dialog --> 
-        </div>
-
-
-        <div class="container">
-            <div class="row">
-                <br/>
-
-                <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="panel-title" id="contactLabel"><span class="glyphicon glyphicon-info-sign"></span> Cadastro de Etapa</h4>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input class="form-control " type="text" placeholder="Etapa">
                             </div>
-                            <form action="#" method="post" accept-charset="utf-8">
-                                <div class="modal-body" style="padding: 5px;">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                                            <input class="form-control" name="firstname" placeholder="Inicio dd/mm/aaaa" type="text" required autofocus />
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                                            <input class="form-control" name="lastname" placeholder="Termino dd/mm/aaaa" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
-                                            <input class="form-control" name="email" placeholder="Título" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <textarea style="resize:vertical;" class="form-control" placeholder="Atividades" rows="6" name="comment" required></textarea>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="panel-footer" style="margin-bottom:-14px;">
-                                    <input type="submit" class="btn btn-success" value="Salvar"/>
-                                    <!--<span class="glyphicon glyphicon-ok"></span>-->
-                                    <input type="reset" class="btn btn-danger" value="Apagar" />
-                                    <!--<span class="glyphicon glyphicon-remove"></span>-->
-                                    <button style="float: right;" type="button" class="btn btn-default btn-close" data-dismiss="modal">Fechar</button>
+                            <div class="form-group">
+
+                                <input class="form-control " type="text" placeholder="Datas">
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="2" class="form-control" placeholder="Ativadades"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Atualizar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content --> 
+                </div>
+                <!-- /.modal-dialog --> 
+            </div>
+
+
+            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title custom_align" id="Heading">Excluir Etapa</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span>Tem certeza que deseja excluir esta etapa?</div>
+
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-warning" ><span class="glyphicon glyphicon-ok-sign"></span> Sim</button>
+                            <button type="button" class="btn btn-warning" ><span class="glyphicon glyphicon-remove"></span> Não</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content --> 
+                </div>
+                <!-- /.modal-dialog --> 
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <br/>
+                    <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="panel-title" id="contactLabel"><span class="glyphicon glyphicon-info-sign"></span> Cadastro de Etapa</h4>
                                 </div>
+                                <form action="#" method="post" accept-charset="utf-8">
+                                    <div class="modal-body" style="padding: 5px;">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                                <input class="form-control" name="firstname" placeholder="Inicio dd/mm/aaaa" type="text" required autofocus />
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                                <input class="form-control" name="lastname" placeholder="Termino dd/mm/aaaa" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                                <input class="form-control" name="email" placeholder="Título" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <textarea style="resize:vertical;" class="form-control" placeholder="Atividades" rows="6" name="comment" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="panel-footer" style="margin-bottom:-14px;">
+                                        <input type="submit" class="btn btn-success" value="Salvar"/>
+                                        <!--<span class="glyphicon glyphicon-ok"></span>-->
+                                        <input type="reset" class="btn btn-danger" value="Apagar" />
+                                        <!--<span class="glyphicon glyphicon-remove"></span>-->
+                                        <button style="float: right;" type="button" class="btn btn-default btn-close" data-dismiss="modal">Fechar</button>
+                                    </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div> 
-        </div>         
-    </body>  
+    </div>
     <script src="js/constants.js"></script>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/screen/index.js"></script>
 </html>
