@@ -17,6 +17,5 @@ import java.util.List;
  */
 public interface ITeacher {
     public List<User> getTeachersByName(String nome);
-    public boolean checkIfTeacherIsInClass(User user, CollegeClass c);
     public void associateTeacherToClass(User user, CollegeClass c) throws AssociationException;
 }

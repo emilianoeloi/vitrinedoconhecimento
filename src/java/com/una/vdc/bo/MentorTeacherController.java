@@ -12,6 +12,7 @@ import com.una.vdc.persistence.dao.MentorTeacherDAO;
 import com.una.vdc.persistence.DatabaseConnection;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.user.MentorTeacher;
+import com.una.vdc.model.user.User;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -33,7 +34,7 @@ public class MentorTeacherController {
     }
     
     public MentorTeacher getTeacherByClass(Long idClass){
-        return dao.getTeacherByClass(idClass);
+        return dao.getMentorTeacherByClass(idClass);
     }
 
     public MentorTeacher getTeacherById(Long id) {
@@ -55,4 +56,9 @@ public class MentorTeacherController {
     public void updateTeacher(MentorTeacher teacher) throws UpdateException{
         dao.update(teacher);
     }
+    
+    public List<User> getMentorTeacherByName(String name){
+        return dao.getTeachersByName(name);
+    }
+    
 }

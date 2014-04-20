@@ -31,6 +31,7 @@ public class MentorTeacherDAO extends GenericDAO<Long, MentorTeacher> implements
             em.merge(teacher);
             em.merge(cclass);
             et.commit();
+
         } catch (Exception e) {
             et.rollback();
             throw new AssociationException(e.getMessage());
@@ -38,23 +39,18 @@ public class MentorTeacherDAO extends GenericDAO<Long, MentorTeacher> implements
 
     }
 
-//    SELECT t FROM ModuleTeacher t JOIN t.collegeClass c WHERE c.id = :classe
-    public MentorTeacher getTeacherByClass(long idClass) {
+    public MentorTeacher getMentorTeacherByClass(long idClass) {
         et.begin();
         Query query = em.createQuery("SELECT t FROM MentorTeacher t JOIN t.collegeClass c WHERE c.id = :mid");
         query.setParameter("mid", idClass);
-
         return (MentorTeacher) query.getSingleResult();
     }
 
     @Override
     public List<User> getTeachersByName(String name) {
-        return null;
-    }
-
-    @Override
-    public boolean checkIfTeacherIsInClass(User t, CollegeClass c) {
-        return true;
+        Query query = em.createQuery("SELECT t FROM MentorTeacher t WHERE t.name like :n");
+        query.setParameter("n", "%" + name + "%");
+        return query.getResultList();
     }
 
 }

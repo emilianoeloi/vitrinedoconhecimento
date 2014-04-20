@@ -70,7 +70,7 @@ public class MentorTeacherDAOTest {
 
     @Test
     public void testGetTeacherByClass() {
-        User teacher = dao.getTeacherByClass(2L);        
+        User teacher = dao.getMentorTeacherByClass(2L);        
         String expName = "mentor teacher 1";        
         assertEquals(expName, teacher.getName());        
     }
