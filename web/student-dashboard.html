@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Vitrine do Conhecimento</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/timeline.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Vitrine do Conhecimento</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">{{loggedUser.name}}</a></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <select class="form-control">
+                            <option>Semetre Letivo</option>
+                            <option selected="">1s2014</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Procurar...">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#">Geral</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">Documentos</a></li>
+                        <li><a href="#">Calendário</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Grupo</a></li>
+                        <li><a href="">Projeto</a></li>
+                        <li><a href="">Atividades</a></li>
+                    </ul>
+                    <img class="img-menu" alt="Instituição de Ensino" src="img/logo_ie.jpg" />
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Dashboard do Aluno 
+
+                    </h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Grupo</h4>
+                            <span class="text-muted">10/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Proposta</h4>
+                            <span class="text-muted">07/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Desenvolvimento</h4>
+                            <span class="text-muted">10/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Banca</h4>
+                            <span class="text-muted">02/06/2014	</span>
+                        </div>
+                    </div>
+
+                    <h2 class="sub-header">Vitrine do Conhecimento <small>5 Período / ADS</small></h2>
+                    <div class="col-md-8">
+                        <h4>Últimas Mensagens <a href="javascript://" class="link-write-message">Escrever uma mensgem</a></h4>
+                        <div class="qa-message-list" id="wallmessages">
+                            <div class="message-item" id="m16">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Preparação para a Pré-Banca</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">20 de Abril</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">Leia</a></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        Pessoal, já estão preparados para a pré-banca. Acontecerá em duas semanas.
+                                    </div>
+                                </div></div>
+
+                            <div class="message-item" id="m9">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=amiya"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Atualizem o código do VDC - MySQL</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">19/04/2014</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=amiya">Daniel Ulrik</a></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        A únidade de persistência foi alterada para gravar dados no MySQL
+                                    </div>
+                                </div></div>
+
+                            <div class="message-item" id="m7">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=russell"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Pesquisa/Entrevista</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">15/04/2014</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=russell">Emiliano Eloi</a></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        GAlera, a dani imprimiu vários formulários que que possamos consultar nossos colegas a respeito do nosso projeto. Por favor peguem com ela pelo menos três questionários. Valew.
+                                    </div>
+                                </div></div>
+
+                            <div class="message-item" id="m6">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=juggornot"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Histórias de Usuário</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">01/02/2014</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=juggornot">Roseane Costa</a></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        GAlera, todas as hitórias estão no Kanban, vocês ja podem pegar as tarefas lá.
+                                    </div>
+                                </div></div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Membros do Grupo (8)</h4>
+                        <div class="list-group">
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Almir Gabriel <small>Desenvolvedor</small></h4>
+                                <p class="list-group-item-text">gabriel@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Daniela Moreira <small>Analísta de Negócio</small></h4>
+                                <p class="list-group-item-text">moreira@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Daniel Ulrik <small>Desenvolvedor</small></h4>
+                                <p class="list-group-item-text">ulrik@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Derivaldo <small>UX</small></h4>
+                                <p class="list-group-item-text">odilon@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Emiliano Eloi <small>Desenvolvedor</small></h4>
+                                <p class="list-group-item-text">emilianoeloi@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Leonardo Neves <small>Comercial</small></h4>
+                                <p class="list-group-item-text">emilianoeloi@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Roseane Costa <small>Desenvolvedor</small></h4>
+                                <p class="list-group-item-text">emilianoeloi@gmail.com | (31)9999-9999</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Walmir Nonato <small>Analísta de Negócio</small></h4>
+                                <p class="list-group-item-text">emilianoeloi@gmail.com | (31)9999-9999</p>
+                            </a>
+                        </div>
+                    </div>
+                    <br clear="all"/>
+                    <h2 class="sub-header">Atividades do Aluno</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Atividade</th>
+                                    <th>Deadline1</th>
+                                    <th>Deadline2</th>
+                                    <th>Padrão</th>
+                                    <th>Observação</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        * Data especifica pelo professor de PA, mas não especificadas no Edital Institucional
+                                    </td>
+                                </tr>
+
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Alteração/inclusão de grupos</td>
+                                    <td>10/03/2014</td>
+                                    <td>10/03/2014</td>
+                                    <td>-</td>
+                                    <td>Conforme solicitado pelo professor de PA.</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Elaboração da proposta</td>
+                                    <td>07/03/2014*</td>
+                                    <td>07/03/2014*</td>
+                                    <td><a href="docs/propost.doc">Proposta</a></td>
+                                    <td>Esta proposta deverá ser preenchida para a 1ª semana de co-orientação, O professor de PA poderá utilizar outro formulário para este propósito.</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>1ª semana de co-orientação</td>
+                                    <td>10/03/2014</td>
+                                    <td>14/03/2014</td>
+                                    <td><a href="docs/anexob.doc">ANEXO B</a></td>
+                                    <td>O professor dedicará parte das aulas desta semana para orientação. Utilize o ANEXO B para o professor registrar sua orientação.
+                                        A ficha de orientação preenchida por todos os professores do módulo (juntamente com as orientações de professores de disciplinas em EaD) é um anexo obrigatório do trabalho final escrito entregue pelos alunos. 
+                                        A reponsabilidade pela guarda e manutenção da ficha é dos alunos. 
+                                        Cada grupo deve ter uma ficha de orientação, compartilhada para todas as disciplinas 
+                                        do módulo.</td>
+                                </tr><tr>
+                                    <td>4</td>
+                                    <td>Preenchimento de autorização de divulgação dos trabalhos.</td>
+                                    <td>17/03/2014*</td>
+                                    <td>21/03/2014*</td>
+                                    <td><a href="docs/anexoc.doc">ANEXO C</a></td>
+                                    <td>Será utilizado para encaminhar os trabalhos para repositóri a ser desenvolvido e também para envio dos trabalhos para o PRÊMIO SANTANDER UNIVERSIDADES. </td>
+                                </tr><tr>
+                                    <td>5</td>
+                                    <td>Desenvolvimento da metodologia e etapas do projeto</td>
+                                    <td>02/04/2014*</td>
+                                    <td>02/04/2014*</td>
+                                    <td><a href="docs/edital.doc">Edital</a></td>
+                                    <td>aaa</td>
+                                </tr><tr>
+                                    <td>6</td>
+                                    <td>2ª semana de co-orientação e bancas de qualificação (pré-bancas)</td>
+                                    <td>05/05/2014</td>
+                                    <td>09/05/2014</td>
+                                    <td><a href="docs/anexoh.doc">ANEXO H</a></td>
+                                    <td>Recomenda-se expressamente que as bancas de qualificação dos trabalhos tenham a 
+                                        mesma composição da banca de avaliação da apresentação oral. 
+                                        A ficha deve ser preenchida pelos professores e entregue para o professor de PA. Este deve tirar um cópia e deixar o original com os alunos.
+                                        Na apresentação final os alunos devem apresentar esta ficha para os professores da banca.</td>
+                                </tr><tr>
+                                    <td>7</td>
+                                    <td>Entrega do trabalho escrito para os professores do módulo, para nota consensual.</td>
+                                    <td>19/05/2014</td>
+                                    <td>23/05/2014</td>
+                                    <td>-</td>
+                                    <td>Este trabalho deverá conter os anexos A e B.  O trabalho a ser entregue deve estar em conformidade com as especificações do edital e com a definição do professor de PA.</td>
+                                </tr><tr>
+                                    <td>8</td>
+                                    <td>Cada aluno deverá avaliar demais membros do grupo (avaliação 360º)</td>
+                                    <td>12/05/2014</td>
+                                    <td>17/05/2014</td>
+                                    <td><a href="docs/anexoe.doc">ANEXO E</a></td>
+                                    <td>Esta avaliação repercutirá na nota total de cada aluno.</td>
+                                </tr><tr>
+                                    <td>9</td>
+                                    <td>Apresentação da trabalho para banca de avaliação</td>
+                                    <td>02/06/2014</td>
+                                    <td>06/06/2014</td>
+                                    <td><a href="docs/anexog.doc">ANEXO G</a></td>
+                                    <td>Os critérios de avaliação utilizados estão especificados no ANEXO G. O aluno deve apresentar para os professores que compõem a banca final a ficha de avaliação da banca de qualificação (pré-banca) especificada no anexo H.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/constants.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/screen/index.js"></script>
+</html>

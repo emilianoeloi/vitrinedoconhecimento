@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Vitrine do Conhecimento</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/timeline.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Vitrine do Conhecimento</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">{{loggedUser.name}}</a></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <select class="form-control">
+                            <option>Semetre Letivo</option>
+                            <option selected="">1s2014</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Procurar...">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#">Geral</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">Documentos</a></li>
+                        <li><a href="#">Calendário</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Grupo</a></li>
+                        <li><a href="">Projeto</a></li>
+                        <li><a href="">Atividades</a></li>
+                    </ul>
+                    <img class="img-menu" alt="Instituição de Ensino" src="img/logo_ie.jpg" />
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Dashboard do Professor do Módulo 
+
+                    </h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Grupo</h4>
+                            <span class="text-muted">10/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Proposta</h4>
+                            <span class="text-muted">07/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Desenvolvimento</h4>
+                            <span class="text-muted">10/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Banca</h4>
+                            <span class="text-muted">02/06/2014	</span>
+                        </div>
+                    </div>
+
+                    <h2 class="sub-header">Grupos <small>---</small></h2>
+                    <div class="col-md-8">
+                        <h4 class="form-inline">
+                            Últimas Mensagens 
+                            <select class="form-control">
+                                <option>Todos os Grupos</option>
+                                <option>Vitrine do Conhecimento</option>
+                                <option>Trabalho Y</option>
+                                <option>Trabalho Z</option>
+                                <option>Trabalho A</option>
+                                <option>Trabalho B</option>
+                            </select>
+                            <a href="javascript://" class="link-write-message">Escrever uma mensgem</a></h4>
+                        <div class="qa-message-list" id="wallmessages">
+                            <div class="message-item" id="m16">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Preparação para a Pré-Banca</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">20 de Abril</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">Leia</a> <span class="label label-primary">Vitrine do Conhecimento</span></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        Pessoal, já estão preparados para a pré-banca. Acontecerá em duas semanas.
+                                    </div>
+                                </div></div>
+
+                            <div class="message-item" id="m9">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=amiya"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Atualizem o código do VDC - MySQL</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">19/04/2014</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=amiya">Daniel Ulrik</a> <span class="label label-primary">Vitrine do Conhecimento</span></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        A únidade de persistência foi alterada para gravar dados no MySQL
+                                    </div>
+                                </div></div>
+
+                            <div class="message-item" id="m7">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=russell"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Pesquisa/Entrevista</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">15/04/2014</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=russell">Emiliano Eloi</a> <span class="label label-success">Trabalho B</span></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        GAlera, a dani imprimiu vários formulários que que possamos consultar nossos colegas a respeito do nosso projeto. Por favor peguem com ela pelo menos três questionários. Valew.
+                                    </div>
+                                </div></div>
+
+                            <div class="message-item" id="m6">
+                                <div class="message-inner">
+                                    <div class="message-head clearfix">
+                                        <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=juggornot"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                                        <div class="user-detail">
+                                            <h5 class="handle">Histórias de Usuário</h5>
+                                            <div class="post-meta">
+                                                <div class="asker-meta">
+                                                    <span class="qa-message-what"></span>
+                                                    <span class="qa-message-when">
+                                                        <span class="qa-message-when-data">01/02/2014</span>
+                                                    </span>
+                                                    <span class="qa-message-who">
+                                                        <span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=juggornot">Roseane Costa</a> <span class="label label-default">Trabalho A</span></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="qa-message-content">
+                                        GAlera, todas as hitórias estão no Kanban, vocês ja podem pegar as tarefas lá.
+                                    </div>
+                                </div></div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Grupos (3)</h4>
+                        <div class="list-group">
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Vitrine do Conhecimento <small>---</small></h4>
+                                <p class="list-group-item-text">5 Período / ADS</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Trabalho Y <small>---</small></h4>
+                                <p class="list-group-item-text">1 Periodo / ADS</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Trabalho Z <small>---</small></h4>
+                                <p class="list-group-item-text">5 Período / Gastronomia</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Trabalho A <small>---</small></h4>
+                                <p class="list-group-item-text">1 Período / Pilotagem</p>
+                            </a>
+                            <a href="javascript://" class="list-group-item">
+                                <h4 class="list-group-item-heading">Trabalho B <small>---</small></h4>
+                                <p class="list-group-item-text">3 Período / ADS</p>
+                            </a>
+
+                        </div>
+                    </div>
+                    <br clear="all"/>
+                    <h2 class="sub-header">Atividades do Professor do Módulo</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Atividade</th>
+                                    <th>Deadline1</th>
+                                    <th>Deadline2</th>
+                                    <th>Padrão</th>
+                                    <th>Observação</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        * Data especifica pelo professor de PA, mas não especificadas no Edital Institucional
+                                    </td>
+                                </tr>
+
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Elaboração do Anexo A (Planejamento do PA) </td>
+                                    <td>15/02/2014</td>
+                                    <td>15/02/2014</td>
+                                    <td><a href="docs/anexo_a.doc">ANEXO A</a></td>
+                                    <td>O professor do módulo deve enviar para o professor de PA, para que ele utilize como controle e disponibilize para os alunos</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>1ª Semana de orientação</td>
+                                    <td>10/03/2014</td>
+                                    <td>10/03/2014</td>
+                                    <td><a href="docs/anexo_b.doc">Anexo B</a></td>
+                                    <td>O professor deverá avaliar a proposta do grupo. . Estas e demais orientações que poderão ocorrer durante o semestre deverão ser registradas no ANEXO B.  Ao final do semestre, a ficha deve conter no mínimo dois registros de orientação de cada professor do módulo( referentes à das semanas de orientação), exceto para professores que participem de bancas de qualificação (momento em que suas orientações se considerações serão feitas)
+Referente a 5% da carga horária total da disciplina</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>2ª semana de co-orientação e bancas de qualificação (pré-bancas)</td>
+                                    <td>05/05/2014</td>
+                                    <td>09/05/2014</td>
+                                    <td><a href="docs/anexo_h.doc">ANEXO H</a></td>
+                                    <td>Recomenda-se expressamente que as bancas de qualificação dos trabalhos tenham a 
+mesma composição da banca de avaliação da apresentação oral. 
+A ficha deve ser preenchida pelos professores e entregue para o professor de PA. Este deve tirar um cópia e deixar o original com os alunos.
+Na apresentação final os alunos devem apresentar esta ficha para os professores da banca.
+Referente a 5% da carga horária total da disciplina</td>
+                                </tr><tr>
+                                    <td>4</td>
+                                    <td>Avaliação do trabalho escrito de PA.</td>
+                                    <td>26/05/2014</td>
+                                    <td>30/05/2014</td>
+                                    <td><a href="docs/anexo_f.doc">ANEXO F</a></td>
+                                    <td>Os critérios de avaliação para nota consensual são apresentados no anexo F. Também deverão ser consideradas as informações contidas nos Anexos A e B que orientam os alunos.</td>
+                                </tr><tr>
+                                    <td>5</td>
+                                    <td>Reunião com os professores do módulo para nota consensual.</td>
+                                    <td>02/06/2014</td>
+                                    <td>02/06/2014</td>
+                                    <td>-</td>
+                                    <td>Em conformidade com a especificação do Edital do Curso e Institucional.</td>
+                                </tr><tr>
+                                    <td>6</td>
+                                    <td>Avaliação da apresentação do PA pelo grupo.</td>
+                                    <td>02/06/2014</td>
+                                    <td>06/06/2014</td>
+                                    <td><a href="docs/anexo_g.doc">ANEXO G</a></td>
+                                    <td>Os critérios de avaliação utilizados estão especificados no ANEXO G. O aluno deve apresentar para os professores que compõem a banca final a ficha de avaliação da banca de qualificação (pré-banca) especificada no anexo H.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/constants.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/screen/index.js"></script>
+</html>

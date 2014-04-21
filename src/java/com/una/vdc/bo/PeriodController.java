@@ -10,6 +10,7 @@ import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.course.Period;
 import com.una.vdc.persistence.DatabaseConnection;
+import com.una.vdc.persistence.dao.CourseDAO;
 import com.una.vdc.persistence.dao.PeriodDAO;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -21,10 +22,12 @@ import javax.persistence.EntityManager;
 public class PeriodController {
     
     private final PeriodDAO dao;
+    private final CourseDAO courseDAO;
 
     public PeriodController() {
         EntityManager em = DatabaseConnection.instance().getManager();
-        dao = new PeriodDAO(em);                
+        dao = new PeriodDAO(em);  
+        courseDAO = new CourseDAO(em);
     }
     
     

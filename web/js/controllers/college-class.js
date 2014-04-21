@@ -5,17 +5,11 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', f
         $scope.collegeClassList = CollegeClass.query();
 
         $scope.periods = [
-            {name: '1 Período', id: '1'},
-            {name: '2 Período', id: '2'},
-            {name: '3 Período', id: '3'},
-            {name: '4 Período', id: '4'},
-            {name: '5 Período', id: '5'}
-        ];
-        
-        $scope.courses = [
-            {name: 'Gastronomia', id: '1'},
-            {name: 'ADS', id: '2'},
-            {name: 'Pilotagem', id: '3'}
+            {periodDescription: '1 Período', id: '1'},
+            {periodDescription: '2 Período', id: '2'},
+            {periodDescription: '3 Período', id: '3'},
+            {periodDescription: '4 Período', id: '4'},
+            {periodDescription: '5 Período', id: '5'}
         ];
 
         $scope.save = function() {

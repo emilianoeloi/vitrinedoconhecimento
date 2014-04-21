@@ -94,3 +94,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.img-menu{
+    max-width: 100%;
+}

@@ -17,7 +17,7 @@ and open the template in the editor.
         <script src="js/services.js"></script>
 
         <!-- CONTROLLERS -->
-        <script src="js/controllers/college-class.js"></script>
+        <script src="js/controllers/period.js"></script>
 
 
 
@@ -64,7 +64,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Geral</a></li>
+                        <li><a href="#">Geral</a></li>
                         <li><a href="#">Configurações</a></li>
                         <li><a href="#">Documentos</a></li>
                         <li><a href="#">Calendário</a></li>
@@ -72,8 +72,8 @@ and open the template in the editor.
                     <h4>Estrutura de Dados</h4>
                     <ul class="nav nav-sidebar">
                         <li><a href="course.html" >Cursos</a></li>
-                        <li><a href="period.html">Períodos</a></li>
-                        <li class="active"><a href="college-class.html" >Turmas</a></li>
+                        <li class="active"><a href="period.html">Períodos</a></li>
+                        <li><a href="college-class.html">Turmas</a></li>
                         <li><a href="">Grupo</a></li>
                         <li><a href="">Projeto</a></li>
                         <li><a href="">Atividades</a></li>
@@ -81,21 +81,21 @@ and open the template in the editor.
                     <img class="img-menu" alt="Instituição de Ensino" src="img/logo_ie.jpg" />
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Turmas</h1>
+                    <h1 class="page-header">Períodos</h1>
 
-                    <div class="table-responsive" id="implicit" ng-controller="CollegeClassController">
+                    <div class="table-responsive" id="implicit" ng-controller="PeriodController">
                         <fieldset>
                             <form class="well">
                                 <label>Nome:
-                                    <input class="form-control" ng-model="newCollegeClass.name" />
+                                    <input class="form-control" ng-model="newPeriod.periodDescription" />
                                 </label>
-                                <label>Período:
-                                    <select class="form-control" ng-model="newCollegeClass.period" ng-options="p.periodDescription for p in periods">
-                                        <option value="">escolha o período</option>
+                                <label>Curso:
+                                    <select class="form-control" ng-model="newPeriod.course" ng-options="c.name for c in courses">
+                                        <option value="">escolha o curso</option>
                                     </select>
                                 </label>
-                                <input type="hidden" ng-model="newCollegeClass.id" />
-                                <input class="btn" type="button" ng-click="save()" value="Salvar Turma" />
+                                <input type="hidden" ng-model="newPeriod.id" />
+                                <input class="btn" type="button" ng-click="save()" value="Salvar Curso" />
                             </form>
                         </fieldset>
                         <table class="table table-striped">
@@ -103,19 +103,17 @@ and open the template in the editor.
                                 <tr>
                                     <th>#</th>
                                     <th>Nome</th>
-                                    <th>Período</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="collegeClass in collegeClassList">
-                                    <td>{{collegeClass.id}}</td>
-                                    <td>{{collegeClass.name}}</td>
-                                    <td>{{collegeClass.period.periodDescription}}</td>
+                                <tr ng-repeat="period in periodList">
+                                    <td>{{period.id}}</td>
+                                    <td>{{period.periodDescription}}</td>
+                                    <td>{{period.course.name}}</td>
                                     <td>
-                                        <a href="javascript://" ng-click="edit(collegeClass.id)" class="btn-associate" >Editar</a>
-                                        <a href="javascript://" ng-click="delete(collegeClass.id)" class="btn-associate" >Excluir</a>
-                                        <a href="javascript://" class="btn-associate" >Associar</a>
+                                        <a href="javascript://" ng-click="edit(period.id)" class="btn-associate" >Editar</a>
+                                        <a href="javascript://" ng-click="delete(period.id)" class="btn-associate" >Excluir</a>
                                     </td>
                                 </tr>
                             </tbody>
