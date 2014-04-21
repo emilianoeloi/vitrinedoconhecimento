@@ -55,7 +55,7 @@ public class ModuleTeacherDAOTest {
      */
     @Test
     public void testGetModuleTeachersByCollegeClass() {
-        ModuleTeacher m = mDao.getById(2L);
+        ModuleTeacher m = mDao.getById(4L);
         CollegeClass c1 = cDao.getById(1L);
         long idClasse = c1.getId();
         List<ModuleTeacher> expResult = new ArrayList<>();
@@ -70,8 +70,8 @@ public class ModuleTeacherDAOTest {
      */
     @Test
     public void testAssociateModuleTeacherToClass() {
-        ModuleTeacher mt = mDao.getById(3L);
-        CollegeClass cc = cDao.getById(3L);
+        ModuleTeacher mt = mDao.getById(4L);
+        CollegeClass cc = cDao.getById(1L);
         
         try {
             mDao.associateModuleTeacherToClass(mt, cc);
@@ -79,7 +79,7 @@ public class ModuleTeacherDAOTest {
             Logger.getLogger(ModuleTeacherDAOTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        List<ModuleTeacher> teachers = mDao.getModuleTeachersByCollegeClass(3L);
+        List<ModuleTeacher> teachers = mDao.getModuleTeachersByCollegeClass(4L);
 
         assertTrue(teachers.contains(mt));
     }
@@ -92,7 +92,7 @@ public class ModuleTeacherDAOTest {
         List<ModuleTeacher> teachersExpected = new ArrayList<>();
         teachersExpected.add(mDao.getById(1L));
         
-        List<ModuleTeacher> teachersActual = mDao.getTeachersByName("module teacher 1");
+        List<ModuleTeacher> teachersActual = mDao.getTeachersByName("Professor Módulo 1");
         
         assertEquals(teachersExpected, teachersActual);
     }

@@ -27,6 +27,9 @@ public class Student extends User {
 
     private String ra;
 
+    public Student() {
+    }
+
     /**
      * Get the value of ra
      *
@@ -43,14 +46,6 @@ public class Student extends User {
      */
     public void setRa(String ra) {
         this.ra = ra;
-    }
-
-    public Student() {
-    }
-
-    public Student(CollegeClass collegeClass, TIDIRGroup tidirGroup) {
-        this.collegeClass = collegeClass;
-        this.tidirGroup = tidirGroup;
     }
 
     /**
