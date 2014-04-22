@@ -6,11 +6,13 @@ vdcControllers.controller('PeriodController', ['$scope', 'Period', 'Course', fun
         $scope.periodList = Period.query();
         $scope.courseList = Course.query();
         
-        /*$scope.courses = [
-            {name: 'Gastronomia', id: '1'},
-            {name: 'ADS', id: '2'},
-            {name: 'Pilotagem', id: '3'}
-        ];*/
+        $scope.checkSelectedCourse = function(id){
+            if($scope.newPeriod){
+                return ($scope.newPeriod.course.id == id);
+            }else{
+                return false;
+            }
+        }
 
         $scope.save = function() {
             if ($scope.newPeriod.id) {
@@ -32,6 +34,7 @@ vdcControllers.controller('PeriodController', ['$scope', 'Period', 'Course', fun
             var editPeriod = Period.get({
                 _id: id
             }, function(data) {
+                console.log('edit',data);
                 $scope.newPeriod = angular.copy(data);
             });
 

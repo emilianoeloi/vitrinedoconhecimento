@@ -90,8 +90,13 @@ and open the template in the editor.
                                     <input class="form-control" ng-model="newPeriod.periodDescription" />
                                 </label>
                                 <label>Curso:
-                                    <select class="form-control" ng-model="newPeriod.course" ng-options="c.name for c in courseList">
+                                    <select class="form-control" 
+                                            ng-model="newPeriod.course">
                                         <option value="">escolha o curso</option>
+                                        <option ng-repeat="c in courseList" 
+                                                value="{{c.id}}" 
+                                                title="{{c.name}}"
+                                                ng-selected="checkSelectedCourse(c.id)">{{c.name}}</option>
                                     </select>
                                 </label>
                                 <input type="hidden" ng-model="newPeriod.id" />
