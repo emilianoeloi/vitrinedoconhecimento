@@ -5,9 +5,8 @@
  */
 package com.una.vdc.model.user;
 
-import com.una.vdc.model.project.TIDIRGroup;
-import com.una.vdc.model.user.User;
 import com.una.vdc.model.course.CollegeClass;
+import com.una.vdc.model.project.TIDIRProject;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -23,7 +22,7 @@ public class Student extends User {
     private CollegeClass collegeClass;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private TIDIRGroup tidirGroup;
+    private TIDIRProject tidirProject;
 
     private String ra;
 
@@ -49,21 +48,21 @@ public class Student extends User {
     }
 
     /**
-     * Get the value of tidirGroup
+     * Get the value of tidirProject
      *
-     * @return the value of tidirGroup
+     * @return the value of tidirProject
      */
-    public TIDIRGroup getTidirGroup() {
-        return tidirGroup;
+    public TIDIRProject getTidirProject() {
+        return tidirProject;
     }
 
     /**
-     * Set the value of tidirGroup
+     * Set the value of tidirProject
      *
-     * @param tidirGroup new value of tidirGroup
+     * @param tidirProject new value of tidirProject
      */
-    public void setTidirGroup(TIDIRGroup tidirGroup) {
-        this.tidirGroup = tidirGroup;
+    public void setTidirGroup(TIDIRProject tidirProject) {
+        this.tidirProject = tidirProject;
     }
 
     /**
