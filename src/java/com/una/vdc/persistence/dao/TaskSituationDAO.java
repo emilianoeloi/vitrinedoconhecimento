@@ -6,17 +6,16 @@
 
 package com.una.vdc.persistence.dao;
 
-import com.una.vdc.exception.InsertException;
-import com.una.vdc.model.project.TIDIRStage;
+import com.una.vdc.model.project.TaskSituation;
 import javax.persistence.EntityManager;
 
 /**
  *
- * @author daniel
+ * @author Ulrik
  */
-public class TIDIRStageDAO extends GenericDAO<Long, TIDIRStage>{
+public class TaskSituationDAO extends GenericDAO<Long, TaskSituation>{
 
-    public TIDIRStageDAO(EntityManager entityManager) {
+    public TaskSituationDAO(EntityManager entityManager) {
         super(entityManager);
     }
     

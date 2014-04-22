@@ -33,10 +33,10 @@ public class TIDIRStage implements Serializable {
     @OneToMany(mappedBy = "tidirStage")
     private List<Task> tasks;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Course course;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Period period;
 
     public TIDIRStage() {

@@ -25,20 +25,13 @@ public class StudentDAO extends GenericDAO<Long, Student> {
         pdao = new ProjectDAO(entityManager);
     }
 
-    public void createPaGroup(TIDIRProject p) {
-    }
-
-    public void inviteStudentsToGroup(List<Student> s, TIDIRProject p) throws UpdateException{
+    public void insertStudentsToGroup(List<Student> s, TIDIRProject p) throws UpdateException {
         try {
             et.begin();
-            
-            
             for (Student student : s) {
                 student.setTidirGroup(pdao.getById(p.getId()));
                 em.merge(student);
             }
-            
-            
             et.commit();
         } catch (Exception e) {
             et.rollback();
@@ -53,7 +46,8 @@ public class StudentDAO extends GenericDAO<Long, Student> {
     }
 
     public boolean checkIfStudentIsInProject(Student s, TIDIRProject p) {
-        return true;
+        List<Student> students = getStudentsByProject(p.getId());
+        return students.contains(s);
     }
 
 }
