@@ -26,6 +26,9 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', '
                 _id: id
             }, function(data) {
                 $scope.newCollegeClass = angular.copy(data);
+                $scope.newCollegeClass.period = _.find($scope.periodList, function (period) {
+                    return period.id === data.id;
+                });
             });
 
         }
