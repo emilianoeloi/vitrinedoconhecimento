@@ -5,6 +5,7 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.project.TIDIRProject;
@@ -47,7 +48,7 @@ public class StudentController {
         dao.save(s);
     }
 
-    public void removeStudent(Student s) throws UpdateException {
+    public void removeStudent(Student s) throws DeleteException {
         dao.delete(s);
     }
 

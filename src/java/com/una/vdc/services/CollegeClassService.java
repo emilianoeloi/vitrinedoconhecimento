@@ -7,6 +7,7 @@ package com.una.vdc.services;
 
 import com.google.gson.Gson;
 import com.una.vdc.bo.CollegeClassController;
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.course.CollegeClass;
@@ -88,7 +89,7 @@ public class CollegeClassService {
             CollegeClass deletedCollegeClass = collegeClassController.getCollegeClassById(id);
             collegeClassController.removeCollegeClass(deletedCollegeClass);
             return Response.ok().build();
-        } catch (UpdateException exc) {
+        } catch (DeleteException exc) {
             String json = new Gson().toJson(exc);
             logger.log(Level.ALL, exc.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();

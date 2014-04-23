@@ -34,6 +34,7 @@ public class TaskDAOTest {
     private TaskDAO tdao;
     private StudentDAO sdao;
     private TaskSituationDAO tsdao;
+    private StageDAO stagedao;
 
     public TaskDAOTest() {
     }
@@ -44,6 +45,7 @@ public class TaskDAOTest {
         sdao = new StudentDAO(em);
         tdao = new TaskDAO(em);
         tsdao = new TaskSituationDAO(em);
+        stagedao = new StageDAO(em);
     }
 
     @After
@@ -97,7 +99,7 @@ public class TaskDAOTest {
     
     
     /**
-     * Test of getTasksByStudent method, of class TaskDAO.
+     * Test of getClosedTasksByStudent method, of class TaskDAO.
      */
     @Ignore
     @Test
@@ -109,7 +111,7 @@ public class TaskDAOTest {
      */
     @Test
     public void testGetTasksByStage() {
-        List<Task> actualTasks = tdao.getTasksByStage(4L);
+        List<Task> actualTasks = tdao.getTasksByStage(stagedao.getById(4L));
         List<Task> expTasks = new ArrayList<>();
         expTasks.add(tdao.getById(3L));
         assertEquals(expTasks, actualTasks);
