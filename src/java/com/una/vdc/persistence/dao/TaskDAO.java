@@ -5,7 +5,9 @@
  */
 package com.una.vdc.persistence.dao;
 
+
 import com.una.vdc.exception.InsertException;
+import com.una.vdc.exception.StudentNotInGroupException;
 import com.una.vdc.model.project.Status;
 import com.una.vdc.model.project.TIDIRProject;
 import com.una.vdc.model.project.Task;
@@ -30,32 +32,36 @@ public class TaskDAO extends GenericDAO<Long, Task> {
         tdao = new TaskSituationDAO(entityManager);
     }
 
-    private List<TaskSituation> getTasksInTaskSituation(TIDIRProject p){
+    private List<TaskSituation> getTasksInTaskSituation(TIDIRProject p) {
         Query query = em.createQuery("SELECT ts FROM TaskSituation ts WHERE ts.student.tidirProject = :project");
         query.setParameter("project", p);
         return query.getResultList();
     }
-    
-    public List<Task> getAllOpenedTasks(TIDIRProject p){
+
+    public List<Task> getAllClosedTasksByProject(TIDIRProject p) {
         List<TaskSituation> tasksInTasksSituation = getTasksInTaskSituation(p);
-        List<Task> openTasks = new ArrayList<>();
-        
+        List<Task> closedTasks = new ArrayList<>();
         for (TaskSituation taskSituation : tasksInTasksSituation) {
-            openTasks.add(taskSituation.getTask());
+            closedTasks.add(taskSituation.getTask());
         }
-        
-        return openTasks;
-    }
-    
-    public void closeTask(Task t, Student s) throws InsertException {
-        TaskSituation ts = new TaskSituation();
-        ts.setStatus(Status.FINALIZED);
-        ts.setTask(t);
-        ts.setStudent(s);
-        ts.setEndDate(new GregorianCalendar());
-        tdao.save(ts);
+        return closedTasks;
     }
 
+    
+    //antes nao permitir duplicatas task_situation
+    public List<Task> getAllOpenTasksByGroup(TIDIRProject p){
+        List<Task> allTasks = findAll();
+        List<Task> closedTasks = getAllClosedTasksByProject(p);
+        
+        for (Task task : closedTasks) {
+            if(allTasks.contains(task)){
+                allTasks.remove(task);
+            }
+        }
+        
+        return allTasks;
+    }
+    
     private List<TaskSituation> getTasksSituationByStudent(Long idStudent) {
         Query query = em.createQuery("SELECT t FROM TaskSituation t JOIN t.student tc WHERE tc.id = :id");
         query.setParameter("id", idStudent);
@@ -69,6 +75,19 @@ public class TaskDAO extends GenericDAO<Long, Task> {
             tasks.add(taskSituation.getTask());
         }
         return tasks;
+    }
+
+    public void closeTask(Task t, Student s) throws InsertException, StudentNotInGroupException{   
+        if(s.getTidirProject() == null){
+            throw new StudentNotInGroupException();
+        }
+        TaskSituation ts = new TaskSituation();
+        ts.setStatus(Status.FINALIZED);
+        ts.setTask(t);
+        ts.setStudent(s);
+        ts.setProject(s.getTidirProject());
+        ts.setEndDate(new GregorianCalendar());
+        tdao.save(ts);
     }
 
     public List<Task> getTasksByStage(Long idStage) {
