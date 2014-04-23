@@ -6,6 +6,7 @@
 package com.una.vdc.bo;
 
 import com.una.vdc.exception.AssociationException;
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.persistence.dao.MentorTeacherDAO;
@@ -49,7 +50,7 @@ public class MentorTeacherController {
         dao.save(teacher);
     }
 
-    public void removeTeacher(MentorTeacher teacher) throws UpdateException {
+    public void removeTeacher(MentorTeacher teacher) throws DeleteException {
         dao.delete(teacher);
     }
     

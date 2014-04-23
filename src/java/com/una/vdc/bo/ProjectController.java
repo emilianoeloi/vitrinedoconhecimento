@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.una.vdc.bo;
 
 import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
-import com.una.vdc.model.course.Period;
+import com.una.vdc.model.project.TIDIRProject;
 import com.una.vdc.persistence.DatabaseConnection;
-import com.una.vdc.persistence.dao.CourseDAO;
-import com.una.vdc.persistence.dao.PeriodDAO;
+import com.una.vdc.persistence.dao.ProjectDAO;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -20,37 +18,37 @@ import javax.persistence.EntityManager;
  *
  * @author Ulrik
  */
-public class PeriodController {
-    
-    private final PeriodDAO dao;
-    private final CourseDAO courseDAO;
+public class ProjectController {
 
-    public PeriodController() {
+    private final ProjectDAO dao;
+
+    public ProjectController() {
         EntityManager em = DatabaseConnection.instance().getManager();
-        dao = new PeriodDAO(em);  
-        courseDAO = new CourseDAO(em);
+        dao = new ProjectDAO(em);
+    }
+
+    public List<TIDIRProject> getProjectsByName(String projectName){
+        return dao.getProjectsByName(projectName);
     }
     
-    
-    public Period getPeriodById(Long id) {
+    public TIDIRProject getProjectById(Long id) {
         return dao.getById(id);
     }
 
-    public List<Period> getAllPeriods() {
+    public List<TIDIRProject> getAllProjects() {
         return dao.findAll();
     }
 
-    public void insertPeriod(Period p) throws InsertException {
+    public void insertProject(TIDIRProject p) throws InsertException {
         dao.save(p);
     }
 
-    public void removePeriod(Period p) throws DeleteException {
+    public void removeProject(TIDIRProject p) throws DeleteException {
         dao.delete(p);
     }
 
-    public void updatePeriod(Period p) throws UpdateException {
+    public void updateProject(TIDIRProject p) throws UpdateException {
         dao.update(p);
     }
-    
-    
+
 }

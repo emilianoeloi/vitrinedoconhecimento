@@ -5,14 +5,16 @@
  */
 package com.una.vdc.model.project;
 
+import com.una.vdc.model.user.User;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -32,27 +34,41 @@ public class Task implements Serializable {
     private TIDIRStage tidirStage;
 
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date expectedStart;
+    private Calendar expectedStart;
 
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date expectedEnd;
+    private Calendar expectedEnd;
+
+    @OneToOne
+    private User createdBy;
 
     public Task() {
     }
 
-    public Task(String descTask, TIDIRStage tidirStage, Date expectedStart, Date expectedEnd) {
-        this.descTask = descTask;
-        this.tidirStage = tidirStage;
-        this.expectedStart = expectedStart;
-        this.expectedEnd = expectedEnd;
+    /**
+     * Get the value of createdBy
+     *
+     * @return the value of createdBy
+     */
+    public User getCreatedBy() {
+        return createdBy;
     }
-    
+
+    /**
+     * Set the value of createdBy
+     *
+     * @param createdBy new value of createdBy
+     */
+    public void setCreatedBy(User createdBy) {
+        this.createdBy = createdBy;
+    }
+
     /**
      * Get the value of expectedEnd
      *
      * @return the value of expectedEnd
      */
-    public Date getExpectedEnd() {
+    public Calendar getExpectedEnd() {
         return expectedEnd;
     }
 
@@ -61,7 +77,7 @@ public class Task implements Serializable {
      *
      * @param expectedEnd new value of expectedEnd
      */
-    public void setExpectedEnd(Date expectedEnd) {
+    public void setExpectedEnd(Calendar expectedEnd) {
         this.expectedEnd = expectedEnd;
     }
 
@@ -70,7 +86,7 @@ public class Task implements Serializable {
      *
      * @return the value of expectedStart
      */
-    public Date getExpectedStart() {
+    public Calendar getExpectedStart() {
         return expectedStart;
     }
 
@@ -79,7 +95,7 @@ public class Task implements Serializable {
      *
      * @param expectedStart new value of expectedStart
      */
-    public void setExpectedStart(Date expectedStart) {
+    public void setExpectedStart(Calendar expectedStart) {
         this.expectedStart = expectedStart;
     }
 

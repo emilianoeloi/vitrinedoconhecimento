@@ -24,8 +24,7 @@ public class Course implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    
-
+   
     public Course() {
     }
 
@@ -33,6 +32,8 @@ public class Course implements Serializable {
         this.name = name;
     }
 
+    
+    
     /**
      * Get the value of name
      *

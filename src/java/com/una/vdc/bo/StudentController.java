@@ -5,8 +5,10 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
+import com.una.vdc.model.project.TIDIRProject;
 import com.una.vdc.persistence.dao.StudentDAO;
 import com.una.vdc.model.user.Student;
 import com.una.vdc.persistence.DatabaseConnection;
@@ -26,6 +28,14 @@ public class StudentController {
         dao = new StudentDAO(em);
     }
 
+    public void insertStudentsToGroup(List<Student> s, TIDIRProject p) throws UpdateException{
+        dao.insertStudentsToGroup(s, p);
+    }
+    
+    public List<Student> getStudentsByProject(long idProject){
+        return dao.getStudentsByProject(idProject);
+    } 
+    
     public Student getStudentById(Long id) {
         return dao.getById(id);
     }
@@ -38,7 +48,7 @@ public class StudentController {
         dao.save(s);
     }
 
-    public void removeStudent(Student s) throws UpdateException {
+    public void removeStudent(Student s) throws DeleteException {
         dao.delete(s);
     }
 

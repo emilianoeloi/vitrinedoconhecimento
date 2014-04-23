@@ -5,13 +5,14 @@
  */
 package com.una.vdc.model.project;
 
+import com.una.vdc.model.course.CollegeClass;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -25,26 +26,26 @@ public class TIDIRProject implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String projectName;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    private TIDIRGroup group;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private CollegeClass collegeClass;
 
     /**
-     * Get the value of group
+     * Get the value of collegeClass
      *
-     * @return the value of group
+     * @return the value of collegeClass
      */
-    public TIDIRGroup getGroup() {
-        return group;
+    public CollegeClass getCollegeClass() {
+        return collegeClass;
     }
 
     /**
-     * Set the value of group
+     * Set the value of collegeClass
      *
-     * @param group new value of group
+     * @param collegeClass new value of collegeClass
      */
-    public void setGroup(TIDIRGroup group) {
-        this.group = group;
+    public void setCollegeClass(CollegeClass collegeClass) {
+        this.collegeClass = collegeClass;
     }
 
     /**
