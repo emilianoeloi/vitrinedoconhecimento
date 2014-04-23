@@ -10,6 +10,7 @@ import com.una.vdc.model.project.TIDIRProject;
 import com.una.vdc.model.project.Task;
 import com.una.vdc.model.user.Student;
 import com.una.vdc.persistence.DatabaseConnection;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import org.junit.After;
@@ -30,14 +31,6 @@ public class TaskDAOTest {
     public TaskDAOTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
         EntityManager em = DatabaseConnection.instance().getManager();
@@ -53,26 +46,14 @@ public class TaskDAOTest {
      */
     @Test
     public void testGetAllOpenedTasks() {
-        System.out.println("getAllOpenedTasks");
-        TIDIRProject p = null;
-        TaskDAO instance = null;
-        List<Task> expResult = null;
-        List<Task> result = instance.getAllOpenedTasks(p);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of closeTask method, of class TaskDAO.
      */
     @Test
-    public void testCloseTask() throws Exception {
-        System.out.println("closeTask");
-        Task t = null;
-        Student s = null;
-        TaskDAO instance = null;
-        instance.closeTask(t, s);
-        fail("The test case is a prototype.");
+    public void testCloseTask(){
+
     }
 
     /**
@@ -80,13 +61,6 @@ public class TaskDAOTest {
      */
     @Test
     public void testGetTasksByStudent() {
-        System.out.println("getTasksByStudent");
-        Long idStudent = null;
-        TaskDAO instance = null;
-        List<Task> expResult = null;
-        List<Task> result = instance.getTasksByStudent(idStudent);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -94,13 +68,10 @@ public class TaskDAOTest {
      */
     @Test
     public void testGetTasksByStage() {
-        System.out.println("getTasksByStage");
-        Long idStage = null;
-        TaskDAO instance = null;
-        List<Task> expResult = null;
-        List<Task> result = instance.getTasksByStage(idStage);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        List<Task> actualTasks = tdao.getTasksByStage(4L);
+        List<Task> expTasks = new ArrayList<>();
+        expTasks.add(tdao.getById(3L));
+        assertEquals(expTasks, actualTasks);
     }
     
 }

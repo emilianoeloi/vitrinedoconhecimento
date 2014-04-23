@@ -5,6 +5,7 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.project.TIDIRProject;
@@ -42,7 +43,7 @@ public class ProjectController {
         dao.save(p);
     }
 
-    public void removeProject(TIDIRProject p) throws UpdateException {
+    public void removeProject(TIDIRProject p) throws DeleteException {
         dao.delete(p);
     }
 
