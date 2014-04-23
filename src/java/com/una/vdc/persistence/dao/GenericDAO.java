@@ -5,6 +5,7 @@
  */
 package com.una.vdc.persistence.dao;
 
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import java.lang.reflect.ParameterizedType;
@@ -55,14 +56,14 @@ public class GenericDAO<PK, T> {
         
     }
 
-    public void delete(T entity) throws UpdateException {
+    public void delete(T entity) throws DeleteException {
         try {
             et.begin();
             em.remove(entity);
             et.commit();
         } catch (Exception e) {
             et.rollback();
-            throw new UpdateException(e.getMessage());
+            throw new DeleteException(e.getMessage());
         }
         
     }

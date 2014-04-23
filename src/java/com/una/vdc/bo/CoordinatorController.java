@@ -5,6 +5,7 @@
  */
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.project.TIDIRStage;
@@ -39,7 +40,7 @@ public class CoordinatorController {
         dao.save(c);
     }
 
-    public void removeCoordinator(Coordinator c) throws UpdateException {
+    public void removeCoordinator(Coordinator c) throws DeleteException {
         dao.delete(c);
     }
 

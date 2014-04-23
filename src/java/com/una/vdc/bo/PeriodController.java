@@ -6,6 +6,7 @@
 
 package com.una.vdc.bo;
 
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.course.Period;
@@ -43,7 +44,7 @@ public class PeriodController {
         dao.save(p);
     }
 
-    public void removePeriod(Period p) throws UpdateException {
+    public void removePeriod(Period p) throws DeleteException {
         dao.delete(p);
     }
 

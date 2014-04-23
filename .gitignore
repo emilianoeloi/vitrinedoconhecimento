@@ -2,3 +2,4 @@
 /build/
 /src/java/insertScp.java
 /src/java/Main.java
+/src/conf/persistence.xml

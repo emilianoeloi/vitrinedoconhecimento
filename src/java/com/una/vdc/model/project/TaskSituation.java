@@ -37,11 +37,32 @@ public class TaskSituation implements Serializable {
     private Calendar endDate;
 
     private Status status;
+    
+    @OneToOne
+    private TIDIRProject project;
 
-    public TaskSituation(Status status) {
+    public TaskSituation() {
         this.status = Status.INPROGRESS;
-    }  
-        
+    }
+
+    /**
+     * Get the value of project
+     *
+     * @return the value of project
+     */
+    public TIDIRProject getProject() {
+        return project;
+    }
+
+    /**
+     * Set the value of project
+     *
+     * @param project new value of project
+     */
+    public void setProject(TIDIRProject project) {
+        this.project = project;
+    }
+
     /**
      * Get the value of status
      *

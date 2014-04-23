@@ -7,6 +7,7 @@
 package com.una.vdc.bo;
 
 import com.una.vdc.exception.AssociationException;
+import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.course.CollegeClass;
@@ -41,7 +42,7 @@ public class ModuleTeacherController {
         dao.save(teacher);
     }
 
-    public void removeTeacher(ModuleTeacher teacher) throws UpdateException {
+    public void removeTeacher(ModuleTeacher teacher) throws DeleteException {
         dao.delete(teacher);
     }
 

@@ -5,7 +5,11 @@
         <group>
             <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/model/project/TaskSituation.java</file>
             <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/model/project/Task.java</file>
+            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/test/com/una/vdc/persistence/dao/StageDAOTest.java</file>
+            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/persistence/dao/StageDAO.java</file>
+            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/test/com/una/vdc/persistence/dao/TaskDAOTest.java</file>
             <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/com/una/vdc/persistence/dao/TaskDAO.java</file>
+            <file>file:/D:/1_Projetos_Net_Beans/git_vdc/src/java/insertScp.java</file>
         </group>
     </open-files>
 </project-private>

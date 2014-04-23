@@ -45,14 +45,6 @@ public class CollegeClass implements Serializable {
 
     public CollegeClass() {
     }
-
-    public CollegeClass(String name, List<Student> students, MentorTeacher mentorTeacher, List<ModuleTeacher> moduleTeacher, Period period) {
-        this.name = name;
-        this.students = students;
-        this.mentorTeacher = mentorTeacher;
-        this.moduleTeacher = moduleTeacher;
-        this.period = period;
-    }
     
     /**
      * Get the value of period

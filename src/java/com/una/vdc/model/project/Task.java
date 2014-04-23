@@ -42,16 +42,7 @@ public class Task implements Serializable {
     @OneToOne
     private User createdBy;
 
-
     public Task() {
-    }
-
-    public Task(String descTask, TIDIRStage tidirStage, Calendar expectedStart, Calendar expectedEnd, User createdBy) {
-        this.descTask = descTask;
-        this.tidirStage = tidirStage;
-        this.expectedStart = expectedStart;
-        this.expectedEnd = expectedEnd;
-        this.createdBy = createdBy;
     }
 
     /**
