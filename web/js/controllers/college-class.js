@@ -5,11 +5,17 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', '
         $scope.collegeClassList = CollegeClass.query();
         $scope.periodList = Period.query();
 
+    var loadCollegeClassList = function(){
+        CollegeClass.query(function(data){
+            $scope.collegeClassList = data;
+        });
+    }
+
         $scope.save = function() {
             if ($scope.newCollegeClass.id) {
-                CollegeClass.update($scope.newCollegeClass);
+                CollegeClass.update($scope.newCollegeClass, loadCollegeClassList);
             } else {
-                CollegeClass.insert($scope.newCollegeClass);
+                CollegeClass.insert($scope.newCollegeClass, loadCollegeClassList);
             }
             $scope.newCollegeClass = {};
         }
@@ -29,6 +35,7 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', '
                 $scope.newCollegeClass.period = _.find($scope.periodList, function (period) {
                     return period.id === data.id;
                 });
+                loadCollegeClassList();
             });
 
         }

@@ -6,6 +6,12 @@ vdcControllers.controller('PeriodController', ['$scope', 'Period', 'Course', fun
         $scope.periodList = Period.query();
         $scope.courseList = Course.query();
 
+    var releadPeriodList = function(){
+        Period.query(function(data){
+            $scope.periodList = data;
+        });
+    }
+
         $scope.checkSelectedCourse = function(id){
             if($scope.newPeriod){
                 return ($scope.newPeriod && $scope.newPeriod.course && $scope.newPeriod.course.id == id);
@@ -16,9 +22,9 @@ vdcControllers.controller('PeriodController', ['$scope', 'Period', 'Course', fun
 
         $scope.save = function() {
             if ($scope.newPeriod.id) {
-                Period.update($scope.newPeriod);
+                Period.update($scope.newPeriod, releadPeriodList);
             } else {
-                Period.insert($scope.newPeriod);
+                Period.insert($scope.newPeriod, releadPeriodList);
             }
             $scope.newPeriod = {};
         }
@@ -39,6 +45,7 @@ vdcControllers.controller('PeriodController', ['$scope', 'Period', 'Course', fun
                 $scope.newPeriod.course = _.find($scope.courseList, function (course) {
                     return course.id === data.id;
                 });
+                releadPeriodList()
             });
         }
 
