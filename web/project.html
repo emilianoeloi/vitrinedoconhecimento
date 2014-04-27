@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/underscore.js"></script>
+
+    <!-- APP -->
+    <script src="js/app.js"></script>
+
+    <!-- SERVICES -->
+    <script src="js/services.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="js/controllers/project.js"></script>
+
+
+
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+</head>
+<body ng-app="vdcApp">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Vitrine do Conhecimento</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Configurações</a></li>
+                <li><a href="#">{{loggedUser.name}}</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <select class="form-control">
+                    <option>Semetre Letivo</option>
+                    <option selected="">1s2014</option>
+                </select>
+                <input type="text" class="form-control" placeholder="Procurar...">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar" id="menu-side-bar"></ul>
+            <img class="img-menu" alt="Instituição de Ensino" src="img/logo_ie.jpg" />
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Turmas</h1>
+
+            <div class="table-responsive" id="implicit" ng-controller="ProjectController">
+                <fieldset>
+                    <form class="well">
+                        <label>Nome:
+                            <input class="form-control" ng-model="newProject.projectName" />
+                        </label>
+                        <label>Turma:
+                            <select class="form-control" ng-model="newProject.collegeClass" ng-options="c.name for c in collegeClassList">
+                                <option value="">escolha a classe</option>
+                            </select>
+                        </label>
+                        <input type="hidden" ng-model="newProject.id" />
+                        <input class="btn" type="button" ng-click="save()" value="Salvar Projeto" />
+                    </form>
+                </fieldset>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Turma</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="project in projectList">
+                        <td>{{project.id}}</td>
+                        <td>{{project.projectName}}</td>
+                        <td>{{project.collegeClass.name}}</td>
+                        <td>
+                            <a href="javascript://" ng-click="edit(project.id)" class="btn-associate" >Editar</a>
+                            <a href="javascript://" ng-click="delete(project.id)" class="btn-associate" >Excluir</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="js/constants.js"></script>
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/util.js"></script>
+<script src="js/main.js"></script>
+</html>

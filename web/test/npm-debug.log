@@ -1,0 +1,68 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'jasmine' ]
+2 info using npm@1.2.14
+3 info using node@v0.10.0
+4 verbose read json /Users/emilianoeloi/package.json
+5 verbose read json /Users/emilianoeloi/node_modules/express/package.json
+6 verbose read json /Users/emilianoeloi/node_modules/jade/package.json
+7 verbose read json /Users/emilianoeloi/node_modules/karma/package.json
+8 verbose read json /Users/emilianoeloi/node_modules/socket.io/package.json
+9 verbose read json /Users/emilianoeloi/package.json
+10 verbose cache add [ 'jasmine', null ]
+11 verbose cache add name=undefined spec="jasmine" args=["jasmine",null]
+12 verbose parsed url { protocol: null,
+12 verbose parsed url   slashes: null,
+12 verbose parsed url   auth: null,
+12 verbose parsed url   host: null,
+12 verbose parsed url   port: null,
+12 verbose parsed url   hostname: null,
+12 verbose parsed url   hash: null,
+12 verbose parsed url   search: null,
+12 verbose parsed url   query: null,
+12 verbose parsed url   pathname: 'jasmine',
+12 verbose parsed url   path: 'jasmine',
+12 verbose parsed url   href: 'jasmine' }
+13 silly lockFile 5bfd08bd-jasmine jasmine
+14 verbose lock jasmine /Users/emilianoeloi/.npm/5bfd08bd-jasmine.lock
+15 silly lockFile 5bfd08bd-jasmine jasmine
+16 silly lockFile 5bfd08bd-jasmine jasmine
+17 verbose addNamed [ 'jasmine', '' ]
+18 verbose addNamed [ null, '' ]
+19 silly lockFile fdd358a6-jasmine jasmine@
+20 verbose lock jasmine@ /Users/emilianoeloi/.npm/fdd358a6-jasmine.lock
+21 silly addNameRange { name: 'jasmine', range: '', hasData: false }
+22 verbose url raw jasmine
+23 verbose url resolving [ 'https://registry.npmjs.org/', './jasmine' ]
+24 verbose url resolved https://registry.npmjs.org/jasmine
+25 info trying registry request attempt 1 at 17:54:11
+26 http GET https://registry.npmjs.org/jasmine
+27 http 404 https://registry.npmjs.org/jasmine
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Sun, 27 Apr 2014 20:54:01 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-v42-ASH, cache-at52-ATL',
+28 silly registry.get     'x-cache': 'MISS, MISS',
+28 silly registry.get     'x-cache-hits': '0, 0',
+28 silly registry.get     'x-timer': 'S1398632041.921759367,VS0,VS9,VE17,VE23',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile fdd358a6-jasmine jasmine@
+30 silly lockFile fdd358a6-jasmine jasmine@
+31 error 404 'jasmine' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Darwin 13.1.0
+33 error command "node" "/usr/local/bin/npm" "install" "jasmine"
+34 error cwd /Users/emilianoeloi/git/vitrinedoconhecimento/web/test
+35 error node -v v0.10.0
+36 error npm -v 1.2.14
+37 error code E404
+38 verbose exit [ 1, true ]

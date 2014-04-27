@@ -64,6 +64,27 @@ vdcServices.factory('CollegeClass', ['$resource',
             }
         });
     }]);
+vdcServices.factory('Project', ['$resource',
+    function($resource) {
+        return $resource('api/tidirprojects/:_id', {}, {
+            query: {
+                method: 'GET',
+                isArray: true
+            },
+            update: {
+                method: 'PUT'
+            },
+            insert: {
+                method: 'POST'
+            },
+            remove: {
+                method: 'DELETE'
+            },
+            search: {
+                method: 'GET'
+            }
+        });
+    }]);
 
 vdcServices.factory('Student', ['$resource',
     function($resource) {

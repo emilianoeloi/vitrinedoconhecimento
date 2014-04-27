@@ -1,5 +1,6 @@
 function setTitle(title){
     document.title = Constants.appName + ': ' + title;
+    document.querySelector(".page-header").innerHTML = title;
 }
 function getCurrentPage(){
     var str = '';
