@@ -1,0 +1,13 @@
+[
+    {"href":"", "text":"Geral", "group":""},
+    {"href":"", "text":"Configurações", "group":""},
+    {"href":"", "text":"Documentos", "group":""},
+    {"href":"", "text":"Calendário", "group":""},
+    {"href":"course.html", "text":"Curso", "group":"Estrutura de Dados"},
+    {"href":"period.html", "text":"Período", "group":"Estrutura de Dados"},
+    {"href":"college-class.html", "text":"Turma", "group":"Estrutura de Dados"},
+    {"href":"project.html", "text":"Projeto", "group":"Estrutura de Dados"},
+    {"href":"stage.html", "text":"Etapa", "group":"Estrutura de Dados"},
+    {"href":"task.html", "text":"Atividade", "group":"Estrutura de Dados"},
+    {"href":"student.html", "text":"Aluno", "group":"Estrutura de Dados"}
+]

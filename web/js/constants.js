@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 var Constants = {
-    'api' : '/vitrinedoconhecimento/api/'
+    'appName': 'Vitrine do Conhecimento',
+    'web' : '/vitrinedoconhecimento/',
+    'api' : '/vitrinedoconhecimento/api/',
+    'dataFiles' : {
+        'menu': 'js/data/menu.json'
+    }
 }
 

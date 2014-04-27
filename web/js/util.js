@@ -87,3 +87,27 @@ function writeMessage(type, message){
     $alertElement.find('spam').text(spamText);
     $alertElement.removeClass('hidden');
 }
+
+/// Load JSON
+/// Alert: N&atilde;o &eacute; cross browser
+/// Example: loadJSON(&quot;assets/json/config.json&quot;, function(a){console.log(&#039;success&#039;,a)}, function(b){console.log(&#039;error&#039;, b)});
+function loadJSON(url, success, error) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            try {
+                var JSONObject = JSON.parse(xmlhttp.responseText);
+                success(JSONObject);
+            } catch (e) {
+                error(e);
+            }
+        } else {
+            var e = { "readyState": xmlhttp.readyState, "status": xmlhttp.status };
+            if ([200, 0].indexOf(xmlhttp.status) == -1 && xmlhttp.readyState == 4) {
+                error(e);
+            }
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
