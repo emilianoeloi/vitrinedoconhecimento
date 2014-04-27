@@ -7,7 +7,7 @@ vdcControllers.controller('ProjectController', ['$scope', 'Project', 'CollegeCla
 
     var loadProjectList = function(){
         Project.query(function(data){
-            $scope.ProjectList = data;
+            $scope.projectList = data;
         });
     }
 
