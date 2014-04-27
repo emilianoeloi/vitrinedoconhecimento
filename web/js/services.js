@@ -107,3 +107,24 @@ vdcServices.factory('Student', ['$resource',
             }
         });
     }]);
+vdcServices.factory('Coordinator', ['$resource',
+    function($resource) {
+        return $resource('api/coordinators/:_id', {}, {
+            query: {
+                method: 'GET',
+                isArray: true
+            },
+            update: {
+                method: 'PUT'
+            },
+            insert: {
+                method: 'POST'
+            },
+            remove: {
+                method: 'DELETE'
+            },
+            search: {
+                method: 'GET'
+            }
+        });
+    }]);

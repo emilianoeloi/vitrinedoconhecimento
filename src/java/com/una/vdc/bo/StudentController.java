@@ -9,9 +9,10 @@ import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.project.TIDIRProject;
-import com.una.vdc.persistence.dao.StudentDAO;
 import com.una.vdc.model.user.Student;
 import com.una.vdc.persistence.DatabaseConnection;
+import com.una.vdc.persistence.dao.ProjectDAO;
+import com.una.vdc.persistence.dao.StudentDAO;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -22,10 +23,12 @@ import javax.persistence.EntityManager;
 public class StudentController {
 
     private final StudentDAO dao;
+    private final ProjectDAO projectDAO;
 
     public StudentController() {
         EntityManager em = DatabaseConnection.instance().getManager();
         dao = new StudentDAO(em);
+        projectDAO = new ProjectDAO(em);
     }
 
     public void insertStudentsToGroup(List<Student> s, TIDIRProject p) throws UpdateException{
@@ -45,6 +48,7 @@ public class StudentController {
     }
 
     public void insertStudent(Student s) throws InsertException {
+        s.setTidirGroup(projectDAO.getById(s.getTidirProject().getId()));
         dao.save(s);
     }
 
