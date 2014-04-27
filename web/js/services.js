@@ -85,7 +85,6 @@ vdcServices.factory('Project', ['$resource',
             }
         });
     }]);
-
 vdcServices.factory('Student', ['$resource',
     function($resource) {
         return $resource('api/students/:_id', {}, {
@@ -110,6 +109,27 @@ vdcServices.factory('Student', ['$resource',
 vdcServices.factory('Coordinator', ['$resource',
     function($resource) {
         return $resource('api/coordinators/:_id', {}, {
+            query: {
+                method: 'GET',
+                isArray: true
+            },
+            update: {
+                method: 'PUT'
+            },
+            insert: {
+                method: 'POST'
+            },
+            remove: {
+                method: 'DELETE'
+            },
+            search: {
+                method: 'GET'
+            }
+        });
+    }]);
+vdcServices.factory('MentorTeacher', ['$resource',
+    function($resource) {
+        return $resource('api/mentorteachers/:_id', {}, {
             query: {
                 method: 'GET',
                 isArray: true

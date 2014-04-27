@@ -81,6 +81,11 @@ and open the template in the editor.
                                         <option value="">escolha o período</option>
                                     </select>
                                 </label>
+                                <label>Orientador:
+                                    <select class="form-control" ng-model="newCollegeClass.mentorTeacher" ng-options="m.name for m in mentorTeacherList">
+                                        <option value="">escolha o Orientador</option>
+                                    </select>
+                                </label>
                                 <input type="hidden" ng-model="newCollegeClass.id" />
                                 <input class="btn" type="button" ng-click="save()" value="Salvar Turma" />
                             </form>
@@ -91,6 +96,7 @@ and open the template in the editor.
                                     <th>#</th>
                                     <th>Nome</th>
                                     <th>Período</th>
+                                    <th>Orientador</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -99,6 +105,7 @@ and open the template in the editor.
                                     <td>{{collegeClass.id}}</td>
                                     <td>{{collegeClass.name}}</td>
                                     <td>{{collegeClass.period.periodDescription}}</td>
+                                    <td>{{collegeClass.mentorTeacher.name}}</td>
                                     <td>
                                         <a href="javascript://" ng-click="edit(collegeClass.id)" class="btn-associate" >Editar</a>
                                         <a href="javascript://" ng-click="delete(collegeClass.id)" class="btn-associate" >Excluir</a>

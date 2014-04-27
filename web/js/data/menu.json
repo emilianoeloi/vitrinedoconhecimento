@@ -7,7 +7,7 @@
     {"href":"period.html", "text":"Período", "group":"Estrutura de Dados"},
     {"href":"college-class.html", "text":"Turma", "group":"Estrutura de Dados"},
     {"href":"project.html", "text":"Projeto", "group":"Estrutura de Dados"},
-    {"href":"stage.html", "text":"Etapa", "group":"Estrutura de Dados"},
+    {"href":"mentor-teacher.html", "text":"Professor Orientador", "group":"Estrutura de Dados"},
     {"href":"student.html", "text":"Aluno", "group":"Estrutura de Dados"},
     {"href":"coordinator.html", "text":"Coordenador", "group":"Estrutura de Dados"},
     {"href":"task.html", "text":"Atividade", "group":"Estrutura de Dados"}

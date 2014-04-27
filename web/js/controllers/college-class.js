@@ -1,9 +1,10 @@
 /**
  * Created by emiliano.barbosa on 08/04/14.
  */
-vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', 'Period', function($scope, CollegeClass, Period) {
+vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', 'Period', 'MentorTeacher', function($scope, CollegeClass, Period, MentorTeacher) {
         $scope.collegeClassList = CollegeClass.query();
         $scope.periodList = Period.query();
+        $scope.mentorTeacherList = MentorTeacher.query();
 
     var loadCollegeClassList = function(){
         CollegeClass.query(function(data){
@@ -21,7 +22,6 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', '
         }
 
         $scope.delete = function(id) {
-
             CollegeClass.remove(id);
             if ($scope.newCollegeClass.id == id)
                 $scope.newCollegeClass = {};
@@ -34,6 +34,9 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', '
                 $scope.newCollegeClass = angular.copy(data);
                 $scope.newCollegeClass.period = _.find($scope.periodList, function (period) {
                     return period.id === data.id;
+                });
+                $scope.newCollegeClass.mentorTeacher = _.find($scope.mentorTeacherList, function (mentorTeacher) {
+                    return mentorTeacher.id === data.id;
                 });
                 loadCollegeClassList();
             });
