@@ -33,11 +33,13 @@ public class MentorTeacherService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMentorTeacheres() {
-
-        List<MentorTeacher> mentorTeacherList = mentorTeacherController.getAllTeachers();
-        String json = new Gson().toJson(mentorTeacherList);
-        return Response.ok().entity(json).build();
-
+        try{
+            List<MentorTeacher> mentorTeacherList = mentorTeacherController.getAllTeachers();
+            String json = new Gson().toJson(mentorTeacherList);
+            return Response.ok().entity(json).build();
+        }catch(Exception exc){
+            return Response.serverError().build();
+        }
     }
 
     @POST

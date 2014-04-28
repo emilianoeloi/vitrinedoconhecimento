@@ -9,7 +9,6 @@ import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.course.CollegeClass;
-import com.una.vdc.model.course.Period;
 import com.una.vdc.persistence.DatabaseConnection;
 import com.una.vdc.persistence.dao.CollegeClassDAO;
 import com.una.vdc.persistence.dao.MentorTeacherDAO;
