@@ -11,6 +11,7 @@ import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
 import com.una.vdc.model.GenericModel;
+import com.una.vdc.model.IJSONConverter;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.util.GSONConverter;
 import java.util.List;
@@ -38,7 +39,7 @@ public class CollegeClassService {
     private Logger logger = Logger.getLogger("com.una.vdc.services");
 
     private CollegeClassController collegeClassController = new CollegeClassController();
-    private GSONConverter jsonConverter = new GSONConverter();
+    private IJSONConverter jsonConverter = new GSONConverter();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Vitrine do Conhecimento</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/timeline.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Vitrine do Conhecimento</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">{{loggedUser.name}}</a></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <select class="form-control">
+                            <option>Semetre Letivo</option>
+                            <option selected="">1s2014</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Procurar...">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#">Geral</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">Documentos</a></li>
+                        <li><a href="#">Calendário</a></li>
+                    </ul>
+                    <h4>Estrutura de Dados</h4>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="course.html">Cursos</a></li>
+                        <li><a href="period.html">Períodos</a></li>
+                        <li><a href="college-class.html">Turmas</a></li>
+                        <li><a href="">Grupo</a></li>
+                        <li><a href="">Projeto</a></li>
+                        <li><a href="">Atividades</a></li>
+                    </ul>
+                    <img class="img-menu" alt="Instituição de Ensino" src="img/logo_ie.jpg" />
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Dashboard de Desenvolvimento
+
+                    </h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Grupo</h4>
+                            <span class="text-muted">10/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Proposta</h4>
+                            <span class="text-muted">07/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Desenvolvimento</h4>
+                            <span class="text-muted">10/03/2014</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h4>Banca</h4>
+                            <span class="text-muted">02/06/2014	</span>
+                        </div>
+                    </div>
+
+                    <h2 class="sub-header">LOG <small>atividades do sistema</small></h2>
+                    <div class="col-md-8">
+                        <h4 class="form-inline">
+                            Log de Utilização
+                        </h4>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Perfil de Acesso</h4>
+                        <div class="list-group">
+                            <a href="student-dashboard.html" class="list-group-item">
+                                <h4 class="list-group-item-heading">Aluno <small>Student</small></h4>
+                                <p class="list-group-item-text">O Aluno criará o grupo e desenvolverá o projeto de acordo com tarefas descritas aqui.</p>
+                            </a>
+                            <a href="mentor-dashboard.html" class="list-group-item">
+                                <h4 class="list-group-item-heading">Professor Orientador <small>Mentor Teacher</small></h4>
+                                <p class="list-group-item-text">O Professor orientador, acompanhará o desenvolvimento do projeto a partir das tarefas solicitadas.</p>
+                            </a>
+                            <a href="teacher-dashboard.html" class="list-group-item">
+                                <h4 class="list-group-item-heading">Professor do Módulo <small>Module Teacher</small></h4>
+                                <p class="list-group-item-text">O Professor do módulo tem co-participação nas tarefas a serem desenvolvidas pelo grupo em favor da interdisplinaridade.</p>
+                            </a>
+                            <a href="coordinator-dashboard.html" class="list-group-item">
+                                <h4 class="list-group-item-heading">Coordenador <small>Coordinator</small></h4>
+                                <p class="list-group-item-text">Coordena as atividades a serem desenvolvidas no projeto interdisplinar de acordo com o edita de cada Curso.</p>
+                            </a>
+                            <a href="portal.html" class="list-group-item">
+                                <h4 class="list-group-item-heading">Público <small>Guest</small></h4>
+                                <p class="list-group-item-text">Os Trabalhos melhor avaliados vão para um partal que está disponível na internet para serem consultados.</p>
+                            </a>
+                            <a href="portal.html" class="list-group-item active">
+                                <h4 class="list-group-item-heading">Desenvolvedor <small>Developer</small></h4>
+                                <p class="list-group-item-text">Gestão do sistema.</p>
+                            </a>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/constants.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/screen/index.js"></script>
+</html>

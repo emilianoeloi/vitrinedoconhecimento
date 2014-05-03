@@ -1,0 +1,81 @@
+#rodapefinal{position:absolute;left:50%;top:50%;margin-left:-490px;margin-top:-53px;width:980px;height:70px;}
+#rodapefinal p{font-size:13px;font-family:Arial;color:#BEBEBE;margin:20px 0px 0px 0px;text-align:center;}
+#rodapefinal a:link{margin:0px;padding:0px;margin-right:0px;color:#BEBEBE;font-size:12px;font-family:Arial;text-decoration:none;background:none;display:inline;}
+#rodapefinal a:visited{margin:0px;padding:0px;margin-right:0px;color:#BEBEBE;font-size:12px;font-family:Arial;text-decoration:none;background:none;display:inline;}
+#rodapefinal a:active{margin:0px;padding:0px;margin-right:0px;color:#BEBEBE;font-size:12px;font-family:Arial;text-decoration:none;background:none;display:inline;}
+#rodapefinal a:hover{background:none;}
+#rodapefinal img{float:right;width:70px;height:40px;margin:-28px 20px 20px 20px;}
+#barrarodape{position:p;height:245px;padding:.5em;text-align:center;font-weight:bold;background-image:url("../img/barrarodape.jpg");}
+#topo{position:p;height:245px;padding:.5em;text-align:center;font-weight:bold;background-image:url("../img/barrarodape.jpg");}
+
+
+
+.nav-tabs> .active > a, .nav-list > .active > a:hover {
+    color: #FFF;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+    background-color: #08C;
+}
+
+.destaque1{
+
+height: 180px;
+width: 460px;
+border: solid 2px #bce8f1;
+border-radius: 10px;
+padding: 10px;
+text-decoration: none;
+
+}
+
+.destaque1:hover{
+border-color: #E5E5E5;
+background-color: #EEE;
+}
+
+.destaque2{
+
+height: 130px;
+width: 460px;
+border-color: #000000;
+border: solid 2px #bce8f1;
+border-radius: 10px;
+padding: 10px;
+margin-bottom: 10px;
+
+
+}
+
+.destaque2:hover{
+border-color: #E5E5E5;
+background-color: #EEE;
+}
+
+.conteudo{
+
+height: 560px;
+width: 460px;
+border-color: #000000;
+border: solid 2px #bce8f1;
+border-radius: 10px;
+padding: 20px;
+margin-bottom: 10px;
+
+
+}
+
+
+
+
+h3{
+background-color: #08C;
+padding: 3px;
+border-radius: 2px;
+
+}
+
+.sufixo{
+position: right; 
+
+
+
+}
