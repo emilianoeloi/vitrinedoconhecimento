@@ -6,7 +6,6 @@
 
 package com.una.vdc.persistence.dao;
 
-import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.model.course.Course;
 import javax.persistence.EntityManager;
 

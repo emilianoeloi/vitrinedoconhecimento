@@ -8,6 +8,7 @@ package com.una.vdc.bo;
 import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
+import com.una.vdc.model.IJSONConverter;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.persistence.DatabaseConnection;
 import com.una.vdc.persistence.dao.CollegeClassDAO;
@@ -20,8 +21,8 @@ import javax.persistence.EntityManager;
  *
  * @author Ulrik
  */
-public class CollegeClassController {
-    
+public class CollegeClassController extends GenericController<CollegeClass> {
+
     private final CollegeClassDAO dao;
     private final PeriodDAO periodDAO;
     private final MentorTeacherDAO mentorTeacherDAO;
@@ -36,7 +37,7 @@ public class CollegeClassController {
     public CollegeClass getCollegeClassById(Long id) {
         return dao.getById(id);
     }
-    
+
     public List<CollegeClass> getCollegeClassByName(String name, Long idCourse) {
         return dao.getCollegeClassesByName(name, idCourse);
     }
@@ -46,7 +47,7 @@ public class CollegeClassController {
     }
 
     public void insertCollegeClass(CollegeClass c) throws InsertException {
-        if(c.getPeriod() != null && c.getPeriod().getId() != null){
+        if (c.getPeriod() != null && c.getPeriod().getId() != null) {
             c.setPeriod(periodDAO.getById(c.getPeriod().getId()));
         }
         c.setMentorTeacher(mentorTeacherDAO.getById(c.getMentorTeacher().getId()));
@@ -59,6 +60,15 @@ public class CollegeClassController {
 
     public void updateCollegeClass(CollegeClass c) throws UpdateException {
         dao.update(c);
+    }
+
+    @Override
+    public String listToJSON(IJSONConverter converter, List<CollegeClass> list) throws CloneNotSupportedException {
+        StringBuilder listJSON = new StringBuilder();
+        for (CollegeClass item : list) {
+            listJSON.append(item.toJSON(converter));
+        }
+        return listJSON.toString();
     }
 
 }

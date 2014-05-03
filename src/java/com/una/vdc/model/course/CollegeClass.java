@@ -5,10 +5,13 @@
  */
 package com.una.vdc.model.course;
 
+import com.google.gson.Gson;
 import com.una.vdc.exception.InsertException;
-import com.una.vdc.model.user.Student;
+import com.una.vdc.model.GenericModel;
+import com.una.vdc.model.IJSONConverter;
 import com.una.vdc.model.user.MentorTeacher;
 import com.una.vdc.model.user.ModuleTeacher;
+import com.una.vdc.model.user.Student;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -24,7 +27,7 @@ import javax.persistence.OneToMany;
  * @author Ulrik
  */
 @Entity
-public class CollegeClass implements Serializable {
+public class CollegeClass extends GenericModel implements Serializable {
 
     @Id
     @GeneratedValue
@@ -45,7 +48,7 @@ public class CollegeClass implements Serializable {
 
     public CollegeClass() {
     }
-    
+
     /**
      * Get the value of period
      *
@@ -172,6 +175,16 @@ public class CollegeClass implements Serializable {
         if (name == null) {
             throw new InsertException("Class name cannot be null");
         }
+    }
+
+    @Override
+    public String toJSON(IJSONConverter converter) throws CloneNotSupportedException {
+        CollegeClass collegeClassToJSON = (CollegeClass) this.clone();
+        if (collegeClassToJSON.getMentorTeacher() != null) {
+            collegeClassToJSON.getMentorTeacher().setCollegeClass(null);
+        }
+
+        return converter.toJSON(collegeClassToJSON);
     }
 
 }

@@ -10,7 +10,9 @@ import com.una.vdc.bo.CollegeClassController;
 import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
+import com.una.vdc.model.GenericModel;
 import com.una.vdc.model.course.CollegeClass;
+import com.una.vdc.util.GSONConverter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,24 +38,35 @@ public class CollegeClassService {
     private Logger logger = Logger.getLogger("com.una.vdc.services");
 
     private CollegeClassController collegeClassController = new CollegeClassController();
+    private GSONConverter jsonConverter = new GSONConverter();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCollegeClasses() {
-
-        List<CollegeClass> collegeClassList = collegeClassController.getAllCollegeClasses();
-        String json = new Gson().toJson(collegeClassList);
-        return Response.ok().entity(json).build();
-
+        try{
+            List<CollegeClass> collegeClassList = collegeClassController.getAllCollegeClasses();
+            return Response.ok().entity(collegeClassController.listToJSON(jsonConverter, collegeClassList)).build();
+        } catch (CloneNotSupportedException exc) {
+            String json = new Gson().toJson(exc);
+            logger.log(Level.ALL, exc.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();
+        }
     }
     
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     public Response searchCollegeClasses(String strCollegeClass) {
-        CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
-        List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass.getName(), collegeClass.getPeriod().getCourse().getId());
-        String json = new Gson().toJson(collegeClassList);
-        return Response.ok().entity(json).build();
+        try {
+            CollegeClass collegeClass = new Gson().fromJson(strCollegeClass, CollegeClass.class);
+            List<CollegeClass> collegeClassList = collegeClassController.getCollegeClassByName(collegeClass.getName(), collegeClass.getPeriod().getCourse().getId());
+        
+            return Response.ok().entity(collegeClassController.listToJSON(jsonConverter, collegeClassList)).build();
+            
+        } catch (CloneNotSupportedException exc) {
+             String json = new Gson().toJson(exc);
+            logger.log(Level.ALL, exc.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();
+        }
 
     }
 
@@ -68,6 +81,8 @@ public class CollegeClassService {
             String json = new Gson().toJson(exc);
             logger.log(Level.ALL, exc.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(json).build();
+            /// Incluir classe de erro
+            
         }
     }
 
