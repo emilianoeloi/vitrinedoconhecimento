@@ -22,9 +22,13 @@ vdcControllers.controller('CollegeClassController', ['$scope', 'CollegeClass', '
     }
 
     $scope.delete = function (id) {
-        CollegeClass.remove(id);
-        if ($scope.newCollegeClass.id == id)
-            $scope.newCollegeClass = {};
+        confirm('Excluir Turma?', function() {
+            CollegeClass.remove({_id: id}, function (data) {
+                if ($scope.newCollegeClass.id == id) {
+                    $scope.newCollegeClass = {};
+                }
+            });
+        });
     }
 
     $scope.edit = function (id) {

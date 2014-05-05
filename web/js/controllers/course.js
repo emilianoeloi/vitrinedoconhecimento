@@ -22,10 +22,13 @@ vdcControllers.controller('CourseController', ['$scope', 'Course', function ($sc
     }
 
     $scope.delete = function (id) {
-
-        Course.remove(id);
-        if ($scope.newCourse.id == id)
-            $scope.newCourse = {};
+        if( confirm('Excluir Curso? '+id) ){
+            Course.remove({"_id":id}, function() {
+                if ($scope.newCourse != null && $scope.newCourse.id == id)
+                    $scope.newCourse = {};
+                reloadCourseList();
+            }, function(err){console.log(err)});
+        }
     }
 
     $scope.edit = function (id) {

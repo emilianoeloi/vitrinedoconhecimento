@@ -10,7 +10,6 @@ import com.una.vdc.bo.CollegeClassController;
 import com.una.vdc.exception.DeleteException;
 import com.una.vdc.exception.InsertException;
 import com.una.vdc.exception.UpdateException;
-import com.una.vdc.model.GenericModel;
 import com.una.vdc.model.IJSONConverter;
 import com.una.vdc.model.course.CollegeClass;
 import com.una.vdc.util.GSONConverter;
