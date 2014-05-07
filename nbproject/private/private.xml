@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/js/controllers/coordinator.js</file>
+            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/src/java/com/una/vdc/services/CollegeClassService.java</file>
+            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/src/java/com/una/vdc/services/CourseService.java</file>
+            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/admin.html</file>
+            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/web/js/services.js</file>
+            <file>file:/Users/emilianoeloi/git/vitrinedoconhecimento/src/java/com/una/vdc/bo/CollegeClassController.java</file>
+        </group>
     </open-files>
 </project-private>

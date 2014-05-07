@@ -10,5 +10,6 @@
     {"href":"mentor-teacher.html", "text":"Professor Orientador", "group":"Estrutura de Dados"},
     {"href":"student.html", "text":"Aluno", "group":"Estrutura de Dados"},
     {"href":"coordinator.html", "text":"Coordenador", "group":"Estrutura de Dados"},
-    {"href":"task.html", "text":"Atividade", "group":"Estrutura de Dados"}
+    {"href":"task.html", "text":"Atividade", "group":"Estrutura de Dados"},
+    {"href":"idea.html", "text":"Idéias", "group":"Estrutura de Dados"}
 ]

@@ -148,3 +148,24 @@ vdcServices.factory('MentorTeacher', ['$resource',
             }
         });
     }]);
+vdcServices.factory('Idea', ['$resource',
+    function($resource) {
+        return $resource('api/ideas/:_id', {}, {
+            query: {
+                method: 'GET',
+                isArray: true
+            },
+            update: {
+                method: 'PUT'
+            },
+            insert: {
+                method: 'POST'
+            },
+            remove: {
+                method: 'DELETE'
+            },
+            search: {
+                method: 'GET'
+            }
+        });
+    }]);
