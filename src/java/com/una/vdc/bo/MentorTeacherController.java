@@ -30,7 +30,8 @@ public class MentorTeacherController {
         dao = new MentorTeacherDAO(em);
     }
 
-    public void associateModuleTeacherToClass(MentorTeacher teacher, CollegeClass cclass) throws AssociationException {
+    public void associateModuleTeacherToClass(MentorTeacher teacher, CollegeClass cclass)
+            throws AssociationException {
         dao.associateTeacherToClass(teacher, cclass);
     }
     
