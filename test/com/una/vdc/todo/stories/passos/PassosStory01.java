@@ -42,10 +42,7 @@ public class PassosStory01 {
     @Then("exibe a seguinte mensagem <mensagem>")  //verificar
       public void MentorTeacherDAO(String mensagem) throws AssociationException{
           mentorTeacherDAO.associateTeacherToClass(mentorTeacher, collegeClass);
-          Assert.assertEquals(mensagem, mentorTeacherDAO.toString());
-                  
-                  
-        
+          Assert.assertEquals(mensagem, mentorTeacherDAO.toString());    
     }
 }
 

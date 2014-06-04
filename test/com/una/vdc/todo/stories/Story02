@@ -1,0 +1,7 @@
+Story 02
+Como um Aluno
+Gostaria de Cadastrar meu Grupo de Projeto
+Para que eu possa conduzir meu projeto ao longo do curso
+
+Scenario: Aluno cadastra Grupo de Projeto
+Given
